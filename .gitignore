@@ -1,0 +1,8 @@
+.DS_Store
+.htaccess
+local-config.php
+wp-config.php
+
+assets/cache/
+assets/uploads/
+.sass-cache/

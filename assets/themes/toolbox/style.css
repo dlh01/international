@@ -1,0 +1,591 @@
+/*
+Theme Name: Toolbox
+Theme URI: http://wordpress.org/extend/themes/toolbox
+Author: Automattic
+Author URI: http://automattic.com/
+Description: A semantic, HTML5, canvas for CSS artists and an ultra-minimal set of super-clean templates for your own WordPress theme development.
+Version: 1.3
+License: GNU General Public License
+License URI: license.txt
+Tags: custom-menu, sticky-post, microformats, rtl-language-support, translation-ready, full-width-template, post-formats
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+/**
+ * 320 and Up boilerplate extension
+ */
+@import url('320.css');
+/* Variables */
+/* 2.335px */
+/* 3.069px */
+/* 4.996px */
+/* 6.112px */
+/* 8.035px */
+/* 9.889px */
+/* 13px */
+/* 21.034px */
+/* 25.888px */
+/* 34.033px */
+/**
+ * Typography
+ */
+body {
+  font-family: Cabin, "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Lato, Arial, Verdana, sans-serif; }
+
+p, li, dd {
+  line-height: 1.4;
+  text-align: left; }
+
+.textwidget {
+  line-height: 1.4; }
+
+button, input, select, textarea {
+  font-family: Cabin, "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  font-size: 1em; }
+
+/* Navigation */
+#menu-primary-navigation {
+  /* main menu in the header */
+  text-transform: uppercase; }
+
+/* Home */
+.home .section-title {
+  /* Random, Browse, Blog */
+  font-size: 1.618em;
+  margin: 1.315em 0 0.618em 0; }
+.home section h2 {
+  font-size: 1.315em; }
+.home #blog {
+  /* Clear and add padding to account for floated list items in section#map */
+  clear: both;
+  padding-top: 1em; }
+
+/**
+ * Style the list items used in the continents map
+ * Note this breaks the typography/layout/colors divide
+ */
+#map {
+  margin: 0 auto;
+  position: relative;
+  width: 80%; }
+
+#map li {
+  background-color: #7270ae;
+  background-position: center 60%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  height: 175px;
+  float: left;
+  list-style: none;
+  position: static;
+  width: 49%;
+  -webkit-box-shadow: 0px 0px 5px #7270ae;
+  -moz-box-shadow: 0px 0px 5px #7270ae;
+  box-shadow: 0px 0px 5px #7270ae; }
+  #map li:active {
+    /* Small effects on click */
+    background-color: #f8963d;
+    position: relative;
+    top: 2px; }
+  #map li a {
+    color: white;
+    display: block;
+    font-family: Cabin, "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+    font-size: 18px;
+    margin-top: 6px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase; }
+  #map li.africa {
+    background-image: url("http://upload.wikimedia.org/wikipedia/commons/b/b5/AfricaContour.svg"); }
+  #map li.asia {
+    background-image: url("http://upload.wikimedia.org/wikipedia/commons/6/64/AsiaContour.svg"); }
+  #map li.europe {
+    background-image: url("http://upload.wikimedia.org/wikipedia/commons/2/2e/EuropeContour.svg"); }
+  #map li.oceania {
+    background-image: url("http://upload.wikimedia.org/wikipedia/commons/2/29/AustraliaContour.svg"); }
+  #map li.n-america {
+    background-image: url("http://upload.wikimedia.org/wikipedia/commons/b/b5/NorthAmericaContour.svg"); }
+  #map li.s-america {
+    background-image: url("http://upload.wikimedia.org/wikipedia/commons/d/d8/SouthAmericaContours.svg"); }
+
+ol.other-recent-posts {
+  margin: 0; }
+  ol.other-recent-posts li {
+    line-height: 1.4;
+    margin-bottom: 1em; }
+
+/* Single posts */
+#category-nav h1 {
+  /* either 'resources' or 'staff blog' */
+  font-size: 1.315em; }
+
+h1.entry-title {
+  font-size: 2.127em; }
+
+.entry-meta,
+.entry-meta li {
+  font-size: 0.813em;
+  font-style: italic;
+  margin-bottom: 0.502em; }
+  .entry-meta ul,
+  .entry-meta li ul {
+    margin-left: 0; }
+  .entry-meta a,
+  .entry-meta li a {
+    font-style: italic; }
+
+.entry-content #description {
+  /* <section> with description and link to original */
+  margin-bottom: 1em;
+  /* compensate for display: inline below */ }
+  .entry-content #description p {
+    display: inline;
+    /* fake two paragraphs looking like one */
+    font-size: 1.315em; }
+.entry-content dl {
+  font-size: 1em; }
+.entry-content dt {
+  font-weight: bold; }
+.entry-content dd {
+  padding: 0.618em 0 0 1em; }
+
+/*
+ * Comments in single posts
+ *
+ */
+#comments-title {
+  /* "Comments (#)" */
+  font-size: 1.618em; }
+
+.commentlist,
+.commentlist .children {
+  /* Lists of comments */
+  list-style: none; }
+
+.comment-author {
+  /* Commenter name */
+  font-size: 1.315em; }
+  .comment-author .fn {
+    font-weight: bold; }
+
+.comment-meta {
+  /* Comment date and time */
+  font-size: 0.813em; }
+
+/* Sidebars */
+.widget-title {
+  font-size: 1.315em;
+  margin: 1em 0 0.502em 0; }
+
+/* Comments */
+#reply-title {
+  /* 'Leave a Reply' or somesuch */
+  font-size: 1.315em; }
+
+.form-allowed-tags {
+  /* 'You may use...' */
+  font-size: 0.813em; }
+  .form-allowed-tags code {
+    font-size: 0.813em; }
+
+/* Archive and search pages */
+.archive #content h1,
+.search #content h1 {
+  font-size: 1.618em; }
+.archive #content h2,
+.search #content h2 {
+  font-size: 1.315em; }
+.archive #content h1.page-title,
+.search #content h1.page-title {
+  /* "You are here: " */
+  font-size: 1.315em; }
+
+/* Location Search widget */
+.ui-widget {
+  /* wipe out jQuery UI typography */
+  font-family: inherit !important;
+  /* required because jquery ui css is enqueued after default css */
+  font-size: inherit !important; }
+  .ui-widget input,
+  .ui-widget select,
+  .ui-widget textarea,
+  .ui-widget button {
+    font-family: inherit !important;
+    font-size: inherit !important; }
+
+/**
+ * Layout
+ */
+/* Global */
+body {
+  width: 100%;
+  /* ensure we're starting by filling everything */ }
+
+#page {
+  /* center and give a tiny left-right margin to all content */
+  margin: 0 auto;
+  width: 95%; }
+
+/* Header */
+#branding {
+  margin-bottom: 2.127em;
+  /* add breathing room between header and main body */ }
+  #branding .searchform {
+    /* center search form above nav */
+    margin: 1em auto 1.315em;
+    width: 90%; }
+
+#header-above {
+  /* "A service of..." */
+  text-align: center;
+  padding: 1em 0 1em; }
+
+/* Navigation */
+#access {
+  width: 100%; }
+
+#menu-primary-navigation ul li:hover > ul {
+  display: block; }
+
+#menu-primary-navigation {
+  list-style: none; }
+  #menu-primary-navigation li {
+    margin: .464em auto;
+    /* 7.417/16 */
+    position: relative;
+    text-align: center;
+    width: 95%; }
+  #menu-primary-navigation a {
+    display: block;
+    padding: .618em 0;
+    /* 9.889/16 */
+    text-decoration: none; }
+
+#main {
+  /* Add white space on either side for grey border */
+  margin: 0 0.618em; }
+
+#primary,
+#secondary,
+#tertiary {
+  /* Add white space below main sections */
+  margin-bottom: 2.127em; }
+
+#supplementary {
+  /* extend purple background */
+  clear: both;
+  padding: 0.618em; }
+
+/* Footer */
+#colophon {
+  /* extend purple background */
+  padding: 2.127em 0.618em 0.618em 0.618em; }
+
+#site-generator {
+  clear: both;
+  padding-top: 2.127em; }
+
+/* Single posts */
+#category-nav h1 {
+  margin: 1em 0 0.502em 0; }
+
+/* Archive pages */
+#breadcrumbs {
+  /* "You are here: " block */
+  margin-bottom: 1.618em; }
+  #breadcrumbs h1 {
+    /* "You are here" text */
+    margin-bottom: 0.502em; }
+
+.taxarchive ul, .taxarchive ol, .taxarchive li,
+#filter ul,
+#filter ol,
+#filter li {
+  margin-left: 0; }
+
+#nav-above {
+  /* Displays on author, category archives */
+  margin-bottom: 1em; }
+
+.archive article,
+.search article {
+  margin-bottom: 1.618em; }
+  .archive article .entry-title,
+  .search article .entry-title {
+    margin-bottom: 0.502em; }
+
+#nav-below {
+  /* Displays on author, category archives */
+  margin-top: 1em; }
+
+/*
+ * Comments on single posts
+ *
+ */
+.comment-form-author input,
+.comment-form-email input,
+.comment-form-url input {
+  /* "Name," "Email," "Website" */
+  margin-left: 0.813em; }
+
+#comment {
+  /* "Comment" textarea */
+  display: block;
+  max-width: 400px;
+  width: 95%; }
+
+article.comment {
+  /* <article> containing a comment */
+  margin-bottom: 1.315em; }
+  article.comment .comment-author {
+    /* comment author */
+    margin-bottom: 0.618em; }
+  article.comment .comment-meta {
+    /* comment metadata */
+    margin-bottom: 0.502em; }
+
+/*
+ * Widgets
+ */
+.widget_pages ul {
+  /* "Site Map" list */
+  margin-left: 0; }
+
+/**
+ * Colors
+ */
+body {
+  background: #b6b8ba; }
+
+#page {
+  background: #fff; }
+
+/*
+ * All visited and unvisited links green
+ */
+a {
+  color: #1e135c; }
+  a:visited, a:hover {
+    color: #1e135c; }
+
+/*
+ * All headlines, headlines with links,
+ * and headlines with visited links black
+ */
+h1, h2, h3, h4, h5, h6 {
+  color: #1e135c; }
+  h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: #1e135c; }
+    h1 a:hover, h1 a:visited, h2 a:hover, h2 a:visited, h3 a:hover, h3 a:visited, h4 a:hover, h4 a:visited, h5 a:hover, h5 a:visited, h6 a:hover, h6 a:visited {
+      color: #1e135c; }
+
+/*
+ * Navigation
+ */
+#menu-primary-navigation li:hover > a,
+#menu-primary-navigation ul ul :hover > a {
+  /* main menu in the header */
+  background: #1e135c;
+  color: white; }
+
+#menu-primary-navigation li a {
+  background: #7270ae;
+  color: white; }
+#menu-primary-navigation li.current_page_item a {
+  background: #1e135c;
+  color: white; }
+
+/*
+ * Home page
+ *
+ * All widget titles and section titles red
+ */
+.widget-title,
+.section-title,
+h2.other-recent-posts {
+  /* "Other recent posts" heading */
+  color: #7270ae; }
+
+/*
+ * Home page
+ *
+ * Mobile Menus created at smaller screens: lightpurple
+ */
+.mobileMenu {
+  border: 1px solid #7270ae;
+  color: #282828;
+  margin-bottom: 1em;
+  width: 90%; }
+
+/*
+ * Single posts
+ *
+ * Category navigation ("Resource") red
+ */
+#category-nav h1 {
+  color: #7270ae; }
+
+/*
+ * Single posts
+ *
+ * Comments template
+ */
+#reply-title,
+#comments-title {
+  /* "Leave a Reply" and "Comments" red */
+  color: #7270ae; }
+
+/*
+ * Taxonomy archives
+ *
+ * These headings red:
+ * "Taxonomy Archives: "
+ * "You are here: " 
+ * "Available resources"
+ * "Conferences, "Europe," etc
+ * "In this location"
+ */
+.page-title,
+#breadcrumbs h1,
+.taxarchives,
+.taxarchive h2,
+#filter h1 {
+  color: #7270ae; }
+
+/*
+ * Widgets
+ * 
+ * Dropdowns for Taxonomy widget
+ */
+.widget_taxonomy select {
+  border: 1px solid #7270ae;
+  color: #282828;
+  margin-bottom: 1em;
+  width: 90%; }
+
+/*
+ * Sidebars
+ *
+ * Secondary and tertiary
+ * Supplementary and colophon: white on dark purple
+ */
+#supplementary,
+#colophon {
+  background: #1e135c;
+  color: #eeeeee; }
+  #supplementary a,
+  #colophon a {
+    color: #eeeeee; }
+  #supplementary .widget-title,
+  #colophon .widget-title {
+    color: #f8963d; }
+
+@media only screen and (min-width: 480px) {
+  #map ul {
+    /* center images so there's no wide-right margin between 480-600px */ }
+  #map li {
+    /* bigger images */ } }
+@media only screen and (min-width: 600px) {
+  #map li {
+    /* back to original size for three-across display */ } }
+@media only screen and (min-width: 768px) {
+  #access {
+    margin: 0 auto;
+    width: 95%; }
+
+  #menu-primary-navigation li {
+    border: 1px solid white;
+    float: left;
+    margin: 0 auto;
+    width: 49.7%; }
+
+  #main {
+    float: left; }
+
+  #map a {
+    font-size: 24px; }
+
+  #secondary {
+    float: left;
+    width: 45%; }
+
+  #tertiary {
+    float: left;
+    width: 45%; }
+
+  #quartary {
+    clear: both; }
+    #quartary .widget {
+      float: left;
+      width: 45%; }
+
+  .single {
+    /* Two-column display on single-post view */ }
+    .single #primary {
+      float: left;
+      margin-left: 1%;
+      width: 60%; }
+    .single #secondary,
+    .single #tertiary,
+    .single #quartary {
+      float: right;
+      margin-right: 1%;
+      width: 25%; }
+
+  #first {
+    /* 'Narrow' footer sidebar */
+    float: left;
+    width: 35%; }
+
+  #second {
+    /* 'Wide' footer sidebar */
+    float: right;
+    width: 60%; } }
+@media only screen and (min-width: 992px) {
+  #branding {
+    margin-bottom: 1.618em; }
+
+  #access {
+    background: #7270ae;
+    clear: both;
+    display: block;
+    height: 34px;
+    /* hack! */ }
+
+  #menu-primary-navigation li {
+    border: 0;
+    /* reset all borders */
+    border-right: 2px solid white;
+    /* then add the right border */
+    width: inherit; }
+    #menu-primary-navigation li a {
+      padding: 0.618em; }
+
+  #main {
+    /* push below navigation */
+    clear: both; }
+
+  #home-top {
+    margin: 0 auto;
+    width: 70%; }
+
+  #primary {
+    margin: 0 auto;
+    width: 85%; }
+    #primary .left {
+      float: left;
+      margin-right: 2%;
+      width: 48%; }
+    #primary #map {
+      float: left;
+      margin-right: 2%;
+      width: 48%; }
+      #primary #map li {
+        width: 32.9%; } }

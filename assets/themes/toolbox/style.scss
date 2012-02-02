@@ -1,0 +1,751 @@
+/*
+Theme Name: Toolbox
+Theme URI: http://wordpress.org/extend/themes/toolbox
+Author: Automattic
+Author URI: http://automattic.com/
+Description: A semantic, HTML5, canvas for CSS artists and an ultra-minimal set of super-clean templates for your own WordPress theme development.
+Version: 1.3
+License: GNU General Public License
+License URI: license.txt
+Tags: custom-menu, sticky-post, microformats, rtl-language-support, translation-ready, full-width-template, post-formats
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/**
+ * 320 and Up boilerplate extension
+ */
+@import url('320.css');
+
+
+/* Variables */
+
+$px2:  0.146em; /* 2.335px */
+$px3:  0.192em; /* 3.069px */
+$px4:  0.31em; /* 4.996px */
+$px6:  0.382em; /* 6.112px */
+$px8:  0.502em; /* 8.035px */
+$px9:  0.618em; /* 9.889px */
+$px13: 0.813em; /* 13px */
+$px16: 1em;
+$px21: 1.315em; /* 21.034px */
+$px25: 1.618em; /* 25.888px */
+$px34: 2.127em; /* 34.033px */
+
+$body: Cabin, "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+$headlines: Lato, Arial, Verdana, sans-serif;
+
+$black: #282828;
+$purple: #1e135c;
+$offwhite: #eee;
+$orange: #F8963D;
+$gray: #B6B8BA;
+$lightpurple: #7270AE;
+$lightorange: #FDB843;
+$yellow: #FFD36C;
+$white: #fff;
+
+/**
+ * Typography
+ */
+
+
+body {
+  font-family: Cabin, "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif; }
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: Lato, Arial, Verdana, sans-serif; }
+
+p, li, dd {
+  line-height: 1.4;
+  text-align: left; }
+
+.textwidget {
+  line-height: 1.4; }
+
+button, input, select, textarea {
+  font-family: Cabin, "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  font-size: 1em; }
+
+/* Navigation */
+#menu-primary-navigation { /* main menu in the header */
+  text-transform: uppercase;
+}
+
+/* Home */
+.home {
+
+  .section-title { /* Random, Browse, Blog */
+    font-size: $px25;
+    margin: $px21 0 $px9 0;
+  }
+
+  section h2 {
+    font-size: $px21;
+  }
+
+  #blog { /* Clear and add padding to account for floated list items in section#map */
+    clear: both;
+    padding-top: $px16;
+  }
+
+}
+
+/**
+ * Style the list items used in the continents map
+ * Note this breaks the typography/layout/colors divide
+ */
+#map {
+  margin: 0 auto;
+  position: relative;
+  width: 80%;
+}
+#map li {
+  background-color: $lightpurple;
+  background-position: center 60%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  height: 175px;
+  float: left;
+  list-style: none;
+  position: static;
+  width: 49%;
+  -webkit-box-shadow: 0px 0px 5px $lightpurple; 
+  -moz-box-shadow: 0px 0px 5px $lightpurple; 
+  box-shadow: 0px 0px 5px $lightpurple; 
+
+  &:active { /* Small effects on click */
+    background-color: $orange;
+    position: relative;
+    top: 2px;
+  }
+
+  a {
+    color: white;
+    display: block;
+    font-family: $body;
+    font-size: 18px;
+    margin-top: 6px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase; 
+  }
+
+  &.africa {
+    background-image: url('http://upload.wikimedia.org/wikipedia/commons/b/b5/AfricaContour.svg');
+  }
+  &.asia {
+    background-image: url('http://upload.wikimedia.org/wikipedia/commons/6/64/AsiaContour.svg');
+  }
+  &.europe {
+    background-image: url('http://upload.wikimedia.org/wikipedia/commons/2/2e/EuropeContour.svg');
+  }
+  &.oceania {
+    background-image: url('http://upload.wikimedia.org/wikipedia/commons/2/29/AustraliaContour.svg');
+  }
+  &.n-america {
+    background-image: url('http://upload.wikimedia.org/wikipedia/commons/b/b5/NorthAmericaContour.svg');
+  }
+  &.s-america {
+    background-image: url('http://upload.wikimedia.org/wikipedia/commons/d/d8/SouthAmericaContours.svg');
+  }
+}
+
+ol.other-recent-posts {
+  margin: 0;
+  li {
+    line-height: 1.4;
+    margin-bottom: 1em;
+  }
+}
+
+
+/* Single posts */
+#category-nav h1 { /* either 'resources' or 'staff blog' */
+  font-size: $px21;
+}
+h1.entry-title {
+  font-size: $px34;
+}
+.entry-meta,
+.entry-meta li {
+  font-size: $px13;
+  font-style: italic;
+  margin-bottom: $px8;
+  ul {
+    margin-left: 0;
+  }
+  a {
+    font-style: italic;
+  }
+}
+.entry-content {
+
+  #description { /* <section> with description and link to original */
+    margin-bottom: 1em; /* compensate for display: inline below */
+
+    p {
+      display: inline; /* fake two paragraphs looking like one */
+      font-size: $px21; } }
+
+  dl {
+    font-size: 1em; }
+
+  dt {
+    font-weight: bold; }
+
+  dd {
+    padding: $px9 0 0 1em; } }
+
+/*
+ * Comments in single posts
+ *
+ */
+#comments-title { /* "Comments (#)" */
+  font-size: $px25; }
+
+.commentlist,
+.commentlist .children { /* Lists of comments */
+  list-style: none; }
+
+.comment-author { /* Commenter name */
+  font-size: $px21;
+
+  .fn {
+    font-weight: bold; } }
+
+.comment-meta { /* Comment date and time */
+  font-size: $px13; }
+
+
+/* Sidebars */
+.widget-title {
+  font-size: $px21;
+  margin: 1em 0 $px8 0;
+}
+
+/* Comments */
+#reply-title { /* 'Leave a Reply' or somesuch */
+  font-size: $px21;
+}
+.form-allowed-tags { /* 'You may use...' */
+  font-size: $px13;
+  code {
+    font-size: $px13;
+  }
+}
+
+
+/* Archive and search pages */
+.archive,
+.search {
+  #content {
+    h1 {
+      font-size: $px25;
+    }
+    h2 {
+      font-size: $px21;
+    }
+    h1.page-title { /* "You are here: " */
+      font-size: $px21;
+    }
+  }
+}
+
+
+/* Location Search widget */
+.ui-widget { /* wipe out jQuery UI typography */
+  font-family: inherit !important; /* required because jquery ui css is enqueued after default css */
+  font-size: inherit !important;
+
+  input,
+  select,
+  textarea,
+  button {
+    font-family: inherit !important;
+    font-size: inherit !important;
+  }
+}
+
+
+
+/**
+ * Layout
+ */
+
+/* Global */
+body {
+  width: 100%; /* ensure we're starting by filling everything */ }
+
+#page { /* center and give a tiny left-right margin to all content */
+  margin: 0 auto;
+  width: 95%; }
+
+
+/* Header */
+#branding {
+  margin-bottom: $px34; /* add breathing room between header and main body */
+  .searchform { /* center search form above nav */
+    margin: 1em auto $px21;
+    width: 90%; } }
+
+#header-above { /* "A service of..." */
+  text-align: center;
+  padding: 1em 0 1em;
+}
+
+/* Navigation */
+#access {
+  width: 100%;
+}
+#menu-primary-navigation ul li:hover > ul {
+	display: block;
+}
+#menu-primary-navigation {
+  list-style: none;
+  li { 
+    margin: .464em auto; /* 7.417/16 */
+    position: relative;
+    text-align: center;
+    width: 95%;
+  }
+  a {
+    display: block;
+    padding: .618em 0; /* 9.889/16 */
+    text-decoration: none;
+  }
+}
+
+#main { /* Add white space on either side for grey border */
+  margin: 0 $px9; }
+
+#primary,
+#secondary,
+#tertiary { /* Add white space below main sections */
+  margin-bottom: $px34;
+}
+
+#supplementary { /* extend purple background */
+  clear: both;
+  padding: $px9; }
+
+/* Footer */
+#colophon { /* extend purple background */
+  padding: $px34 $px9 $px9 $px9;
+}
+#site-generator {
+  clear: both;
+  padding-top: $px34;
+}
+
+/* Single posts */
+#category-nav h1 {
+  margin: 1em 0 0.502em 0;
+}
+
+/* Archive pages */
+#breadcrumbs { /* "You are here: " block */
+  margin-bottom: $px25;
+  h1 { /* "You are here" text */
+    margin-bottom: $px8;
+  }
+}
+.taxarchive, /* Lists under Resource Types / Locations */
+#filter /* "In this location" */ { 
+  ul, ol, li {
+    margin-left: 0;
+  }
+}
+#nav-above { /* Displays on author, category archives */
+  margin-bottom: 1em;
+}
+.archive article,
+.search article {
+  margin-bottom: $px25;
+  .entry-title {
+    margin-bottom: $px8;
+  }
+}
+#nav-below { /* Displays on author, category archives */
+  margin-top: 1em;
+}
+
+/*
+ * Comments on single posts
+ *
+ */
+.comment-form-author,
+.comment-form-email,
+.comment-form-url {
+  input { /* "Name," "Email," "Website" */ 
+    margin-left: $px13; } }
+
+#comment { /* "Comment" textarea */
+  display: block;
+  max-width: 400px;
+  width: 95%; }
+
+article.comment { /* <article> containing a comment */
+  margin-bottom: $px21;
+
+  .comment-author { /* comment author */
+    margin-bottom: $px9; }
+  
+  .comment-meta { /* comment metadata */
+    margin-bottom: $px8; } }
+
+/*
+ * Widgets
+ */
+.widget_pages ul { /* "Site Map" list */ 
+  margin-left: 0; }
+
+
+/**
+ * Colors
+ */
+
+
+body {
+  background: $gray; }
+
+#page {
+  background: #fff; }
+
+/*
+ * All visited and unvisited links green
+ */
+a {
+  color: $purple;
+
+  &:visited,
+  &:hover {
+    color: $purple; } }
+
+/*
+ * All headlines, headlines with links,
+ * and headlines with visited links black
+ */
+h1,h2,h3,h4,h5,h6 {
+  color: $purple;
+
+  a {
+    color: $purple;
+
+    &:hover,
+    &:visited {
+      color: $purple; } } }
+
+/*
+ * Navigation
+ */
+#menu-primary-navigation li:hover > a,
+#menu-primary-navigation ul ul :hover > a { /* main menu in the header */
+	background: $purple;
+  color: $white;
+}
+#menu-primary-navigation li { 
+  a {
+    background: $lightpurple;
+    color: $white; }
+  
+  &.current_page_item a { 
+    background: $purple;
+    color: $white; } }
+
+
+/*
+ * Home page
+ *
+ * All widget titles and section titles red
+ */
+.widget-title,
+.section-title,
+h2.other-recent-posts { /* "Other recent posts" heading */
+  color: $lightpurple; }
+
+/*
+ * Home page
+ *
+ * Mobile Menus created at smaller screens: lightpurple
+ */
+.mobileMenu {
+  border: 1px solid $lightpurple;
+  color: $black;
+  margin-bottom: 1em;
+  width: 90%; }
+
+/*
+ * Single posts
+ *
+ * Category navigation ("Resource") red
+ */
+#category-nav h1 {
+  color: $lightpurple; }
+
+/*
+ * Single posts
+ *
+ * Comments template
+ */
+#reply-title,
+#comments-title { /* "Leave a Reply" and "Comments" red */
+  color: $lightpurple; }
+
+/*
+ * Taxonomy archives
+ *
+ * These headings red:
+ * "Taxonomy Archives: "
+ * "You are here: " 
+ * "Available resources"
+ * "Conferences, "Europe," etc
+ * "In this location"
+ */
+.page-title,
+#breadcrumbs h1,
+.taxarchives,
+.taxarchive h2,
+#filter h1 {
+  color: $lightpurple; }
+
+/*
+ * Widgets
+ * 
+ * Dropdowns for Taxonomy widget
+ */
+.widget_taxonomy select {
+  border: 1px solid $lightpurple;
+  color: $black;
+  margin-bottom: 1em;
+  width: 90%; }
+
+/*
+ * Sidebars
+ *
+ * Secondary and tertiary
+ * Supplementary and colophon: white on dark purple
+ */
+#secondary,
+#tertiary {
+}
+
+#supplementary,
+#colophon {
+  background: $purple;
+  color: $offwhite;
+  
+  a {
+    color: $offwhite;
+  } 
+  
+  .widget-title {
+    color: $orange;
+  }
+}
+
+
+
+// 480px
+@media only screen and (min-width: 480px) {
+
+  #map {
+    
+    ul { /* center images so there's no wide-right margin between 480-600px */
+    }
+
+    li { /* bigger images */
+    }
+
+  }
+
+}
+
+// 600px
+@media only screen and (min-width: 600px) {
+
+  #map {
+
+    ul {
+    }
+
+    li { /* back to original size for three-across display */
+    }
+
+  }
+
+}
+
+// 768px
+@media only screen and (min-width: 768px) {
+
+  #access {
+    margin: 0 auto;
+    width: 95%;
+  }
+  #menu-primary-navigation {
+    li {
+      border: 1px solid $white;
+      float: left;
+      margin: 0 auto;
+      width: 49.7%;
+    }
+  }
+
+  #main {
+    float: left;
+  }
+
+  #map {
+    li {
+    }
+    a {
+      font-size: 24px;
+    }
+  }
+
+  #secondary {
+    float: left;
+    width: 45%;
+  }
+
+  #tertiary {
+    float: left;
+    width: 45%;
+  }
+
+  #quartary {
+    clear: both;
+
+    .widget {
+      float: left;
+      width: 45%;
+    }
+  }
+
+  .single { /* Two-column display on single-post view */
+    #primary {
+      float: left;
+      margin-left: 1%;
+      width: 60%;
+    }
+    #secondary,
+    #tertiary,
+    #quartary {
+      float: right;
+      margin-right: 1%;
+      width: 25%;
+    }
+  }
+
+  #first { /* 'Narrow' footer sidebar */
+    float: left;
+    width: 35%;
+  }
+
+  #second { /* 'Wide' footer sidebar */
+    float: right;
+    width: 60%;
+  }
+
+}
+
+// 992px
+@media only screen and (min-width: 992px) {
+
+  #branding {
+    margin-bottom: $px25;
+  }
+  #access {
+    background: $lightpurple;
+    clear: both;
+    display: block;
+    height: 34px; /* hack! */
+  }
+  #menu-primary-navigation {
+    li {
+      border: 0; /* reset all borders */
+      border-right: 2px solid $white; /* then add the right border */
+      width: inherit;
+      a {
+        padding: $px9;
+      }
+    }
+  }
+
+  #main { /* push below navigation */
+    clear: both;
+  }
+  #home-top {
+    margin: 0 auto;
+    width: 70%;
+  }
+  #primary {
+    margin: 0 auto;
+    width: 85%;
+    .left {
+      float: left;
+      margin-right: 2%;
+      width: 48%;
+    }
+    #map {
+      float: left;
+      margin-right: 2%;
+      width: 48%;
+      li {
+        width: 32.9%;
+      }
+    }
+  }
+}
+
+// 1382px
+@media only screen and (min-width: 1382px) {
+
+// 1 ROOT 					=============================================================================
+// 2 HEADINGS 				=============================================================================
+// 3 TYPOGRAPHY 			=============================================================================
+// 4 LINKS 					=============================================================================
+// 5 FIGURES & IMAGES 		=============================================================================
+// 6 TABLES 				=============================================================================
+// 7 FORMS 					=============================================================================
+// 8 BANNER 				=============================================================================
+// 9 NAVIGATION				=============================================================================
+// 10 CONTENT 				=============================================================================
+// 11 MAIN 					=============================================================================
+// 12 COMPLEMENTARY 		=============================================================================
+// 13 CONTENTINFO 			=============================================================================
+// 14 GLOBAL OBJECTS 		=============================================================================
+// 15 VENDOR-SPECIFIC 		=============================================================================
+// 16 MODERNIZR 			=============================================================================
+// 17 TEMPLATE SPECIFICS 	=============================================================================
+
+}
+
+// 2x
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), 
+only screen and (-o-min-device-pixel-ratio: 3/2), 
+only screen and (min-device-pixel-ratio: 1.5) {
+
+// 1 ROOT 					=============================================================================
+// 2 HEADINGS 				=============================================================================
+// 3 TYPOGRAPHY 			=============================================================================
+// 4 LINKS 					=============================================================================
+// 5 FIGURES & IMAGES 		=============================================================================
+// 6 TABLES 				=============================================================================
+// 7 FORMS 					=============================================================================
+// 8 BANNER 				=============================================================================
+// 9 NAVIGATION				=============================================================================
+// 10 CONTENT 				=============================================================================
+// 11 MAIN 					=============================================================================
+// 12 COMPLEMENTARY 		=============================================================================
+// 13 CONTENTINFO 			=============================================================================
+// 14 GLOBAL OBJECTS 		=============================================================================
+// 15 VENDOR-SPECIFIC 		=============================================================================
+// 16 MODERNIZR 			=============================================================================
+// 17 TEMPLATE SPECIFICS 	=============================================================================
+
+}

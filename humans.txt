@@ -1,0 +1,14 @@
+/* TEAM */
+  Developer:  David Herrera
+  Editor:     Molly Bullock
+  Editor:     Caitlin Steffens
+  Publisher:  Debra Mason
+
+
+/* SITE */
+  Launched: 2012/01/01
+  Last update: 2012/01/01
+  Standards:  HTML5, CSS3
+  CMS: WordPress
+  Core components: HTML5 Boilerplate, 320 and up, Toolbox theme
+  IDE: Vim
