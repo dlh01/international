@@ -678,8 +678,9 @@ h2.other-recent-posts { /* "Other recent posts" heading */
     }
   }
 
-  #main { /* push below navigation */
-    clear: both;
+  #main {
+    clear: both; /* push below navigation */
+    width: 100%; /* this container goes across the whole main container */
   }
   #home-top {
     margin: 0 auto;
@@ -687,7 +688,7 @@ h2.other-recent-posts { /* "Other recent posts" heading */
   }
   #primary {
     margin: 0 auto;
-    width: 85%;
+    width: 60%; /* main content column; narrow for readability */
     .left {
       float: left;
       margin-right: 2%;
