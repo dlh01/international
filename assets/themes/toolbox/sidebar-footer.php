@@ -50,4 +50,5 @@
     <?php endif; ?>
   <?php } ?>
 
+    <div style="clear:both;"></div><!--clearfix-->
 </div><!-- #supplementary -->
