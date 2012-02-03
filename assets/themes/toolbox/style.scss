@@ -282,7 +282,9 @@ body {
 
 #page { /* center and give a tiny left-right margin to all content */
   margin: 0 auto;
-  width: 95%; }
+  max-width: 1000px; /* never extend beyond 1000px */
+  width: 95%;
+}
 
 
 /* Header */
