@@ -75,6 +75,7 @@ get_header(); ?>
                     <h1 class="section-title">See Resources By Continent</h1>
                     <?php // Display continents map; stored in functions.php ?>
                     <?php display_continents_map(); ?>
+                    <div style="clear:both;"></div>
                 </section><!-- #map -->
 
 			<?php else : ?>
