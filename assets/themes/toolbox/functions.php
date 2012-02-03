@@ -365,24 +365,6 @@ function register_footer_widgets() {
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
 	) );
-	register_sidebar( array(
-		'name' => __( 'Home Footer 1', 'toolbox' ),
-		'id' => 'footer-3',
-		'description' => __( 'A widget area for the site footer. It displays only on the home page', 'toolbox' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => "</aside>",
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
-	register_sidebar( array(
-		'name' => __( 'Home Footer 2', 'toolbox' ),
-		'id' => 'footer-4',
-		'description' => __( 'A widget area for the site footer. It displays only on the home page', 'toolbox' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => "</aside>",
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
 }
 add_action( 'init', 'register_footer_widgets', 140 );
 
