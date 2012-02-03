@@ -134,23 +134,25 @@ button, input, select, textarea {
     text-transform: uppercase; 
   }
 
-  &.africa {
-    background-image: url('http://upload.wikimedia.org/wikipedia/commons/b/b5/AfricaContour.svg');
-  }
-  &.asia {
-    background-image: url('http://upload.wikimedia.org/wikipedia/commons/6/64/AsiaContour.svg');
-  }
-  &.europe {
-    background-image: url('http://upload.wikimedia.org/wikipedia/commons/2/2e/EuropeContour.svg');
-  }
-  &.oceania {
-    background-image: url('http://upload.wikimedia.org/wikipedia/commons/2/29/AustraliaContour.svg');
-  }
-  &.n-america {
-    background-image: url('http://upload.wikimedia.org/wikipedia/commons/b/b5/NorthAmericaContour.svg');
-  }
-  &.s-america {
-    background-image: url('http://upload.wikimedia.org/wikipedia/commons/d/d8/SouthAmericaContours.svg');
+  .svg & { /* display only when modernizr detects svg support */
+    &.africa {
+      background-image: url('http://upload.wikimedia.org/wikipedia/commons/b/b5/AfricaContour.svg');
+    }
+    &.asia {
+      background-image: url('http://upload.wikimedia.org/wikipedia/commons/6/64/AsiaContour.svg');
+    }
+    &.europe {
+      background-image: url('http://upload.wikimedia.org/wikipedia/commons/2/2e/EuropeContour.svg');
+    }
+    &.oceania {
+      background-image: url('http://upload.wikimedia.org/wikipedia/commons/2/29/AustraliaContour.svg');
+    }
+    &.n-america {
+      background-image: url('http://upload.wikimedia.org/wikipedia/commons/b/b5/NorthAmericaContour.svg');
+    }
+    &.s-america {
+      background-image: url('http://upload.wikimedia.org/wikipedia/commons/d/d8/SouthAmericaContours.svg');
+    }
   }
 }
 
