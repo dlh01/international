@@ -8,24 +8,52 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * Calls pw_get_element() to display elements according to how they have
- * been placed using the drag and drop function.
- *
- * @since PressWork 1.0
+ * @package WordPress
+ * @subpackage Toolbox
+ * @since Toolbox 0.1
  */
 
 get_header(); ?>
-	<?php 
-    $layout = pw_theme_option('layout_option');
-	if(is_singular()) {
-		$fullwidth = get_post_meta($post->ID, 'pw_single_layout', true);
-    	if($fullwidth==2) $layout = "maincontent";
-    }
-    $layout = explode(",", $layout);
-    $i = 1;
-    foreach($layout as $elem) {
-    	pw_get_element($elem, "el".$i);
-    	$i++;
-    }
-    ?>
+
+		<div id="primary">
+			<div id="content" role="main">
+
+			<?php if ( have_posts() ) : ?>
+
+				<?php toolbox_content_nav( 'nav-above' ); ?>
+
+				<?php /* Start the Loop */ ?>
+				<?php while ( have_posts() ) : the_post(); ?>
+
+					<?php
+						/* Include the Post-Format-specific template for the content.
+						 * If you want to overload this in a child theme then include a file
+						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+						 */
+						get_template_part( 'content', get_post_format() );
+					?>
+
+				<?php endwhile; ?>
+
+				<?php toolbox_content_nav( 'nav-below' ); ?>
+
+			<?php else : ?>
+
+				<article id="post-0" class="post no-results not-found">
+					<header class="entry-header">
+						<h1 class="entry-title"><?php _e( 'Nothing Found', 'toolbox' ); ?></h1>
+					</header><!-- .entry-header -->
+
+					<div class="entry-content">
+						<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'toolbox' ); ?></p>
+						<?php get_search_form(); ?>
+					</div><!-- .entry-content -->
+				</article><!-- #post-0 -->
+
+			<?php endif; ?>
+
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>
