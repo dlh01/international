@@ -86,6 +86,7 @@
 			<h1 class="assistive-text section-heading visuallyhidden"><?php _e( 'Main menu', 'toolbox' ); ?></h1>
 
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+      <div style="clear:both;"></div>
 		</nav><!-- #access -->
 	</header><!-- #branding -->
 
