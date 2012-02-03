@@ -80,11 +80,10 @@ button, input, select, textarea {
   background-size: contain;
   border: 1px solid #bbb;
   border-radius: 3px;
-  height: 175px;
-  float: left;
   list-style: none;
+  margin: 0.502em 0;
+  padding: 0.502em 0;
   position: static;
-  width: 49%;
   -webkit-box-shadow: 0px 0px 5px #7270ae;
   -moz-box-shadow: 0px 0px 5px #7270ae;
   box-shadow: 0px 0px 5px #7270ae; }
@@ -102,18 +101,25 @@ button, input, select, textarea {
     text-align: center;
     text-decoration: none;
     text-transform: uppercase; }
-  #map li.africa {
-    background-image: url("http://upload.wikimedia.org/wikipedia/commons/b/b5/AfricaContour.svg"); }
-  #map li.asia {
-    background-image: url("http://upload.wikimedia.org/wikipedia/commons/6/64/AsiaContour.svg"); }
-  #map li.europe {
-    background-image: url("http://upload.wikimedia.org/wikipedia/commons/2/2e/EuropeContour.svg"); }
-  #map li.oceania {
-    background-image: url("http://upload.wikimedia.org/wikipedia/commons/2/29/AustraliaContour.svg"); }
-  #map li.n-america {
-    background-image: url("http://upload.wikimedia.org/wikipedia/commons/b/b5/NorthAmericaContour.svg"); }
-  #map li.s-america {
-    background-image: url("http://upload.wikimedia.org/wikipedia/commons/d/d8/SouthAmericaContours.svg"); }
+  .svg #map li {
+    /* display only when modernizr detects svg support */
+    float: left;
+    height: 175px;
+    margin: 0;
+    padding: 0;
+    width: 49%; }
+    .svg #map li.africa {
+      background-image: url("http://upload.wikimedia.org/wikipedia/commons/b/b5/AfricaContour.svg"); }
+    .svg #map li.asia {
+      background-image: url("http://upload.wikimedia.org/wikipedia/commons/6/64/AsiaContour.svg"); }
+    .svg #map li.europe {
+      background-image: url("http://upload.wikimedia.org/wikipedia/commons/2/2e/EuropeContour.svg"); }
+    .svg #map li.oceania {
+      background-image: url("http://upload.wikimedia.org/wikipedia/commons/2/29/AustraliaContour.svg"); }
+    .svg #map li.n-america {
+      background-image: url("http://upload.wikimedia.org/wikipedia/commons/b/b5/NorthAmericaContour.svg"); }
+    .svg #map li.s-america {
+      background-image: url("http://upload.wikimedia.org/wikipedia/commons/d/d8/SouthAmericaContours.svg"); }
 
 ol.other-recent-posts {
   margin: 0; }
@@ -231,12 +237,15 @@ body {
 #page {
   /* center and give a tiny left-right margin to all content */
   margin: 0 auto;
+  max-width: 1000px;
+  /* never extend beyond 1000px */
   width: 95%; }
 
 /* Header */
 #branding {
-  margin-bottom: 2.127em;
-  /* add breathing room between header and main body */ }
+  margin: 0 auto 2.127em;
+  /* center, add breathing room between header and main body */
+  width: 95%; }
   #branding .searchform {
     /* center search form above nav */
     margin: 1em auto 1.315em;
@@ -260,8 +269,7 @@ body {
     margin: .464em auto;
     /* 7.417/16 */
     position: relative;
-    text-align: center;
-    width: 95%; }
+    text-align: center; }
   #menu-primary-navigation a {
     display: block;
     padding: .618em 0;
@@ -281,12 +289,17 @@ body {
 #supplementary {
   /* extend purple background */
   clear: both;
-  padding: 0.618em; }
+  margin: 0 auto;
+  padding: 0 2.5%;
+  /* 2.5+2.5=5, the remaining width to cover given the margin and width */
+  width: 95%; }
 
 /* Footer */
 #colophon {
   /* extend purple background */
-  padding: 2.127em 0.618em 0.618em 0.618em; }
+  margin: 0 auto;
+  padding: 2.127em 2.5%;
+  width: 95%; }
 
 #site-generator {
   clear: both;
@@ -496,18 +509,11 @@ h2.other-recent-posts {
   #map li {
     /* back to original size for three-across display */ } }
 @media only screen and (min-width: 768px) {
-  #access {
-    margin: 0 auto;
-    width: 95%; }
-
   #menu-primary-navigation li {
     border: 1px solid white;
     float: left;
     margin: 0 auto;
     width: 49.7%; }
-
-  #main {
-    float: left; }
 
   #map a {
     font-size: 24px; }
@@ -529,8 +535,7 @@ h2.other-recent-posts {
   .single {
     /* Two-column display on single-post view */ }
     .single #primary {
-      float: left;
-      margin-left: 1%;
+      margin: 0 auto;
       width: 60%; }
     .single #secondary,
     .single #tertiary,
@@ -553,7 +558,6 @@ h2.other-recent-posts {
     margin-bottom: 1.618em; }
 
   #access {
-    background: #7270ae;
     clear: both;
     display: block;
     height: 34px;
@@ -569,8 +573,11 @@ h2.other-recent-posts {
       padding: 0.618em; }
 
   #main {
+    clear: both;
     /* push below navigation */
-    clear: both; }
+    margin: 0;
+    width: 100%;
+    /* this container goes across the whole main container */ }
 
   #home-top {
     margin: 0 auto;
@@ -578,7 +585,12 @@ h2.other-recent-posts {
 
   #primary {
     margin: 0 auto;
-    width: 85%; }
+    width: 60%;
+    /* main content column; narrow for readability */ }
+    .home #primary {
+      /* equivalent to .home #primary, see http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#referencing_parent_selectors_ */
+      width: 90%;
+      /* extra space in main content column on home page */ }
     #primary .left {
       float: left;
       margin-right: 2%;
