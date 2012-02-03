@@ -94,6 +94,7 @@ get_header(); ?>
 			<?php endif; ?>
 
 			</div><!-- #content -->
+    <div style="clear:both;"></div>
 		</div><!-- #primary -->
 
 <?php get_sidebar(); ?>
