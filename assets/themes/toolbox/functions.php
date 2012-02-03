@@ -96,31 +96,6 @@ function toolbox_page_menu_args( $args ) {
 }
 add_filter( 'wp_page_menu_args', 'toolbox_page_menu_args' );
 
-/**
- * Register widgetized area and update sidebar with default widgets
- */
-function toolbox_widgets_init() {
-	register_sidebar( array(
-		'name' => __( 'Sidebar 1', 'toolbox' ),
-		'id' => 'sidebar-1',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => "</aside>",
-		'before_title' => '<h1 class="widget-title">',
-		'after_title' => '</h1>',
-	) );
-
-	register_sidebar( array(
-		'name' => __( 'Sidebar 2', 'toolbox' ),
-		'id' => 'sidebar-2',
-		'description' => __( 'An optional second sidebar area', 'toolbox' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => "</aside>",
-		'before_title' => '<h1 class="widget-title">',
-		'after_title' => '</h1>',
-	) );
-}
-add_action( 'init', 'toolbox_widgets_init' );
-
 if ( ! function_exists( 'toolbox_content_nav' ) ):
 /**
  * Display navigation to next/previous pages when applicable
