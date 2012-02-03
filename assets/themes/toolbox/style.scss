@@ -108,11 +108,10 @@ button, input, select, textarea {
   background-size: contain;
   border: 1px solid #bbb;
   border-radius: 3px;
-  height: 175px;
-  float: left;
   list-style: none;
+  margin: $px8 0;
+  padding: $px8 0;
   position: static;
-  width: 49%;
   -webkit-box-shadow: 0px 0px 5px $lightpurple; 
   -moz-box-shadow: 0px 0px 5px $lightpurple; 
   box-shadow: 0px 0px 5px $lightpurple; 
@@ -134,7 +133,13 @@ button, input, select, textarea {
     text-transform: uppercase; 
   }
 
-  .svg & { /* display only when modernizr detects svg support */
+  .svg & { /* display only when modernizr detects svg support */ 
+    float: left;
+    height: 175px;
+    margin: 0;
+    padding: 0;
+    width: 49%;
+
     &.africa {
       background-image: url('http://upload.wikimedia.org/wikipedia/commons/b/b5/AfricaContour.svg');
     }
