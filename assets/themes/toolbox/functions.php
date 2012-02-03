@@ -344,22 +344,6 @@ function register_home_widget() {
 add_action( 'init', 'register_home_widget', 120 );
 
 /**
- * Create non-home widget
- */
-function register_nonhome_widget() {
-	register_sidebar( array(
-		'name' => __( 'Non-Home Sidebar', 'toolbox' ),
-		'id' => 'sidebar-3',
-		'description' => __( 'A widget area for the site footer. It displays everywhere *but* the home page', 'toolbox' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => "</aside>",
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
-}
-add_action( 'init', 'register_nonhome_widget', 130 );
-
-/**
  * Create Footer widgets
  */
 function register_footer_widgets() {
