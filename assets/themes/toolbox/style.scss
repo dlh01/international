@@ -626,6 +626,7 @@ h2.other-recent-posts { /* "Other recent posts" heading */
 
   .single { /* Two-column display on single-post view */
     #primary {
+      margin: 0 auto;
       width: 60%;
     }
     #secondary,
@@ -683,6 +684,9 @@ h2.other-recent-posts { /* "Other recent posts" heading */
   #primary {
     margin: 0 auto;
     width: 60%; /* main content column; narrow for readability */
+    .home & { /* equivalent to .home #primary, see http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#referencing_parent_selectors_ */
+      width: 90%;
+    }
     .left {
       float: left;
       margin-right: 2%;
