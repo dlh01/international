@@ -332,11 +332,16 @@ body {
 
 #supplementary { /* extend purple background */
   clear: both;
-  padding: $px9; }
+  margin: 0 auto;
+  padding: 0 2.5%; /* 2.5+2.5=5, the remaining width to cover given the margin and width */
+  width: 95%;
+}
 
 /* Footer */
 #colophon { /* extend purple background */
-  padding: $px34 $px9 $px9 $px9;
+  margin: 0 auto;
+  padding: $px34 2.5%;
+  width: 95%;
 }
 #site-generator {
   clear: both;
@@ -685,7 +690,7 @@ h2.other-recent-posts { /* "Other recent posts" heading */
     margin: 0 auto;
     width: 60%; /* main content column; narrow for readability */
     .home & { /* equivalent to .home #primary, see http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#referencing_parent_selectors_ */
-      width: 90%;
+      width: 90%; /* extra space in main content column on home page */
     }
     .left {
       float: left;
