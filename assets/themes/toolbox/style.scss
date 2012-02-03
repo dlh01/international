@@ -289,7 +289,8 @@ body {
 
 /* Header */
 #branding {
-  margin-bottom: $px34; /* add breathing room between header and main body */
+  margin: 0 auto $px34; /* center, add breathing room between header and main body */
+  width: 95%;
   .searchform { /* center search form above nav */
     margin: 1em auto $px21;
     width: 90%; } }
@@ -312,7 +313,6 @@ body {
     margin: .464em auto; /* 7.417/16 */
     position: relative;
     text-align: center;
-    width: 95%;
   }
   a {
     display: block;
@@ -589,10 +589,6 @@ h2.other-recent-posts { /* "Other recent posts" heading */
 // 768px
 @media only screen and (min-width: 768px) {
 
-  #access {
-    margin: 0 auto;
-    width: 95%;
-  }
   #menu-primary-navigation {
     li {
       border: 1px solid $white;
