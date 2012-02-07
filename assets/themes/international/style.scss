@@ -26,6 +26,7 @@ $px16: 1em;
 $px21: 1.315em; /* 21.034px */
 $px25: 1.618em; /* 25.888px */
 $px34: 2.127em; /* 34.033px */
+$px48: 4.8rem;
 
 $body: Cabin, "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
 $headlines: Lato, Arial, Verdana, sans-serif;
@@ -68,6 +69,17 @@ button, input, select, textarea {
 }
 
 /* Home */
+#site-title {
+  font-family: $body;
+  text-align: center;
+  a {
+    text-decoration: none;
+    text-shadow: $gray 2px 2px 5px;
+    &:hover {
+      color: $lightpurple;
+    }
+  }
+}
 .home {
 
   .section-title { /* Random, Browse, Blog */
