@@ -94,6 +94,12 @@ button, input, select, textarea {
   margin: 0 auto;
   position: relative;
   width: 80%;
+  #credit { /* "Graphics credits" link */
+    text-align: right;
+    a {
+      font-size: $px13;
+    }
+  }
 }
 #map li {
   background-color: $lightpurple;
@@ -135,22 +141,22 @@ button, input, select, textarea {
     width: 49%;
 
     &.africa {
-      background-image: url('http://upload.wikimedia.org/wikipedia/commons/b/b5/AfricaContour.svg');
+      background-image: url('img/africa.svg');
     }
     &.asia {
-      background-image: url('http://upload.wikimedia.org/wikipedia/commons/6/64/AsiaContour.svg');
+      background-image: url('img/asia.svg');
     }
     &.europe {
-      background-image: url('http://upload.wikimedia.org/wikipedia/commons/2/2e/EuropeContour.svg');
+      background-image: url('img/europe.svg');
     }
     &.oceania {
-      background-image: url('http://upload.wikimedia.org/wikipedia/commons/2/29/AustraliaContour.svg');
+      background-image: url('img/oceania.svg');
     }
     &.n-america {
-      background-image: url('http://upload.wikimedia.org/wikipedia/commons/b/b5/NorthAmericaContour.svg');
+      background-image: url('img/na.svg');
     }
     &.s-america {
-      background-image: url('http://upload.wikimedia.org/wikipedia/commons/d/d8/SouthAmericaContours.svg');
+      background-image: url('img/sa.svg');
     }
   }
 }
@@ -340,7 +346,7 @@ body {
 
 /* Footer */
 #colophon { /* extend purple background */
-  margin: 0 auto;
+  margin: $px16 auto 0; /* ensure white space above #colophon */
   padding: $px34 2.5%;
   width: 95%;
 }

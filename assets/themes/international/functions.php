@@ -461,6 +461,7 @@ function display_continents_map() { ?>
   <li class=n-america><a href="/?location=north-america">North America</a></li>
   <li class=s-america><a href="/?location=south-america">South America</a></li>
 </ul>
+<p id=credit><a href="/about">Graphics credits</a></p>
 <?php }
 
 /**
