@@ -472,6 +472,16 @@ function display_copyright() {
 }
 add_action( 'toolbox_credits', 'display_copyright' );
 
+/**
+ * Move CSS to separate files for minification
+ */
+function enqueue_international_css() {
+  wp_enqueue_style(
+    'international',
+    get_template_directory_uri() . '/international.css'
+  );
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_international_css' );
 
 /**
  * This theme was built with PHP, Semantic HTML, CSS, love, and a Toolbox.
