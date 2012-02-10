@@ -115,25 +115,9 @@ wp_reset_postdata();
 
 <?php
 /**
- * Show a list of Locations that are children of the continents
- *
- * Even though it's too cumbersome to list resources for every Location on this 
- * page (so we show only continent-level resources), we can at least provide a 
- * list of all the Locations that are children of these continents to allow 
- * further filtering
+ * Show an instance of the Search-By-Location widget
  */
-    echo '<section id="filter">';
-    echo '<h1>More resources by Location</h1>';
-    echo '<ul>';
-    wp_list_categories( array(
-        'orderby'       => 'name',
-        'taxonomy'      => 'location',
-        'child_of'      => '36',
-        'title_li'      => '',
-        'hierarchical'  => true,
-    ));
-    echo '</ul>';
-    echo '</section>';
+    the_widget( 'Location_Search' );
 ?> 
 
 
