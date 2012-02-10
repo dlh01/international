@@ -14,30 +14,26 @@ get_header(); ?>
 
 			<article id="post-0" class="post error404 not-found">
 				<header class="entry-header">
-					<h1 class="entry-title"><?php _e( 'Well this is somewhat embarrassing, isn&rsquo;t it?', 'toolbox' ); ?></h1>
+					<h1 class="entry-title"><?php _e( 'Page Not Found', 'toolbox' ); ?></h1>
 				</header>
 
 				<div class="entry-content">
-					<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching, or one of the links below, can help.', 'toolbox' ); ?></p>
+          <div class="notfound-box">
+            <p><?php _e( 'Sorry, but we couldn&rsquo;t find what you&rsquo;re looking for.', 'toolbox' ); ?></p>
+            <?php get_search_form(); ?>
+          </div>
 
-					<?php get_search_form(); ?>
+          <div class="notfound-box">
+            <h2><?php _e( 'Search by Location', 'toolbox' ); ?></h2>
+            <p><?php _e( 'Looking for resources from a specific country? Try searching for that country&rsquo;s name below.', 'toolbox' ); ?></p>
+            <?php the_widget( 'Location_Search' ); ?>
+          </div>
 
-					<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
-
-					<div class="widget">
-						<h2 class="widgettitle"><?php _e( 'Most Used Categories', 'toolbox' ); ?></h2>
-						<ul>
-						<?php wp_list_categories( array( 'orderby' => 'count', 'order' => 'DESC', 'show_count' => 1, 'title_li' => '', 'number' => 10 ) ); ?>
-						</ul>
-					</div>
-
-					<?php
-					/* translators: %1$s: smilie */
-					$archive_content = '<p>' . sprintf( __( 'Try looking in the monthly archives. %1$s', 'toolbox' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
-					?>
-
-					<?php the_widget( 'WP_Widget_Tag_Cloud' ); ?>
+          <div class="notfound-box">
+            <h2><?php _e( 'Get In Touch', 'toolbox' ); ?></h2>
+            <p><?php _e( 'If you think you reached this page because of a problem with our site, please contact us and we&rsquo;ll sort it out:', 'toolbox' ); ?></p>
+            <div><?php echo do_shortcode( '[contact-form-7 id="948" title="Contact Us"]' ); ?></div>
+          </div>
 
 				</div><!-- .entry-content -->
 			</article><!-- #post-0 -->
