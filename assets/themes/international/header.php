@@ -12,13 +12,10 @@
 <!--[if IE 6]>
 <html id="ie6" class="no-js ie6 oldie" <?php language_attributes(); ?>>
 <![endif]-->
-<!--[if IEMobile 7]>
-<html id="ie7" class="no-js iem7 oldie" <?php language_attributes(); ?>>
-<![endif]-->
-<!--[if IE 7]&!(IEmobile)]>
+<!--[if IE 7]>
 <html id="ie7" class="no-js ie7 oldie" <?php language_attributes(); ?>>
 <![endif]-->
-<!--[(IE 8)&!(IEMobile)]>
+<!--[(IE 8)]>
 <html id="ie8" class="no-js ie8 oldie" <?php language_attributes(); ?>>
 <![endif]-->
 <!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
