@@ -4,7 +4,7 @@ Plugin Name: WordPress Reset
 Plugin URI: http://sivel.net/wordpress/wordpress-reset/
 Description: Resets the WordPress database back to it's defaults. Deletes all customizations and content. Does not modify files only resets the database.
 Author: Matt Martz
-Version: 1.3.1
+Version: 1.3.2
 Author URI: http://sivel.net/
 
 	Copyright (c) 2009-2012 Matt Martz (http://sivel.net)
@@ -110,13 +110,16 @@ class WordPressReset {
 			exit();
 		}
 
-		if ( array_key_exists( 'reset', $_GET ) && stristr( $_SERVER['HTTP_REFERER'], 'wordpress-reset' ) ) {
-			add_action( 'admin_notices', function () {
-				$user = get_user_by( 'id', 1 );
-				echo '<div id="message" class="updated fade"><p><strong>WordPress has been reset back to defaults. The user "' . $user->user_login . '" was recreated with its previous password.</strong></p></div>';
-				do_action( 'wordpress_reset_post', $user );
-			} );
-		}
+		if ( array_key_exists( 'reset', $_GET ) && stristr( $_SERVER['HTTP_REFERER'], 'wordpress-reset' ) )
+			add_action( 'admin_notices', array( &$this, 'reset_notice' ) );
+	}
+
+	// admin_notices action hook operations
+	// Inform the user that WordPress has been successfully reset
+	function reset_notice() {
+		$user = get_user_by( 'id', 1 );
+		echo '<div id="message" class="updated fade"><p><strong>WordPress has been reset back to defaults. The user "' . $user->user_login . '" was recreated with its previous password.</strong></p></div>';
+		do_action( 'wordpress_reset_post', $user );
 	}
 
 	// Overwrite the password, because we actually reset it after this email goes out
