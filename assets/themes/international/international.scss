@@ -87,6 +87,10 @@ button, input, select, textarea {
     padding-top: $px16;
   }
 
+  .left {
+    margin: 0 auto;
+    width: 80%;
+  }
 }
 
 /**
@@ -753,7 +757,7 @@ h2.other-recent-posts { /* "Other recent posts" heading */
       margin-right: 2%;
       width: 48%;
       li {
-        width: 32.9%;
+        width: 32%;
       }
     }
   }
