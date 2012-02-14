@@ -32,7 +32,7 @@ function enqueue_jquery_ui_custom() {
 
   wp_enqueue_style(
     'jquery_ui_custom',
-    get_template_directory_uri() . '/css/ui-lightness/jquery-ui-1.8.17.custom.css'
+    get_template_directory_uri() . '/css/jquery-ui/jquery-ui-1.8.17.custom.css'
   );
 }
 
