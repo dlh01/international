@@ -490,6 +490,9 @@ button, input, select, textarea {
   /* Clear and add padding to account for floated list items in section#map */
   clear: both;
   padding-top: 1em; }
+.home .left {
+  margin: 0 auto;
+  width: 80%; }
 
 /**
  * Style the list items used in the continents map
@@ -1068,7 +1071,7 @@ h2.other-recent-posts {
       margin-right: 2%;
       width: 48%; }
       #primary #map li {
-        width: 32.9%; } }
+        width: 32%; } }
 @media print {
   * {
     background: transparent !important;
