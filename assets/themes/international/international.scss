@@ -216,7 +216,6 @@ h1.entry-title {
 
 /*
  * Comments in single posts
- *
  */
 #comments-title { /* "Comments (#)" */
   font-size: $px25; }
@@ -717,6 +716,7 @@ h2.other-recent-posts { /* "Other recent posts" heading */
     margin-bottom: $px25;
   }
   #access {
+    background: $lightpurple;
     clear: both;
     display: block;
     height: 34px; /* hack! */
