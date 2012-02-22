@@ -755,8 +755,7 @@ body {
 /* Footer */
 #colophon {
   /* extend purple background */
-  margin: 1em auto 0;
-  /* ensure white space above #colophon */
+  margin: 0 auto;
   padding: 2.127em 2.5%;
   width: 95%; }
 
