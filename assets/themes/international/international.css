@@ -599,7 +599,6 @@ h1.entry-title {
 
 /*
  * Comments in single posts
- *
  */
 #comments-title {
   /* "Comments (#)" */
@@ -1029,6 +1028,7 @@ h2.other-recent-posts {
     margin-bottom: 1.618em; }
 
   #access {
+    background: #7270ae;
     clear: both;
     display: block;
     height: 34px;
