@@ -24,7 +24,7 @@ add_action( 'wp_enqueue_scripts', 'enqueue_jquery_ui_custom' );
 function enqueue_jquery_ui_custom() {
   wp_enqueue_script(
     'jquery_ui_custom',
-    get_template_directory_uri() . '/js/libs/jquery-ui-1.8.17.custom.min.js',
+    get_template_directory_uri() . '/js/libs/jquery-ui-1.8.18.custom.min.js',
     '',
     '',
     'true' /* in_footer */
