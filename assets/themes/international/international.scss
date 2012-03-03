@@ -134,6 +134,7 @@ button, input, select, textarea {
     display: block;
     font-family: $body;
     font-size: 18px;
+    height: 100%; /* cover the height of the <li> with <a> clickability */
     margin-top: 6px;
     text-align: center;
     text-decoration: none;
