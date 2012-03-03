@@ -13,7 +13,7 @@ get_header(); ?>
 
                 <header class="page-header">
                 <h1 class="page-title"><?php
-printf( __( 'Archives: %s', 'toolbox' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+printf( __( 'Resources For: %s', 'toolbox' ), '<span>' . single_cat_title( '', false ) . '</span>' );
 ?></h1>
 
 <?php
