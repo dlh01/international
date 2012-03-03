@@ -17,19 +17,6 @@
 	<header class="entry-header">
     <?php if ( get_field( 'image' ) ) { ?><img src="<?php the_field( 'image' ); ?>" class="logo" /><?php } ?>
 		<h1 class="entry-title"><?php the_title(); ?></h1>
-
-		<div class="entry-meta">
-            <ul>
-                <?php 
-                    _e( get_the_term_list( $post->ID, 'location', '<li>Locations: ', ', ', '</li>' ) );
-                    _e( get_the_term_list( $post->ID, 'resource-type', '<li>Resource Type: ', ', ', '</li>' ) );
-                    _e("<li>", "toolbox"); toolbox_posted_on(); _e("</li>");
-                    _e("<li>Updated on ", "toolbox"); the_modified_date(get_option('date_format')); _e("</li>");
-                    _e("<li><a href='/contact'>Suggest an update to this entry</a></li>");
-                ?>
-            </ul>
-		<?php  ?>
-		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
 <?php
@@ -153,6 +140,13 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-meta">
+    <?php 
+        _e( get_the_term_list( $post->ID, 'location', 'Locations: ', ', ', '. ' ) );
+        _e( get_the_term_list( $post->ID, 'resource-type', 'Resource Type: ', ', ', '. ' ) );
+        toolbox_posted_on(); _e(". ");
+        _e("Updated on ", "toolbox"); the_modified_date(get_option('date_format')); _e(". ");
+        _e("<a href='/contact'>Suggest an update to this entry</a>.");
+    ?>
 		<?php edit_post_link( __( 'Edit', 'toolbox' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-meta -->
 </article><!-- #post-<?php the_ID(); ?> -->
