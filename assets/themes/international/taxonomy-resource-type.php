@@ -25,8 +25,6 @@ if ( ! empty( $category_description ) )
 
                 <?php // toolbox_content_nav( 'nav-above' ); ?>
 
-<?php echo '<section id=breadcrumbs><h1>You are here</h1>'; if(function_exists('bcn_display')) { bcn_display(); }; echo '</section>' ?>
-
 <?php
 /*
  * Sort posts by Location
@@ -119,6 +117,8 @@ wp_reset_postdata();
  */
     the_widget( 'Location_Search' );
 ?> 
+
+<?php echo '<section id=breadcrumbs><h1>You are here</h1>'; if(function_exists('bcn_display')) { bcn_display(); }; echo '</section>' ?>
 
 
             </div><!-- #content -->

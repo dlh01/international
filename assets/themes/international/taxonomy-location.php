@@ -25,8 +25,6 @@ if ( ! empty( $category_description ) )
 
                 <?php // toolbox_content_nav( 'nav-above' ); ?>
 
-<?php echo '<section id=breadcrumbs><h1>You Are Here</h1>'; echo 'Locations: '; if(function_exists('bcn_display')) { bcn_display(); }; echo '</section>' ?>
-
 <?php
 /*
  * Sort posts by Resource Type
@@ -127,6 +125,8 @@ if ( $category_obj ) {
 }
 ?> 
 
+
+<?php echo '<section id=breadcrumbs><h1>You Are Here</h1>'; echo 'Locations: '; if(function_exists('bcn_display')) { bcn_display(); }; echo '</section>' ?>
 
             </div><!-- #content -->
         </section><!-- #primary -->
