@@ -83,7 +83,7 @@
     echo '<dd>' . $organization . '</dd>';
   }
   if ( get_field( 'language' ) ) {
-    echo '<dt class=field>Resource language</dt class=field>';
+    echo '<dt class=field>Language</dt class=field>';
     echo '<dd>' . $language . '</dd>';
   }
   if ( get_field( 'contact' ) ) {
