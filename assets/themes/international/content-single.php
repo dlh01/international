@@ -25,7 +25,7 @@
                     _e( get_the_term_list( $post->ID, 'resource-type', '<li>Resource Type: ', ', ', '</li>' ) );
                     _e("<li>", "toolbox"); toolbox_posted_on(); _e("</li>");
                     _e("<li>Updated on ", "toolbox"); the_modified_date(get_option('date_format')); _e("</li>");
-                    _e("<li><a href='#'>Suggest an update to this entry</a></li>");
+                    _e("<li><a href='/contact'>Suggest an update to this entry</a></li>");
                 ?>
             </ul>
 		<?php  ?>
