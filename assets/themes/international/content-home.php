@@ -11,7 +11,10 @@
 
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php toolbox_posted_on(); ?>
+			<?php
+        _e( get_the_term_list( $post->ID, 'location', 'Locations: ', ', ', '. ' ) );
+        _e( get_the_term_list( $post->ID, 'resource-type', 'Resource Type: ', ', ', '. ' ) );
+      ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
