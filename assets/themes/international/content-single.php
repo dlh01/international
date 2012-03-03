@@ -82,6 +82,14 @@
     echo '<dt class=field>Organization</dt class=field>';
     echo '<dd>' . $organization . '</dd>';
   }
+  if ( get_field( 'date' ) ) {
+    echo '<dt class=field>Date</dt class=field>';
+    echo '<dd>' . $date . '</dd>';
+  }
+  if ( get_field( 'year' ) ) {
+    echo '<dt class=field>Year</dt class=field>';
+    echo '<dd>' . $year . '</dd>';
+  }
   if ( get_field( 'contact' ) ) {
     echo '<dt class=field>Contact Address</dt class=field>';
     echo '<dd>' . $contact . '</dd>';
@@ -97,14 +105,6 @@
   if ( get_field( 'socmed' ) ) {
     echo '<dt class=field>Other Social Media</dt class=field>';
     echo '<dd>' . $socmed . '</dd>';
-  }
-  if ( get_field( 'date' ) ) {
-    echo '<dt class=field>Date</dt class=field>';
-    echo '<dd>' . $date . '</dd>';
-  }
-  if ( get_field( 'year' ) ) {
-    echo '<dt class=field>Year</dt class=field>';
-    echo '<dd>' . $year . '</dd>';
   }
   if ( get_field( 'volume' ) ) {
     echo '<dt class=field>Volume</dt class=field>';
