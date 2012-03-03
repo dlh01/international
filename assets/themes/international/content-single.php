@@ -82,10 +82,6 @@
     echo '<dt class=field>Organization</dt class=field>';
     echo '<dd>' . $organization . '</dd>';
   }
-  if ( get_field( 'language' ) ) {
-    echo '<dt class=field>Language</dt class=field>';
-    echo '<dd>' . $language . '</dd>';
-  }
   if ( get_field( 'contact' ) ) {
     echo '<dt class=field>Contact Address</dt class=field>';
     echo '<dd>' . $contact . '</dd>';
@@ -129,6 +125,10 @@
   if ( get_field( 'cost' ) ) {
     echo '<dt class=field>Cost</dt class=field>';
     echo '<dd>' . $cost . '</dd>';
+  }
+  if ( get_field( 'language' ) ) {
+    echo '<dt class=field>Language</dt class=field>';
+    echo '<dd>' . $language . '</dd>';
   }
   if ( get_field( 'url_2' ) ) {
     echo '<dt class=field>URL 2</dt class=field>';
