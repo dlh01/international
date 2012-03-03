@@ -184,18 +184,6 @@ ol.other-recent-posts {
 h1.entry-title {
   font-size: $px34;
 }
-.entry-meta,
-.entry-meta li {
-  font-size: $px13;
-  font-style: italic;
-  margin-bottom: $px8;
-  ul {
-    margin-left: 0;
-  }
-  a {
-    font-style: italic;
-  }
-}
 .entry-content {
 
   #description { /* <section> with description and link to original */
@@ -213,6 +201,15 @@ h1.entry-title {
 
   dd {
     padding: $px9 0 0 1em; } }
+.entry-meta {
+  font-size: $px13;
+  font-style: italic;
+  line-height: $px21;
+  margin-bottom: $px8;
+  a {
+    font-style: italic;
+  }
+}
 
 /*
  * Comments in single posts
