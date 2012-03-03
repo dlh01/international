@@ -342,6 +342,9 @@ body {
   text-align: center;
   padding: 1em 0 1em;
 }
+#google_translate_element { /* Google Translate widget */
+  text-align: center;
+}
 
 /* Navigation */
 #access {
@@ -714,6 +717,18 @@ h2.other-recent-posts { /* "Other recent posts" heading */
 
   #branding {
     margin-bottom: $px25;
+  }
+  #header-above { /* float the header widget text to the left, with translate on the right */
+    float: left;
+    text-align: left;
+    padding: 1.5em 0 0; /* puts it, visually, around the middle of the translate widget text */
+    width: 50%;
+  }
+  #google_translate_element {
+    float: right;
+    text-align: right;
+    margin: 1em 0;
+    width: 50%;
   }
   #access {
     background: $lightpurple;
