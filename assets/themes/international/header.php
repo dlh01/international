@@ -80,7 +80,7 @@
         pageLanguage: 'en'
       }, 'google_translate_element');
     }
-    </script><script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </script><div class=clearfix></div>
 
 		<hgroup>
 			<h1 id="site-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
