@@ -260,7 +260,7 @@ h1.entry-title {
       font-size: $px21;
     }
     h1.page-title { /* "You are here: " */
-      font-size: $px21;
+      font-size: $px34;
     }
   }
 }
@@ -555,13 +555,6 @@ h2.other-recent-posts { /* "Other recent posts" heading */
 
 /*
  * Taxonomy archives
- *
- * These headings red:
- * "Taxonomy Archives: "
- * "You are here: " 
- * "Available resources"
- * "Conferences, "Europe," etc
- * "In this location"
  */
 .page-title,
 #breadcrumbs h1,
