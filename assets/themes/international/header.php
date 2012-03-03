@@ -53,7 +53,6 @@
 <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0">
 <link href='http://fonts.googleapis.com/css?family=Lato:400,700,700italic|Cabin:400,600,400italic,600italic' rel='stylesheet' type='text/css'>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>?v=0.2" />
 <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
