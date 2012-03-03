@@ -484,5 +484,19 @@ function enqueue_international_css() {
 add_action( 'wp_enqueue_scripts', 'enqueue_international_css' );
 
 /**
+ * Enqueue Google Translate widget JS
+ */
+function enqueue_google_translate_js() {
+  wp_enqueue_script(
+    'google_translate',
+    '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit',
+    '',
+    '',
+    'true' /* in_footer */
+  );
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_google_translate_js' );
+
+/**
  * This theme was built with PHP, Semantic HTML, CSS, love, and a Toolbox.
  */
