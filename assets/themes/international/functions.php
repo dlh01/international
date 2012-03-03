@@ -489,7 +489,7 @@ add_action( 'wp_enqueue_scripts', 'enqueue_international_css' );
 function enqueue_google_translate_js() {
   wp_enqueue_script(
     'google_translate',
-    '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit',
+    'http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit',
     '',
     '',
     'true' /* in_footer */
