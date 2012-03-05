@@ -87,7 +87,13 @@ http://www.advancedcustomfields.com/support/
 
 == Changelog ==
 
-= 3.1.2 =
+= 3.1.4 =
+* New Feature: Front end form (Please read documentation on website for usage)
+* Performance: compiled all field script / style into 1 .js file
+* Bug Fix: Editor now remembers mode (Visual / HTML) without causing errors when loading in HTML mode
+* Improvement: Added draft / private labels to post objects in relationship, post object and page link fields
+
+= 3.1.3 =
 * Bug Fix: Options page fields were rendered invisible in v3.1.2 (now fixed)
 * Updated POT file with new texts
 

@@ -72,56 +72,6 @@ class acf_File extends acf_Field
 	
 	/*--------------------------------------------------------------------------------------
 	*
-	*	admin_head
-	*
-	*	@author Elliot Condon
-	*	@since 2.0.6
-	* 
-	*-------------------------------------------------------------------------------------*/
-	
-	function admin_head()
-	{
-		?>
-		<script type="text/javascript">
-		
-		(function($){
-			
-			$('#poststuff .acf_file_uploader .no_file .button').live('click', function(){
-				
-				// vars
-				var div = $(this).closest('.acf_file_uploader');
-				var post_id = $('input#post_ID').val();
-				
-				// set global var
-				window.acf_div = div;
-					
-				// show the thickbox
-				tb_show('Add Image to field', 'media-upload.php?post_id=' + post_id + '&type=file&acf_type=file&TB_iframe=1');
-			
-				return false;
-			});
-				
-			$('#poststuff .acf_file_uploader .file .button').live('click', function(){
-				
-				// vars
-				var div = $(this).closest('.acf_file_uploader');
-				
-				div.find('input.value').val('');
-				div.removeClass('active');
-				
-				return false;
-				
-			});
-				
-			
-		})(jQuery);
-		</script>
-		<?php
-	}
-	
-	
-	/*--------------------------------------------------------------------------------------
-	*
 	*	create_field
 	*
 	*	@author Elliot Condon

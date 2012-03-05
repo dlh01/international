@@ -73,56 +73,6 @@ class acf_Image extends acf_Field
 	
 	/*--------------------------------------------------------------------------------------
 	*
-	*	admin_head
-	*
-	*	@author Elliot Condon
-	*	@since 2.0.6
-	* 
-	*-------------------------------------------------------------------------------------*/
-	
-	function admin_head()
-	{
-		?>
-		<script type="text/javascript">
-		
-		(function($){
-		
-			$('#poststuff .acf_image_uploader .button').live('click', function(){
-				
-				// vars
-				var div = $(this).closest('.acf_image_uploader');
-				var post_id = $('input#post_ID').val();
-				var preview_size = div.attr('data-preview_size');
-				
-				// set global var
-				window.acf_div = div;
-					
-				// show the thickbox
-				tb_show('Add Image to field', 'media-upload.php?post_id=' + post_id + '&type=image&acf_type=image&acf_preview_size=' + preview_size + 'TB_iframe=1');
-			
-				return false;
-			});
-				
-			$('#poststuff .acf_image_uploader .remove_image').live('click', function(){
-				
-				// vars
-				var div = $(this).closest('.acf_image_uploader');
-				
-				div.find('input.value').val('');
-				div.removeClass('active');
-				
-				return false;
-				
-			});
-				
-		})(jQuery);
-		</script>
-		<?php
-	}
-	
-	
-	/*--------------------------------------------------------------------------------------
-	*
 	*	create_field
 	*
 	*	@author Elliot Condon
