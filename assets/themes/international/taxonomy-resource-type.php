@@ -58,10 +58,22 @@ $resource_type_query_var = get_query_var( 'resource-type' );
  *
  * Note that the 'Global' location has an id=36 on the live site and id=50 on dev
  */ 
+
+/**
+ * Determine the ID of the Global term depending on whether we're on dev or production
+ */
+/* If the 'WP_LOCAL_DEV' variable exists, then we're local */
+if ( defined( 'WP_LOCAL_DEV' ) && WP_LOCAL_DEV ) {
+  /* The ID of the 'global' term is 50 */
+  $global_id = '50';
+} else {
+  /* Otherwise, we're on production, and the ID is 36 */
+  $global_id = '36';
+}
 $location_type_terms = get_terms( 'location', array(
-  'child_of'  => '36',
-  'parent'    => '36'
-)); // 'parent=0' returns only top-level terms
+  'child_of'  => $global_id,
+  'parent'    => $global_id
+));
 
 foreach ( $location_type_terms as $type ) {
     $args = array(
