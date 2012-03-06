@@ -70,10 +70,16 @@ if ( defined( 'WP_LOCAL_DEV' ) && WP_LOCAL_DEV ) {
   /* Otherwise, we're on production, and the ID is 36 */
   $global_id = '36';
 }
+/**
+ * Get all the terms in the Location taxonomy
+ *
+ * Display them alphabetically, ignoring the internal hierarchy
+ */
 $location_type_terms = get_terms( 'location', array(
-  'child_of'  => $global_id,
-  'parent'    => $global_id
-));
+  //'child_of'  => $global_id,
+  // 'parent'    => $global_id
+  'orderby'   => 'title',
+)); // Setting the 'parent' returns only top-level terms
 
 foreach ( $location_type_terms as $type ) {
     $args = array(
