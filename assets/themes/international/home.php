@@ -57,6 +57,12 @@ get_header(); ?>
 
               </section><!-- #search -->
 
+              <section id=browse>
+                <h1 class=section-title>Browse By Resource Type</h1>
+                <ul>
+                <?php wp_list_categories( 'title_li=&taxonomy=resource-type' ); ?>
+                </ul>
+              </section>
 
                <section id="random">
                     <h1 class="section-title">Random Entry</h1>
