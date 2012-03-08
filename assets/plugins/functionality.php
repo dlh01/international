@@ -75,20 +75,16 @@ function remove_featuredimage_box() {
 /**
  * Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
  *
- * Use WP_LOCAL_DEV to add the code when we aren't on localhost
- *
  * @link mathiasbynens.be/notes/async-analytics-snippet
  */
-if ( !defined( 'WP_LOCAL_DEV' ) && !WP_LOCAL_DEV ) {
-  function add_analytics() { ?>
+function add_analytics() { ?>
   <script>
-    var _gaq=[['_setAccount','UA-8448560-6'],['_trackPageview'],['_trackPageLoadTime']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
+  var _gaq=[['_setAccount','UA-8448560-6'],['_trackPageview'],['_trackPageLoadTime']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));
   </script>
-  <?php }
-  add_action( 'wp_footer', 'add_analytics', 140 );
-}
+<?php }
+add_action( 'wp_footer', 'add_analytics', 140 );
 
 ?>
