@@ -54,7 +54,6 @@ function create_resource_taxonomies() {
 }
 
 
-
 /*
  * Re-order the meta boxes on the post page
  * via http://wordpress.stackexchange.com/questions/1390/set-default-admin-screen-options-metabox-order
@@ -71,5 +70,21 @@ add_action( 'do_meta_boxes', 'remove_featuredimage_box' );
 function remove_featuredimage_box() {
     remove_meta_box( 'postimagediv', 'post', 'side' );
 }
+
+
+/**
+ * Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+ *
+ * @link mathiasbynens.be/notes/async-analytics-snippet
+ */
+function add_analytics() { ?>
+<script>
+  var _gaq=[['_setAccount','UA-8448560-6'],['_trackPageview'],['_trackPageLoadTime']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<?php }
+add_action( 'wp_footer', 'add_analytics', 140 );
 
 ?>
