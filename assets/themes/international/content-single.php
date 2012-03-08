@@ -51,7 +51,7 @@
       <?php the_content(); ?>
       <?php // show the original URL prominently
         if ( get_field( 'url' ) ) {
-          echo '<p class=original><a href="' . $original . '">View full resource</a></p>'; }
+          echo '<p class=original><a href="' . $original . '" target="_blank">View full resource</a></p>'; }
       ?>
     </section>
 
