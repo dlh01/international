@@ -55,86 +55,126 @@
       ?>
     </section>
 
-  <dl>
+  <table>
+  <tbody>
 <?php
   if ( get_field( 'author' ) ) {
-    echo '<dt class=field>Author</dt class=field>';
-    echo '<dd>' . $author . '</dd>';
+    echo '<tr>';
+    echo '<td class=field>Author</td class=field>';
+    echo '<td>' . $author . '</td>';
+    echo '</tr>';
   }
   if ( get_field( 'publication' ) ) {
-    echo '<dt class=field>Publication</dt class=field>';
-    echo '<dd>' . $publication . '</dd>';
+    echo '<tr>';
+    echo '<td class=field>Publication</td class=field>';
+    echo '<td>' . $publication . '</td>';
+    echo '</tr>';
   }
   if ( get_field( 'organization' ) ) {
-    echo '<dt class=field>Organization</dt class=field>';
-    echo '<dd>' . $organization . '</dd>';
+    echo '<tr>';
+    echo '<td class=field>Organization</td class=field>';
+    echo '<td>' . $organization . '</td>';
+    echo '</tr>';
   }
   if ( get_field( 'date' ) ) {
-    echo '<dt class=field>Date</dt class=field>';
-    echo '<dd>' . $date . '</dd>';
+    echo '<tr>';
+    echo '<td class=field>Date</td class=field>';
+    echo '<td>' . $date . '</td>';
+    echo '</tr>';
   }
   if ( get_field( 'year' ) ) {
-    echo '<dt class=field>Year</dt class=field>';
-    echo '<dd>' . $year . '</dd>';
+    echo '<tr>';
+    echo '<td class=field>Year</td class=field>';
+    echo '<td>' . $year . '</td>';
+    echo '</tr>';
   }
   if ( get_field( 'contact' ) ) {
-    echo '<dt class=field>Contact Address</dt class=field>';
-    echo '<dd>' . $contact . '</dd>';
+    echo '<tr>';
+    echo '<td class=field>Contact Address</td class=field>';
+    echo '<td>' . $contact . '</td>';
+    echo '</tr>';
   }
   if ( get_field( 'twitter' ) ) {
-    echo '<dt class=field>Twitter</dt class=field>';
-    echo '<dd><a href="http://www.twitter.com/' . $twitter_handle . '">@' . $twitter_handle . '</a></dd>';
+    echo '<tr>';
+    echo '<td class=field>Twitter</td class=field>';
+    echo '<td><a href="http://www.twitter.com/' . $twitter_handle . '">@' . $twitter_handle . '</a></td>';
+    echo '</tr>';
   }
   if ( get_field( 'facebook' ) ) {
-    echo '<dt class=field>Facebook</dt class=field>';
-    echo '<dd><a href="' . $facebook_page . '">' . $facebook_page . '</a></dd>';
+    echo '<tr>';
+    echo '<td class=field>Facebook</td class=field>';
+    echo '<td><a href="' . $facebook_page . '">' . $facebook_page . '</a></td>';
+    echo '</tr>';
   }
   if ( get_field( 'socmed' ) ) {
-    echo '<dt class=field>Other Social Media</dt class=field>';
-    echo '<dd>' . $socmed . '</dd>';
+    echo '<tr>';
+    echo '<td class=field>Other Social Media</td class=field>';
+    echo '<td>' . $socmed . '</td>';
+    echo '</tr>';
   }
   if ( get_field( 'volume' ) ) {
-    echo '<dt class=field>Volume</dt class=field>';
-    echo '<dd>' . $volume . '</dd>';
+    echo '<tr>';
+    echo '<td class=field>Volume</td class=field>';
+    echo '<td>' . $volume . '</td>';
+    echo '</tr>';
   }
   if ( get_field( 'issue' ) ) {
-    echo '<dt class=field>Issue</dt class=field>';
-    echo '<dd>' . $issue . '</dd>';
+    echo '<tr>';
+    echo '<td class=field>Issue</td class=field>';
+    echo '<td>' . $issue . '</td>';
+    echo '</tr>';
   }
   if ( get_field( 'page' ) ) {
-    echo '<dt class=field>Pages</dt class=field>';
-    echo '<dd>' . $pate . '</dd>';
+    echo '<tr>';
+    echo '<td class=field>Pages</td class=field>';
+    echo '<td>' . $pate . '</td>';
+    echo '</tr>';
   }
   if ( get_field( 'deadline' ) ) {
-    echo '<dt class=field>Application Deadline</dt class=field>';
-    echo '<dd>' . $deadline . '</dd>';
+    echo '<tr>';
+    echo '<td class=field>Application Deadline</td class=field>';
+    echo '<td>' . $deadline . '</td>';
+    echo '</tr>';
   }
   if ( get_field( 'cost' ) ) {
-    echo '<dt class=field>Cost</dt class=field>';
-    echo '<dd>' . $cost . '</dd>';
+    echo '<tr>';
+    echo '<td class=field>Cost</td class=field>';
+    echo '<td>' . $cost . '</td>';
+    echo '</tr>';
   }
   if ( get_field( 'language' ) ) {
-    echo '<dt class=field>Language</dt class=field>';
-    echo '<dd>' . $language . '</dd>';
+    echo '<tr>';
+    echo '<td class=field>Language</td class=field>';
+    echo '<td>' . $language . '</td>';
+    echo '</tr>';
   }
   if ( get_field( 'url_2' ) ) {
-    echo '<dt class=field>URL 2</dt class=field>';
-    echo '<dd><a href="' . $url_2 . '">' . $url_2 . '</a></dd>';
+    echo '<tr>';
+    echo '<td class=field>URL 2</td class=field>';
+    echo '<td><a href="' . $url_2 . '">' . $url_2 . '</a></td>';
+    echo '</tr>';
   }
   if ( get_field( 'url_2_language' ) ) {
-    echo '<dt class=field>URL 2 language</dt class=field>';
-    echo '<dd>' . $url_2_language . '</dd>';
+    echo '<tr>';
+    echo '<td class=field>URL 2 language</td class=field>';
+    echo '<td>' . $url_2_language . '</td>';
+    echo '</tr>';
   }
   if ( get_field( 'url_3' ) ) {
-    echo '<dt class=field>URL 3</dt class=field>';
-    echo '<dd><a href="' . $url_3 . '">' . $url_3 . '</a></dd>';
+    echo '<tr>';
+    echo '<td class=field>URL 3</td class=field>';
+    echo '<td><a href="' . $url_3 . '">' . $url_3 . '</a></td>';
+    echo '</tr>';
   }
   if ( get_field( 'url_3_language' ) ) {
-    echo '<dt class=field>URL 3 language</dt class=field>';
-    echo '<p>' . $url_3_language . '</p>';
+    echo '<tr>';
+    echo '<td class=field>URL 3 language</td class=field>';
+    echo '<td>' . $url_3_language . '</td>';
+    echo '</tr>';
   }
 ?>
-  </dl>
+  </tbody>
+  </table>
 
 		<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'toolbox' ), 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->

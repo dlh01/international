@@ -54,6 +54,7 @@ button, input, select, textarea {
   font-family: Cabin, "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
   font-size: 1em; }
 
+
 /* Navigation */
 #menu-primary-navigation { /* main menu in the header */
   text-transform: uppercase;
@@ -193,16 +194,20 @@ h1.entry-title {
 
     p {
       display: inline; /* fake two paragraphs looking like one */
-      font-size: $px21; } }
-
-  dl {
-    font-size: 1em; }
-
-  dt {
-    font-weight: bold; }
-
-  dd {
-    padding: $px9 0 0 1em; } }
+      font-size: $px21;
+    }
+  }
+  table {
+    font-size: 1em;
+  }
+  th, td, caption {
+    padding-top: $px4;
+    padding-bottom: $px4;
+  }
+  tbody tr:nth-child(odd) td {
+    background-color: #F2F2F8;
+  }
+}
 .entry-meta {
   font-size: $px13;
   font-style: italic;
