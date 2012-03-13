@@ -55,7 +55,7 @@
       ?>
     </section>
 
-  <table>
+  <table class="table table-condensed">
   <tbody>
 <?php
   if ( get_field( 'author' ) ) {
