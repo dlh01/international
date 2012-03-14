@@ -200,7 +200,6 @@ class Location_Search extends WP_Widget
   </form>
 </div><!-- ui-widget -->
 		<?php 
-print_r( $widget );
 	}
 	
 	/**
