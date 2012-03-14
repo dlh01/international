@@ -50,7 +50,7 @@ function enqueue_jquery_ui_autocomplete() { ?>
         }
       ?>
     ];
-    jQuery( "#tags" ).autocomplete({
+    jQuery( ".tags" ).autocomplete({
       source: availableTags
   });
   });
@@ -193,13 +193,14 @@ class Location_Search extends WP_Widget
 <div class="ui-widget">
   <form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
       <div><label for="tags" class="screen-reader-text" for="s">Search for:</label>
-          <input id="tags" type="text" value="" name="s" id="s" />
+          <input class="tags" id="tags" type="text" value="" name="s" id="s" />
           <input type="hidden" name="searchform" value="location" /> 
           <input type="submit" id="searchsubmit" value="Search" />
       </div>
   </form>
 </div><!-- ui-widget -->
 		<?php 
+print_r( $widget );
 	}
 	
 	/**
