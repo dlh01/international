@@ -189,7 +189,6 @@ class Location_Search extends WP_Widget
 	function html($widget, $params, $sidebar)
 	{
 		?>
-		<!-- Your widget html goes here -->
 <h1 class="widget-title">Find A Location</h1>
 <div class="ui-widget">
   <form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
