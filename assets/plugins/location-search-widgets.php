@@ -192,8 +192,8 @@ class Location_Search extends WP_Widget
 <h1 class="widget-title">Find A Location</h1>
 <div class="ui-widget">
   <form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
-      <div><label for="tags" class="screen-reader-text" for="s">Search for:</label>
-          <input class="tags" id="tags" type="text" value="" name="s" id="s" />
+    <div><label for="tags-<?php $widget['number']; ?>" class="screen-reader-text" for="s">Search for:</label>
+          <input class="tags" id="tags-<?php echo $widget->number; ?>" type="text" value="" name="s" id="s" />
           <input type="hidden" name="searchform" value="location" /> 
           <input type="submit" id="searchsubmit" value="Search" />
       </div>
