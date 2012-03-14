@@ -119,10 +119,12 @@ table {
 }
 .home {
 
-  .section-title { /* Random, Browse, Blog */
+  .section-title, /* Random, Browse, Blog */
+  #search .widget-title { /* the Location Search widget */
     font-size: $px25;
     margin: $px21 0 $px9 0;
   }
+  /* normally widget titles are smaller, but the Location Search widget on the home page should match the section titles */
 
   section h2 {
     font-size: $px21;
