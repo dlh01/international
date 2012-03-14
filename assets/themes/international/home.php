@@ -28,33 +28,7 @@ get_header(); ?>
 
       <div class=left>
               <section id=search>
-              <h1 class="section-title">Find A Location</h1>
-              <div class="ui-widget">
-                <form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
-                    <div><label for="tags" class="screen-reader-text" for="s">Search for:</label>
-                        <input id="tags" type="text" value="" name="s" id="s" />
-                        <input type="hidden" name="searchform" value="location" /> 
-                        <input type="submit" id="searchsubmit" value="Search" />
-                    </div>
-                </form>
-              </div><!-- ui-widget -->
-
-              <script>
-                jQuery(function() {
-                  var availableTags = [
-                    <?php
-                      $categories = get_categories( 'taxonomy=location' );
-                      foreach ($categories as $category) {
-                        echo '"' . $category->name . '", ';
-                      }
-                    ?>
-                  ];
-                  jQuery( "#tags" ).autocomplete({
-                    source: availableTags
-                });
-                });
-              </script>
-
+                <?php the_widget( 'Location_Search' ); ?>
               </section><!-- #search -->
 
               <section id=browse>
