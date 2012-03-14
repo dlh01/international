@@ -463,7 +463,7 @@ add_action( 'toolbox_credits', 'display_copyright' );
 function enqueue_international_css() {
   wp_enqueue_style(
     'international',
-    get_template_directory_uri() . '/international.css?v=0.3'
+    get_template_directory_uri() . '/international.css?v=1.1'
   );
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_international_css' );
