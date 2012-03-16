@@ -151,9 +151,14 @@ table {
   position: relative;
   width: 80%;
   #credit { /* "Graphics credits" link */
-    text-align: right;
-    a {
-      font-size: $px13;
+    display: none; /* Don't display by default; display only if activated via the .svg class below */
+
+    .svg & {
+      display: block;
+      text-align: right;
+      a {
+        font-size: $px13;
+      }
     }
   }
 }
