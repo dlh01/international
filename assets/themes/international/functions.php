@@ -465,7 +465,7 @@ function enqueue_international_css() {
     'international',
     get_template_directory_uri() . '/international.css',
     '',
-    '1.1.1'
+    '1.2.1'
   );
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_international_css' );
