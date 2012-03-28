@@ -47,5 +47,3 @@ if ( $rows ) {
   }
 }
 ?> 
-
-</section>
