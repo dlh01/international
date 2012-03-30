@@ -1,0 +1,13 @@
+/**
+ *
+ * Styles unique to content-feeds.php
+ *
+ */
+
+.page-template-feeds-php { /* The class applied to the <body> on the News feeds template */
+  .widget_rss { /* The div around the RSS widget */
+    li { /* Each item in the feed */
+      margin-bottom: $px4; /* Add some breathing room between the items */
+    }
+  }
+}
