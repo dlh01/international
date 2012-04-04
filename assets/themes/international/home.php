@@ -38,17 +38,17 @@ get_header(); ?>
                 </ul>
               </section>
 
-               <section id="random">
-                    <h1 class="section-title">Random Entry</h1>
-                    <?php /* Get a random post for the 'Random' section */
+               <section id="latest">
+                    <h1 class="section-title">Latest Entry</h1>
+                    <?php
                         global $post;
-                        $args = array( 'numberposts' => 1, 'orderby' => 'rand' );
+                        $args = array( 'numberposts' => 1 );
                         $myposts = get_posts( $args );
                         foreach( $myposts as $post ) :	setup_postdata($post);
                             get_template_part( 'content', 'home' );	
                         endforeach; 
                     ?>
-                </section><!-- #random -->
+                </section><!-- #latest -->
       </div><!-- .left -->
 
                  <section id="map">
