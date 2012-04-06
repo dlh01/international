@@ -39,7 +39,7 @@ get_header(); ?>
               </section>
 
                <section id="latest">
-                    <h1 class="section-title">Latest Entry</h1>
+                    <h1 class="section-title">Newest Entry</h1>
                     <?php
                         global $post;
                         $args = array( 'numberposts' => 1 );
