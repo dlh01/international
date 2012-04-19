@@ -42,11 +42,46 @@ get_header(); ?>
                     <h1 class="section-title">Newest Entry</h1>
                     <?php
                         global $post;
-                        $args = array( 'numberposts' => 1 );
-                        $myposts = get_posts( $args );
-                        foreach( $myposts as $post ) :	setup_postdata($post);
-                            get_template_part( 'content', 'home' );	
-                        endforeach; 
+                        $args = array(
+                          'posts_per_page' => 6,
+                          'order' => 'DESC',
+                        );
+					// Our new query for the Recent Posts section.
+					$recent = new WP_Query( $args );
+
+					// The first Recent post is displayed normally
+					if ( $recent->have_posts() ) : $recent->the_post();
+
+						// Set $more to 0 in order to only get the first part of the post.
+						global $more;
+						$more = 0;
+
+						get_template_part( 'content', 'home' );
+
+            echo '<h2>Other New Entries</h2>';
+
+						echo '<ul class="other-recent-posts">';
+
+					endif;
+           
+					// For all other recent posts, just display the title and comment status.
+					while ( $recent->have_posts() ) : $recent->the_post(); ?>
+
+						<li class="entry-title">
+							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'twentyeleven' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+						</li>
+
+					<?php
+					endwhile;
+
+					// If we had some posts, close the <ul>
+					if ( $recent->post_count > 0 )
+						echo '</ul>';
+
+                        // $myposts = get_posts( $args );
+                        // foreach( $myposts as $post ) :	setup_postdata($post);
+                        //     get_template_part( 'content', 'home' );	
+                        // endforeach; 
                     ?>
                 </section><!-- #latest -->
       </div><!-- .left -->
