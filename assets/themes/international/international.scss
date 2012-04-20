@@ -137,8 +137,7 @@ table {
   }
 
   #home-top,
-  .left,
-  .right {
+  .left {
     margin: 0 auto;
     width: 80%;
   }
@@ -178,12 +177,16 @@ table {
   -webkit-box-shadow: 0px 0px 5px $lightpurple; 
   -moz-box-shadow: 0px 0px 5px $lightpurple; 
   box-shadow: 0px 0px 5px $lightpurple; 
+  -webkit-transition: background-color 0.3s ease; 
+     -moz-transition: background-color 0.3s ease; 
+      -ms-transition: background-color 0.3s ease; 
+       -o-transition: background-color 0.3s ease; 
+          transition: background-color 0.3s ease;
 
-  &:active { /* Small effects on click */
+  &:hover { /* Small effects on hover */
     background-color: $orange;
-    position: relative;
-    top: 2px;
   }
+    
 
   a {
     color: white;
