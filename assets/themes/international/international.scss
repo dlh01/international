@@ -200,7 +200,15 @@ table {
     text-transform: uppercase; 
   }
 
-  .svg & { /* display only when modernizr detects svg support */ 
+  /**
+   *
+   * Display country images only when Modernizr detects SVG support
+   *
+   * This is a nice proxy for detecting background-size support
+   * see https://github.com/dlh01/international/issues/63
+   *
+   */
+  .svg & {
     float: left;
     height: 175px;
     margin: 0;
