@@ -343,6 +343,55 @@ function register_footer_widgets() {
 }
 add_action( 'init', 'register_footer_widgets', 140 );
 
+add_action( 'wp_enqueue_scripts', 'intl_theme_enqueue' );
+function intl_theme_enqueue() {
+
+
+  /**
+   *
+   * Stylesheets
+   *
+   */
+
+  // Register stylesheet
+
+  // Move CSS to separate files for minification
+  wp_register_style(
+    'international', // handle
+    get_stylesheet_directory_uri() . '/international.css', // src
+    '', // deps
+    '1.4.5' // version
+  );
+
+
+  /**
+   *
+   * Scripts
+   *
+   */
+
+  // Register script
+  // wp_register_script(
+  //   'modernizr', // handle
+  //   get_template_directory_uri() . '/modernizr-2.5.2.min.js' // src
+  //   '', // deps
+  //   '2.5.2', // version
+  //   '' // in footer?
+  // );
+
+
+  /**
+   *
+   * Enqueue needed assets
+   *
+   */
+
+  wp_enqueue_style( 'international' );
+  // wp_enqueue_script( 'modernizr' );
+
+
+}
+
 /**
  * Add Selectivizr
  *
@@ -460,15 +509,6 @@ add_action( 'toolbox_credits', 'display_copyright' );
 /**
  * Move CSS to separate files for minification
  */
-function enqueue_international_css() {
-  wp_enqueue_style(
-    'international',
-    get_template_directory_uri() . '/international.css',
-    '',
-    '1.4.5'
-  );
-}
-add_action( 'wp_enqueue_scripts', 'enqueue_international_css' );
 
 /**
  * Enqueue Google Translate widget JS
