@@ -353,7 +353,7 @@ function intl_theme_enqueue() {
    *
    */
 
-  // Register stylesheet
+  // Register stylesheets
 
   // Move CSS to separate files for minification
   wp_register_style(
@@ -370,14 +370,13 @@ function intl_theme_enqueue() {
    *
    */
 
-  // Register script
-  // wp_register_script(
-  //   'modernizr', // handle
-  //   get_template_directory_uri() . '/modernizr-2.5.2.min.js' // src
-  //   '', // deps
-  //   '2.5.2', // version
-  //   '' // in footer?
-  // );
+  wp_register_script(
+    'translate', // handle
+    'http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit',
+    '', // deps
+    '', // version
+    'true' // in footer?
+  );
 
 
   /**
@@ -387,7 +386,7 @@ function intl_theme_enqueue() {
    */
 
   wp_enqueue_style( 'international' );
-  // wp_enqueue_script( 'modernizr' );
+  wp_enqueue_script( 'translate' );
 
 
 }
@@ -505,24 +504,6 @@ function display_copyright() {
   echo "Copyright " . date('Y') . " Religion Newswriters Association. ";
 }
 add_action( 'toolbox_credits', 'display_copyright' );
-
-/**
- * Move CSS to separate files for minification
- */
-
-/**
- * Enqueue Google Translate widget JS
- */
-function enqueue_google_translate_js() {
-  wp_enqueue_script(
-    'google_translate',
-    'http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit',
-    '',
-    '',
-    'true' /* in_footer */
-  );
-}
-add_action( 'wp_enqueue_scripts', 'enqueue_google_translate_js' );
 
 /**
  * This theme was built with PHP, Semantic HTML, CSS, love, and a Toolbox.
