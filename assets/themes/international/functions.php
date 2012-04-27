@@ -387,6 +387,37 @@ function intl_theme_enqueue() {
   );
 
   /**
+   * Link to 320 and up helper JS
+   * 
+   * Used at least once, in the iOS scale bug fix below
+   * @link http://stuffandnonsense.co.uk/projects/320andup/
+   */
+  wp_register_script(
+    'helper', // handle
+    get_template_directory_uri() . '/js/mylibs/helper.js', // src
+    '', // deps
+    '', // ver
+    'true' // footer
+  );
+
+  wp_register_script(
+    'plugins', //handle
+    get_template_directory_uri() . '/js/plugins.js', // src
+    'helper', //deps
+    '', //ver
+    'true' //footer
+  );
+
+  wp_register_script(
+    'script', //handle
+    get_template_directory_uri() . '/js/script.js', // src
+    'plugins', //deps
+    '', //ver
+    'true' //footer
+  );
+
+
+  /**
    *
    * Enqueue needed assets
    *
@@ -395,6 +426,9 @@ function intl_theme_enqueue() {
   wp_enqueue_style( 'international' );
   wp_enqueue_script( 'translate' );
   wp_enqueue_script( 'modernizr' );
+  wp_enqueue_script( 'helper' );
+  wp_enqueue_script( 'plugins' );
+  wp_enqueue_script( 'script' );
 
 
 }
@@ -416,20 +450,6 @@ function add_selectivizr() { ?>
 <![endif]-->
 <?php }
 add_action( 'wp_head', 'add_selectivizr', 110 );
-
-/**
- * Link to 320 and up helper JS
- * 
- * Used at least once, in the iOS scale bug fix below
- * @link http://stuffandnonsense.co.uk/projects/320andup/
- */
-function add_320_helpers() { ?>
-<?php echo "\n\n"; ?>
-<script src="<?php echo get_template_directory_uri(); ?>/js/mylibs/helper.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/plugins.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
-<?php }
-add_action( 'wp_footer', 'add_320_helpers', 110 );
 
 /**
  * Add imgsizer.js
