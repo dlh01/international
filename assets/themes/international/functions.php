@@ -360,7 +360,7 @@ function intl_theme_enqueue() {
     'international', // handle
     get_stylesheet_directory_uri() . '/international.css', // src
     '', // deps
-    '1.4.5' // version
+    '1.5.0' // version
   );
 
 
