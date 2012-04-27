@@ -56,7 +56,6 @@
 <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-<?php wp_enqueue_script('jquery'); ?>
 <?php wp_head(); ?>
 </head>
 

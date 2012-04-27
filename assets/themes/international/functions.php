@@ -343,10 +343,102 @@ function register_footer_widgets() {
 }
 add_action( 'init', 'register_footer_widgets', 140 );
 
+add_action( 'wp_enqueue_scripts', 'intl_theme_enqueue' );
+function intl_theme_enqueue() {
+
+
+  /**
+   *
+   * Stylesheets
+   *
+   */
+
+  // Register stylesheets
+
+  // Move CSS to separate files for minification
+  wp_register_style(
+    'international', // handle
+    get_stylesheet_directory_uri() . '/international.css', // src
+    '', // deps
+    '1.5.0' // version
+  );
+
+
+  /**
+   *
+   * Scripts
+   *
+   */
+
+  wp_register_script(
+    'translate', // handle
+    'http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit',
+    '', // deps
+    '', // version
+    'true' // in footer?
+  );
+
+  wp_register_script(
+    'modernizr', // handle
+    get_template_directory_uri() . '/js/libs/modernizr-2.0.6.min.js', //src
+    '', //deps
+    '2.0.6', // version
+    '' // in footer
+  );
+
+  /**
+   * Link to 320 and up helper JS
+   * 
+   * Used at least once, in the iOS scale bug fix below
+   * @link http://stuffandnonsense.co.uk/projects/320andup/
+   */
+  wp_register_script(
+    'helper', // handle
+    get_template_directory_uri() . '/js/mylibs/helper.js', // src
+    '', // deps
+    '', // ver
+    'true' // footer
+  );
+
+  wp_register_script(
+    'plugins', //handle
+    get_template_directory_uri() . '/js/plugins.js', // src
+    'helper', //deps
+    '', //ver
+    'true' //footer
+  );
+
+  wp_register_script(
+    'script', //handle
+    get_template_directory_uri() . '/js/script.js', // src
+    'plugins', //deps
+    '', //ver
+    'true' //footer
+  );
+
+
+  /**
+   *
+   * Enqueue needed assets
+   *
+   */
+
+  wp_enqueue_style( 'international' );
+  wp_enqueue_script( 'translate' );
+  wp_enqueue_script( 'modernizr' );
+  wp_enqueue_script( 'helper' );
+  wp_enqueue_script( 'plugins' );
+  wp_enqueue_script( 'script' );
+
+
+}
+
 /**
  * Add Selectivizr
  *
  * Selectivizr: "Bootstrap CSS3 selector support"
+ *
+ * Not included above because it requires conditional comment
  *
  * @link http://selectivizr.com/
  * @link http://stuffandnonsense.co.uk/projects/320andup/
@@ -360,31 +452,9 @@ function add_selectivizr() { ?>
 add_action( 'wp_head', 'add_selectivizr', 110 );
 
 /**
- * Add Modernizr
- */
-function add_modernizr () { ?>
-<?php echo "\n"; ?>
-<!-- Modernizr -->
-<script src="<?php echo get_template_directory_uri(); ?>/js/libs/modernizr-2.0.6.min.js"></script>
-<?php }
-add_action( 'wp_head', 'add_modernizr', 120 );
-
-/**
- * Link to 320 and up helper JS
- * 
- * Used at least once, in the iOS scale bug fix below
- * @link http://stuffandnonsense.co.uk/projects/320andup/
- */
-function add_320_helpers() { ?>
-<?php echo "\n\n"; ?>
-<script src="<?php echo get_template_directory_uri(); ?>/js/mylibs/helper.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/plugins.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
-<?php }
-add_action( 'wp_footer', 'add_320_helpers', 110 );
-
-/**
  * Add imgsizer.js
+ *
+ * Not included above because it requires conditional comment
  *
  * "Improve IE’s rendering of resizable images"
  * @link http://unstoppablerobotninja.com/entry/fluid-images/
@@ -456,33 +526,6 @@ function display_copyright() {
   echo "Copyright " . date('Y') . " Religion Newswriters Association. ";
 }
 add_action( 'toolbox_credits', 'display_copyright' );
-
-/**
- * Move CSS to separate files for minification
- */
-function enqueue_international_css() {
-  wp_enqueue_style(
-    'international',
-    get_template_directory_uri() . '/international.css',
-    '',
-    '1.4.5'
-  );
-}
-add_action( 'wp_enqueue_scripts', 'enqueue_international_css' );
-
-/**
- * Enqueue Google Translate widget JS
- */
-function enqueue_google_translate_js() {
-  wp_enqueue_script(
-    'google_translate',
-    'http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit',
-    '',
-    '',
-    'true' /* in_footer */
-  );
-}
-add_action( 'wp_enqueue_scripts', 'enqueue_google_translate_js' );
 
 /**
  * This theme was built with PHP, Semantic HTML, CSS, love, and a Toolbox.
