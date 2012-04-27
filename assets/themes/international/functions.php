@@ -454,6 +454,8 @@ add_action( 'wp_head', 'add_selectivizr', 110 );
 /**
  * Add imgsizer.js
  *
+ * Not included above because it requires conditional comment
+ *
  * "Improve IE’s rendering of resizable images"
  * @link http://unstoppablerobotninja.com/entry/fluid-images/
  * @link http://stuffandnonsense.co.uk/projects/320andup/

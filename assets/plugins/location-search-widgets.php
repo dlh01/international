@@ -20,22 +20,52 @@ Description: This plugin creates a reusable widget that allows users to search f
  */
 
 /* 1. Enqueue jQuery UI */
-add_action( 'wp_enqueue_scripts', 'enqueue_jquery_ui_custom' );
-function enqueue_jquery_ui_custom() {
-  wp_enqueue_script(
-    'jquery_ui_custom',
+add_action( 'wp_enqueue_scripts', 'intl_jquery_ui' );
+function intl_jquery_ui() {
+
+
+  /**
+   *
+   * Stylesheets
+   *
+   */
+
+  // Register stylesheet
+  wp_register_style(
+    'jquery_ui_custom', // handle
+    get_template_directory_uri() . '/css/jquery-ui/jquery-ui-1.8.17.custom.css',
+    '', // deps
+    '1.8.17' // version
+  );
+
+
+  /**
+   *
+   * Scripts
+   *
+   */
+
+  // Register script
+  wp_register_script(
+    'jquery_ui_custom_js', // handle
     get_template_directory_uri() . '/js/libs/jquery-ui-1.8.18.custom.min.js',
-    '',
-    '',
-    'true' /* in_footer */
+    'jquery', // deps
+    '1.8.18', // version
+    'true' // in footer?
   );
 
-  wp_enqueue_style(
-    'jquery_ui_custom',
-    get_template_directory_uri() . '/css/jquery-ui/jquery-ui-1.8.17.custom.css'
-  );
+
+  /**
+   *
+   * Enqueue needed assets
+   *
+   */
+
+  wp_enqueue_style( 'jquery_ui_custom' );
+  wp_enqueue_script( 'jquery_ui_custom_js' );
+
+
 }
-
 /* 2. /js/autocomplete.js */
 add_action( 'wp_footer', 'enqueue_jquery_ui_autocomplete', 200 );
 function enqueue_jquery_ui_autocomplete() { ?>
