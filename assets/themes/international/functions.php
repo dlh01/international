@@ -378,6 +378,13 @@ function intl_theme_enqueue() {
     'true' // in footer?
   );
 
+  wp_register_script(
+    'modernizr', // handle
+    get_template_directory_uri() . '/js/libs/modernizr-2.0.6.min.js', //src
+    '', //deps
+    '2.0.6', // version
+    '' // in footer
+  );
 
   /**
    *
@@ -387,6 +394,7 @@ function intl_theme_enqueue() {
 
   wp_enqueue_style( 'international' );
   wp_enqueue_script( 'translate' );
+  wp_enqueue_script( 'modernizr' );
 
 
 }
@@ -395,6 +403,8 @@ function intl_theme_enqueue() {
  * Add Selectivizr
  *
  * Selectivizr: "Bootstrap CSS3 selector support"
+ *
+ * Not included above because it requires conditional comment
  *
  * @link http://selectivizr.com/
  * @link http://stuffandnonsense.co.uk/projects/320andup/
@@ -406,16 +416,6 @@ function add_selectivizr() { ?>
 <![endif]-->
 <?php }
 add_action( 'wp_head', 'add_selectivizr', 110 );
-
-/**
- * Add Modernizr
- */
-function add_modernizr () { ?>
-<?php echo "\n"; ?>
-<!-- Modernizr -->
-<script src="<?php echo get_template_directory_uri(); ?>/js/libs/modernizr-2.0.6.min.js"></script>
-<?php }
-add_action( 'wp_head', 'add_modernizr', 120 );
 
 /**
  * Link to 320 and up helper JS
