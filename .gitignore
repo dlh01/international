@@ -4,5 +4,6 @@ local-config.php
 wp-config.php
 
 assets/cache/
+assets/advanced-cache.php
 assets/uploads/
 .sass-cache/
