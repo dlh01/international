@@ -24,24 +24,35 @@ get_header(); ?>
 
 				<?php twentyeleven_content_nav( 'nav-above' ); ?>
 
-        <?php /* Determine how to display the current taxonomy archive using the query string */ ?>
-        <?php /* If the query is looking for both a resource type and a location, then use the normal loop */ ?>
-        <?php if ( get_query_var( 'location' ) && get_query_var( 'resource-type' ) ) : ?>
-        <?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'archive', 'location' ); ?> 
-				<?php endwhile; ?>
-        <?php /* If the query is looking for just a location, then hijack the loop and run the separate, multiple instances of WP_Query */ ?>
-        <?php elseif ( get_query_var( 'location' ) ) : ?>
-          <?php intl_list_resources_in_location_by_type(); ?>
-        <?php /* Otherwise, run the loop normally and use the archive-location.php view. This would need to be changed if there are other types of posts that could display */ ?>
-        <?php else: ?>
-          <?php while ( have_posts() ) : the_post(); ?>
-            <?php get_template_part( 'archive', 'location' ); ?> 
-          <?php endwhile; ?>
-        <?php endif; ?>
+        <?php
+        /**
+         *
+         * Determine how to display the current taxonomy archive using the query string
+         *
+         */
 
-				<?php twentyeleven_content_nav( 'nav-below' ); ?>
+        // If the query is looking for both a resource type and a location, then use the normal loop
+        if ( get_query_var( 'location' ) && get_query_var( 'resource-type' ) ) :
+          /* Start the Loop */
+          while ( have_posts() ) : the_post();
+          get_template_part( 'archive', 'location' ); 
+          endwhile;
+
+        // If the query is looking for just a location, then hijack the loop and
+        // run the separate, multiple instances of WP_Query
+        elseif ( get_query_var( 'location' ) ) :
+          intl_list_resources_in_location_by_type();
+
+        // Otherwise, run the loop normally and use the archive-location.php view.
+        // This would need to be changed if there are other types of posts that could display
+        else:
+          while ( have_posts() ) : the_post();
+          get_template_part( 'archive', 'location' ); 
+          endwhile;
+        endif;
+        ?>
+
+      <?php twentyeleven_content_nav( 'nav-below' ); ?>
 
 			<?php else : ?>
 
