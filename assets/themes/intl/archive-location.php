@@ -1,6 +1,6 @@
 <?php
 /**
- * The default template for displaying content
+ * The template for displaying content on Location Archive pages
  *
  * @package WordPress
  * @subpackage Twenty_Eleven
@@ -45,7 +45,13 @@
 
 		<footer class="entry-meta">
 			<?php $show_sep = false; ?>
-			<?php if ( 'post' == get_post_type() ) : // Hide category and tag text for pages on Search ?>
+      <span class="resource-links">
+        <a href="<?php the_permalink(); ?>">More details</a>
+        <span class="sep"> | </span>
+        <a href="<?php the_field( 'url' );?>" target="_blank">Original link</a>
+      </span>
+      <span class="sep"> | </span>
+      <?php if ( 'post' == get_post_type() ) : // Hide category and tag text for pages on Search ?>
 			<?php
 				/* translators: used between list items, there is a space after the comma */
 				$categories_list = get_the_category_list( __( ', ', 'twentyeleven' ) );
