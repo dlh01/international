@@ -53,7 +53,7 @@ get_header(); ?>
             echo '<section>'; // group each list of resources in a <section>
               echo '<h1>' . $type->name . '</h1>';
                 while ( $the_query->have_posts() ) : $the_query->the_post();
-                  get_template_part( 'content', 'post' );
+                  get_template_part( 'archive', 'location' );
                 endwhile;
             echo '</section>';
           endif;
