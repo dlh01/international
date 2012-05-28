@@ -55,6 +55,7 @@ get_header(); ?>
                 while ( $the_query->have_posts() ) : $the_query->the_post();
                   get_template_part( 'archive', 'location' );
                 endwhile;
+            echo '<footer class="entry-meta"><a href="' . esc_url( home_url( '/?resource-type=' . $type->slug . '&location=' . $location_query_var  ) ) . '"</a>View all resources under ' . $type->name . '</a></footer>';
             echo '</section>';
           endif;
         }
