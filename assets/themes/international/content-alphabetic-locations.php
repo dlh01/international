@@ -1,10 +1,6 @@
 <?php
 /**
- * The template used for displaying page content in page.php
- *
- * @package WordPress
- * @subpackage Twenty_Eleven
- * @since Twenty Eleven 1.0
+ * The template used for displaying page content in page-alphabetic-locations.php
  */
 ?>
 
@@ -15,6 +11,7 @@
 
 	<div class="entry-content">
 		<?php the_content(); ?>
+    <ul><?php wp_list_categories( array( 'taxonomy' => 'location', 'title_li' => '', 'hierarchical' => false )); ?></ul>
 		<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
 	<footer class="entry-meta">
