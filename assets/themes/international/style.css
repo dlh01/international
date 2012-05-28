@@ -10,3 +10,9 @@ Template: twentyeleven
 */
 
 @import url('../twentyeleven/style.css');
+
+/* Put this in the proper place later on */
+.featured-posts section.featured-post-permanent {
+  opacity: 1;
+  visibility: visible;
+}
