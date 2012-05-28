@@ -1,4 +1,9 @@
 <?php
+/**
+ * Show the most recent three resources for a given Location term, separated by Resource Type
+ *
+ * Link to the full list of resources for each Location and Resource Type combination
+ */
 function intl_list_resources_in_location_by_type() {
   $location_query_var = get_query_var( 'location' );
   $resource_type_terms = get_terms( 'resource-type' );
@@ -26,11 +31,10 @@ function intl_list_resources_in_location_by_type() {
     while ( $the_query->have_posts() ) : $the_query->the_post();
     get_template_part( 'archive', 'location' );
 endwhile;
-echo '<footer class="entry-meta"><a href="' . esc_url( home_url( '/?resource-type=' . $type->slug . '&location=' . $location_query_var  ) ) . '"</a>View all resources under ' . $type->name . '</a></footer>';
+echo '<footer class="entry-meta"><a href="' . esc_url( home_url( '/?resource-type=' . $type->slug . '&location=' . $location_query_var  ) ) . '"</a>View all resources about ' . single_cat_title( '', false ) .' under ' . $type->name . ' &rarr;</a></footer>';
 echo '</section>';
 endif;
   }
   wp_reset_postdata();
-
 }
 ?>
