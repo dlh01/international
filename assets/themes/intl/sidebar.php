@@ -15,6 +15,8 @@ if ( 'content' != $current_layout ) :
 		<div id="secondary" class="widget-area" role="complementary">
       <?php if ( is_tax('location') ) : ?>
 
+        <?php the_widget( 'Location_Search' ); ?>
+
         <aside id="children" class="widget">
           <h3 class="widget-title"><?php _e( 'Jump To Child', 'twentyeleven' ); ?></h3>
           <ul>
@@ -22,7 +24,7 @@ if ( 'content' != $current_layout ) :
           </ul>
         </aside>
 
-        <aside id="children" class="widget">
+        <aside id="parent" class="widget">
           <h3 class="widget-title"><?php _e( 'Jump To Parent', 'twentyeleven' ); ?></h3>
           <ul>
             <?php intl_jump_to_parent(); ?>
