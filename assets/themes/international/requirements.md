@@ -20,21 +20,23 @@ Sidebar:
 
 Name of Location - name of Resource Type
 For each resource:
-  Title of resource
-    Linked to detail page
-  Description of resource
-  Link to detail page
-  Link to original source
+  > Title of resource
+    > Linked to detail page
+  > Description of resource
+  > Link to detail page
+  > Link to original source
+  Link to original Location
 Sidebar:
-  Search for Location
-  Search site
-  Jump to Resource Types in current Location
-  Jump to parent Location
+  > Search for Location
+  > Search site
+  ? Jump to Resource Types in current Location
+  > Jump to parent Location
+  > Link to original Location
 
 
 # Home page
 
-Introductory text
+> Introductory text
 Search for Location
 Jump to a continent-level Location
 View Location taxonomy terms hierarchically
