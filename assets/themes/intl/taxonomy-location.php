@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying Category Archive pages.
+ * The template for displaying Location Archive pages.
  *
  * @package WordPress
  * @subpackage Twenty_Eleven
@@ -16,7 +16,7 @@ get_header(); ?>
 
 				<header class="page-header">
 					<h1 class="page-title"><?php
-						printf( __( 'Category Archives: %s', 'twentyeleven' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+						printf( __( 'Location Archives: %s', 'twentyeleven' ), '<span>' . single_cat_title( '', false ) . '</span>' );
 					?></h1>
 
 					<?php
