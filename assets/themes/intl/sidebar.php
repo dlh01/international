@@ -13,6 +13,24 @@ $current_layout = $options['theme_layout'];
 if ( 'content' != $current_layout ) :
 ?>
 		<div id="secondary" class="widget-area" role="complementary">
+      <?php if ( is_tax('location') ) : ?>
+
+        <aside id="children" class="widget">
+          <h3 class="widget-title"><?php _e( 'Jump To Child', 'twentyeleven' ); ?></h3>
+          <ul>
+            <?php intl_jump_to_child(); ?>
+          </ul>
+        </aside>
+
+        <aside id="children" class="widget">
+          <h3 class="widget-title"><?php _e( 'Jump To Parent', 'twentyeleven' ); ?></h3>
+          <ul>
+            <?php intl_jump_to_parent(); ?>
+          </ul>
+        </aside>
+
+      <?php endif; ?>
+
 			<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
 
 				<aside id="archives" class="widget">
