@@ -20,56 +20,14 @@ Description: This plugin creates a reusable widget that allows users to search f
  */
 
 /* 1. Enqueue jQuery UI */
-add_action( 'wp_enqueue_scripts', 'intl_jquery_ui' );
-function intl_jquery_ui() {
-
-
-  /**
-   *
-   * Stylesheets
-   *
-   */
-
-  // Register stylesheet
-  wp_register_style(
-    'jquery_ui_custom', // handle
-    get_template_directory_uri() . '/css/jquery-ui/jquery-ui-1.8.17.custom.css',
-    '', // deps
-    '1.8.17' // version
-  );
-
-
-  /**
-   *
-   * Scripts
-   *
-   */
-
-  // Register script
-  wp_register_script(
-    'jquery_ui_custom_js', // handle
-    get_template_directory_uri() . '/js/libs/jquery-ui-1.8.18.custom.min.js',
-    'jquery', // deps
-    '1.8.18', // version
-    'true' // in footer?
-  );
-
-
-  /**
-   *
-   * Enqueue needed assets
-   *
-   */
-
-  wp_enqueue_style( 'jquery_ui_custom' );
-  wp_enqueue_script( 'jquery_ui_custom_js' );
-
-
+add_action( 'wp_enqueue_scripts', 'intl_enqueue_jquery_ui' );
+function intl_enqueue_jquery_ui() {
+  wp_enqueue_script( 'jquery-ui-autocomplete' );
 }
-/* 2. /js/autocomplete.js */
-add_action( 'wp_footer', 'enqueue_jquery_ui_autocomplete', 200 );
-function enqueue_jquery_ui_autocomplete() { ?>
 
+/* 2. jQuery script to generate autocomplete tags */
+add_action( 'wp_footer', 'intl_print_locations', 200 );
+function intl_print_locations() { ?>
 <script>
   jQuery(function() {
     var availableTags = [
@@ -138,50 +96,12 @@ class Location_Search extends WP_Widget
 	 * will display to administrators. These options can then be found in the $params 
 	 * variable within the widget method.
 	 * 
-	 * 
-		array(
-			'name' => 'Title',
-			'desc' => '',
-			'id' => 'title',
-			'type' => 'text',
-			'std' => 'Your widgets title'
-		),
-		array(
-			'name' => 'Textarea',
-			'desc' => 'Enter big text here',
-			'id' => 'textarea_id',
-			'type' => 'textarea',
-			'std' => 'Default value 2'
-		),
-		array(
-		    'name'    => 'Select box',
-			'desc' => '',
-		    'id'      => 'select_id',
-		    'type'    => 'select',
-		    'options' => array( 'KEY1' => 'Value 1', 'KEY2' => 'Value 2', 'KEY3' => 'Value 3' )
-		),
-		array(
-			'name' => 'Radio',
-			'desc' => '',
-			'id' => 'radio_id',
-			'type' => 'radio',
-			'options' => array(
-				array('name' => 'Name 1', 'value' => 'Value 1'),
-				array('name' => 'Name 2', 'value' => 'Value 2')
-			)
-		),
-		array(
-			'name' => 'Checkbox',
-			'desc' => '',
-			'id' => 'checkbox_id',
-			'type' => 'checkbox'
-		),
 	 */
 	protected $widget = array(
 		// this description will display within the administrative widgets area
 		// when a user is deciding which widget to use.
     'title' => 'Location Search Widget',
-		'description' => 'Displays a search box for a user to select a Location',
+		'description' => '',
     'classname' => 'widget_search',
 		
 		// determines whether or not to use the sidebar _before and _after html
@@ -197,7 +117,7 @@ class Location_Search extends WP_Widget
 			// You should always offer a widget title
 			array(
 				'name' => 'Title',
-				'desc' => '',
+				'desc' => 'Location search widget',
 				'id' => 'title',
 				'type' => 'text',
 				'std' => 'Find A Location'
@@ -266,7 +186,7 @@ class Location_Search extends WP_Widget
 	{
 		//initializing variables
 		$this->widget['number'] = $this->number;
-		$title = apply_filters( 'Location_Search_title', $params['title'] );
+		// $title = apply_filters( 'Location_Search_title', $params['title'] );
 		$do_wrapper = (!isset($this->widget['do_wrapper']) || $this->widget['do_wrapper']);
 		
 		if ( $do_wrapper ) 
