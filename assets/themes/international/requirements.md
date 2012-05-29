@@ -37,7 +37,7 @@ Sidebar:
 # Home page
 
 > Introductory text
-Search for Location
-Jump to a continent-level Location
-View Location taxonomy terms hierarchically
-View Location taxonomy terms alphabetically
+> Search for Location
+> Jump to a continent-level Location
+> View Location taxonomy terms hierarchically
+> View Location taxonomy terms alphabetically
