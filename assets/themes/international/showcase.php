@@ -40,11 +40,13 @@ get_header(); ?>
           <section class="featured-post featured-post-permanent">
             <div class="ui-widget">
               <form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
-                <div><label for="tags-front-page" class="screen-reader-text" for="s">Jump to:</label>
-                      <input class="tags" id="tags-front-page" type="text" value="" name="s" id="s" />
-                      <input type="hidden" name="searchform" value="location" /> 
-                      <input type="submit" id="searchsubmit" value="Go" />
-                  </div>
+                <div>
+                  <label for="tags-front-page" class="assistive-text screen-reader-text" for="s">Jump to:</label>
+                  <span class="glyph general">l</span>
+                  <input class="tags field" id="tags-front-page" type="text" value="" name="s" id="s" placeholder="Placeholder text" />
+                  <input type="hidden" name="searchform" value="location" /> 
+                  <input type="submit" id="searchsubmit" value="Go" />
+                </div>
               </form>
             </div><!-- ui-widget -->
           </section>
@@ -53,7 +55,7 @@ get_header(); ?>
         <div class="featured-posts featured-posts-permanent">
           <h1 class="showcase-heading">Jump To A Continent</h1>
           <section class="featured-post featured-post-permanent">
-            <ul>
+            <ul class="list-columns list-columns-three">
               <?php
                 /**
                  * Display a link to the archive page of each Location term
@@ -75,7 +77,7 @@ get_header(); ?>
         <div class="featured-posts featured-posts-permanent">
           <h1 class="showcase-heading">View Locations Alphabetically/Hierarchically</h1>
           <section class="featured-post">
-            <ul>
+            <ul class="list-columns list-columns-two">
               <li class="cat-item">
                 <a href="">View all Locations alphabetically</a>
               </li>
