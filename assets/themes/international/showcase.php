@@ -35,13 +35,22 @@ get_header(); ?>
 
 				<?php endwhile; ?>
 
-        <div class="featured-posts">
+        <div class="featured-posts featured-posts-permanent">
           <h1 class="showcase-heading">Search For A Location</h1>
           <section class="featured-post featured-post-permanent">
+            <div class="ui-widget">
+              <form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
+                <div><label for="tags-front-page" class="screen-reader-text" for="s">Jump to:</label>
+                      <input class="tags" id="tags-front-page" type="text" value="" name="s" id="s" />
+                      <input type="hidden" name="searchform" value="location" /> 
+                      <input type="submit" id="searchsubmit" value="Go" />
+                  </div>
+              </form>
+            </div><!-- ui-widget -->
           </section>
         </div>
 
-        <div class="featured-posts">
+        <div class="featured-posts featured-posts-permanent">
           <h1 class="showcase-heading">Jump To A Continent</h1>
           <section class="featured-post featured-post-permanent">
             <ul>
@@ -63,9 +72,17 @@ get_header(); ?>
           </section>
         </div>
 
-        <div class="featured-posts">
+        <div class="featured-posts featured-posts-permanent">
           <h1 class="showcase-heading">View Locations Alphabetically/Hierarchically</h1>
-          <section class="featured-post featured-post-permanent">
+          <section class="featured-post">
+            <ul>
+              <li class="cat-item">
+                <a href="">View all Locations alphabetically</a>
+              </li>
+              <li class="cat-item">
+                <a href="">View all Location geographically</a>
+              </li>
+            </ul>
           </section>
         </div>
 
