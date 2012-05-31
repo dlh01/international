@@ -21,3 +21,35 @@
 .featured-posts-permanent .list-columns-three {
   -webkit-column-count: 3;
 }
+.featured-posts-permanent--offwhite { /* Alternate background */
+  // background-color: #f9f9f9;
+}
+
+/**
+ * List of continents with icons
+ */
+.featured-posts-permanent--continents {
+  ul {
+    // margin-left: 0;
+  }
+  .cat-item {
+    border-radius: 4px;
+    margin: 12px 0;
+    -webkit-transition: .3s all ease;
+
+    &:hover {
+      background-color: $lightpurple;
+      -webkit-transition: .3s all ease;
+    }
+
+    a {
+      display: block;
+      padding: 4px;
+      width: 100%;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}

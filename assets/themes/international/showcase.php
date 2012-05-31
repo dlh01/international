@@ -52,7 +52,7 @@ get_header(); ?>
           </section>
         </div>
 
-        <div class="featured-posts featured-posts-permanent">
+        <div class="featured-posts featured-posts-permanent featured-posts-permanent--continents">
           <h1 class="showcase-heading">Jump To A Continent</h1>
           <section class="featured-post featured-post-permanent">
             <ul>
