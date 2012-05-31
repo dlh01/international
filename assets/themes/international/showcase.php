@@ -42,7 +42,7 @@ get_header(); ?>
               <form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
                 <div>
                   <label for="tags-front-page" class="assistive-text screen-reader-text" for="s">Jump to:</label>
-                  <span class="glyph general">l</span>
+                  <!-- <span class="glyph general">l</span> -->
                   <input class="tags field" id="tags-front-page" type="text" value="" name="s" id="s" placeholder="Placeholder text" />
                   <input type="hidden" name="searchform" value="location" /> 
                   <input type="submit" id="searchsubmit" value="Go" />
@@ -55,7 +55,7 @@ get_header(); ?>
         <div class="featured-posts featured-posts-permanent">
           <h1 class="showcase-heading">Jump To A Continent</h1>
           <section class="featured-post featured-post-permanent">
-            <ul class="list-columns list-columns-three">
+            <ul>
               <?php
                 /**
                  * Display a link to the archive page of each Location term
