@@ -10,7 +10,7 @@ function intl_handle_styles() {
   // Register stylesheet
   wp_register_style(
     'international', // handle
-    get_stylesheet_directory_uri() . 'international.css', // src
+    get_stylesheet_directory_uri() . '/css/international.css', // src
     '', // deps
     '0.1' // version
   );
