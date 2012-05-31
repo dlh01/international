@@ -1,0 +1,23 @@
+.featured-posts-permanent {
+  /* height: 128px; */
+}
+.featured-posts-permanent section.featured-post {
+  opacity: 1;
+  visibility: visible;
+  width: 82%;
+}
+.featured-posts-permanent .ui-autocomplete-input {
+  width: 100%;
+}
+.featured-posts-permanent .list-columns {
+  list-style-type: none;
+  margin-left: 0;
+}
+.featured-posts-permanent .list-columns .cat-item {
+}
+.featured-posts-permanent .list-columns-two {
+  -webkit-column-count: 2;
+}
+.featured-posts-permanent .list-columns-three {
+  -webkit-column-count: 3;
+}
