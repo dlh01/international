@@ -1,5 +1,5 @@
 .featured-posts-permanent {
-  /* height: 128px; */
+  height: 128px;
 }
 .featured-posts-permanent section.featured-post {
   opacity: 1;
@@ -30,25 +30,24 @@
  */
 .featured-posts-permanent--continents {
   ul {
-    // margin-left: 0;
+    list-style-position: inside;
+    list-style-type: none;
+    margin-left: 0;
   }
   .cat-item {
-    border-radius: 4px;
-    margin: 12px 0;
-    -webkit-transition: .3s all ease;
-
-    &:hover {
-      background-color: $lightpurple;
-      -webkit-transition: .3s all ease;
-    }
+    border-bottom: 1px dotted solid;
+    // font-weight: bold;
+    margin: 8px 0;
 
     a {
       display: block;
       padding: 4px;
-      width: 100%;
+      -webkit-transition: background-color .2s ease, color .2s ease .5ms;
 
       &:hover {
-        color: $white;
+        background-color: lightskyblue;
+        color: white;
+        text-decoration: none;
       }
     }
   }
