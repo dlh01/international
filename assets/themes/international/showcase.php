@@ -35,7 +35,7 @@ get_header(); ?>
 
 				<?php endwhile; ?>
 
-        <div class="featured-posts featured-posts-permanent">
+        <div class="featured-posts featured-posts-permanent locations">
           <h1 class="showcase-heading">Search For A Location</h1>
           <section class="featured-post featured-post-permanent">
             <div class="ui-widget">
@@ -52,7 +52,7 @@ get_header(); ?>
           </section>
         </div>
 
-        <div class="featured-posts featured-posts-permanent featured-posts-permanent--continents">
+        <div class="featured-posts featured-posts-permanent continents">
           <h1 class="showcase-heading">Jump To A Continent</h1>
           <section class="featured-post featured-post-permanent">
             <ul>
@@ -74,17 +74,9 @@ get_header(); ?>
           </section>
         </div>
 
-        <div class="featured-posts featured-posts-permanent">
-          <h1 class="showcase-heading">View Locations Alphabetically/Hierarchically</h1>
+        <div class="featured-posts featured-posts-permanent lists">
           <section class="featured-post">
-            <ul class="list-columns list-columns-two">
-              <li class="cat-item">
-                <a href="">View all Locations alphabetically</a>
-              </li>
-              <li class="cat-item">
-                <a href="">View all Location geographically</a>
-              </li>
-            </ul>
+            <p>Or, you can view all Locations <a href="">alphabetically</a> or <a href="">geographically</a></p>
           </section>
         </div>
 

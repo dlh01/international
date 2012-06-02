@@ -25,10 +25,26 @@
   // background-color: #f9f9f9;
 }
 
-/**
- * List of continents with icons
- */
-.featured-posts-permanent--continents {
+/* Jump-to-locations box */
+.locations {
+  
+  input[type="text"] {
+    background-color: #fff;
+    height: 22px;
+    padding: 4px 10px;
+    -moz-transition: background-color 0.4s ease-in-out 0s;
+    -o-transition: background-color 0.4s ease-in-out 0s;
+    -webkit-transition: background-color 0.4s ease-in-out 0s;
+    transition: background-color 0.4s ease-in-out 0s;
+
+    &:focus {
+      background-color: #f9f9f9;
+    }
+  }
+}
+
+/* List of continents with icons */
+.continents {
   ul {
     list-style-position: inside;
     list-style-type: none;
@@ -50,5 +66,17 @@
         text-decoration: none;
       }
     }
+  }
+}
+
+/* View all Locations alphabetically or geographically */
+.lists {
+  background-color: #f9f9f9;
+  margin: -1.855em -8.9% 1.625em;
+  padding: 0 8.9%;
+  text-align: center;
+
+  section.featured-post {
+    background-color: #f9f9f9; // Use this to override the default #fff
   }
 }

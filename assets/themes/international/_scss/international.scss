@@ -10,5 +10,8 @@
 /* Import variables; this has to be the first _scss @import! */
 @import "variables";
 
+/* General styles */
 @import "typography";
-@import "featured-posts-permanent";
+
+/* Front page */
+@import "featured-posts-permanent"; // The three permanent .featured-posts divs
