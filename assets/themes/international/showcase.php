@@ -35,48 +35,48 @@ get_header(); ?>
 
 				<?php endwhile; ?>
 
-        <div class="featured-posts featured-posts-permanent locations">
+        <div class="featured-posts featured-posts-permanent">
           <h1 class="showcase-heading">Search For A Location</h1>
           <section class="featured-post featured-post-permanent">
-            <div class="ui-widget">
-              <form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
-                <div>
-                  <label for="tags-front-page" class="assistive-text screen-reader-text" for="s">Jump to:</label>
-                  <!-- <span class="glyph general">l</span> -->
-                  <input class="tags field" id="tags-front-page" type="text" value="" name="s" id="s" placeholder="Placeholder text" />
-                  <input type="hidden" name="searchform" value="location" /> 
-                  <input type="submit" id="searchsubmit" value="Go" />
-                </div>
-              </form>
-            </div><!-- ui-widget -->
-          </section>
-        </div>
-
-        <div class="featured-posts featured-posts-permanent continents">
-          <h1 class="showcase-heading">Jump To A Continent</h1>
-          <section class="featured-post featured-post-permanent">
-            <ul>
-              <?php
-                /**
-                 * Display a link to the archive page of each Location term
-                 * that's an immediatechild of the "Global" term
-                 */
-                $globalterm = get_term_by( 'slug', 'global', 'location' );
-                $globalterm_id = $globalterm->term_id;
-                wp_list_categories( array(
-                  'taxonomy' => 'location',
-                  'child_of' => $globalterm_id,
-                  'depth' => 1,
-                  'title_li' => '',
-                ));
-              ?>
-            </ul>
-          </section>
-        </div>
-
-        <div class="featured-posts featured-posts-permanent lists">
-          <section class="featured-post">
-            <p>Or, you can view all Locations <a href="">alphabetically</a> or <a href="">geographically</a></p>
+            <section class="locations">
+              <div class="ui-widget">
+                <form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
+                  <div>
+                    <label for="tags-front-page" class="assistive-text screen-reader-text" for="s">Jump to:</label>
+                    <!-- <span class="glyph general">l</span> -->
+                    <input class="tags field" id="tags-front-page" type="text" value="" name="s" id="s" placeholder="Placeholder text" />
+                    <input type="hidden" name="searchform" value="location" /> 
+                    <input type="submit" id="searchsubmit" value="Go" />
+                  </div>
+                </form>
+              </div><!-- ui-widget -->
+            </section>
+            <section class="continents">
+              <p>You also can jump to a continent:
+              <ul>
+                <?php
+                  /**
+                   * Display a link to the archive page of each Location term
+                   * that's an immediate child of the "Global" term.
+                   * Exclude Antarctica
+                   */
+                  $globalterm = get_term_by( 'slug', 'global', 'location' );
+                  $globalterm_id = $globalterm->term_id;
+                  $antarctica = get_term_by( 'slug', 'antarctica', 'location' );
+                  $antarctica_id = $antarctica->term_id;
+                  wp_list_categories( array(
+                    'taxonomy' => 'location',
+                    'child_of' => $globalterm_id,
+                    'depth' => 1,
+                    'title_li' => '',
+                    'exclude' => $antarctica_id,
+                  ));
+                ?>
+              </ul>
+            </section>
+            <section class="lists">
+              <p>Or, view all Locations <a href="">alphabetically</a> or <a href="">geographically</a>.</p>
+            </section>
           </section>
         </div>
 
