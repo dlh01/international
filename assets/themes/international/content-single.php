@@ -8,6 +8,32 @@
  */
 ?>
 
+<?php
+/**
+ * Put all custom fields into variables
+ */
+$original         = get_field( 'url' );
+$author           = get_field( 'author' );
+$publication      = get_field( 'publication' );
+$organization     = get_field( 'organization' );
+$language         = get_field( 'language' );
+$contact          = get_field( 'contact' );
+$twitter_handle   = get_field( 'twitter' );
+$facebook_page    = get_field( 'facebook' );
+$socmed           = get_field( 'socmed' );
+$date             = get_field( 'date' );
+$year             = get_field( 'year' );
+$volume           = get_field( 'volume' );
+$issue            = get_field( 'issue' );
+$page             = get_field( 'page' );
+$deadline         = get_field( 'deadline' );
+$cost             = get_field( 'cost' );
+$url_2            = get_field( 'url_2' );
+$url_2_language   = get_field( 'url_2_language' );
+$url_3            = get_field( 'url_3' );
+$url_3_language   = get_field( 'url_3_language' );
+?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
@@ -21,6 +47,12 @@
 
 	<div class="entry-content">
 		<?php the_content(); ?>
+    <?php
+      // show the original URL prominently
+      if ( get_field( 'url' ) ) :
+        echo '<p class=original><a href="' . $original . '" target="_blank">View full resource</a></p>';
+      endif;
+    ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
 
