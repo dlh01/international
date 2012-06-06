@@ -46,24 +46,12 @@
 /* List of continents with icons */
 .continents {
   ul {
-    list-style-position: inside;
-    list-style-type: none;
-    margin-left: 0;
   }
   .cat-item {
-    border-bottom: 1px dotted solid;
-    // font-weight: bold;
-    margin: 8px 0;
 
     a {
-      display: block;
-      padding: 4px;
-      -webkit-transition: background-color .2s ease, color .2s ease .5ms;
 
       &:hover {
-        background-color: lightskyblue;
-        color: white;
-        text-decoration: none;
       }
     }
   }
@@ -71,12 +59,6 @@
 
 /* View all Locations alphabetically or geographically */
 .lists {
-  background-color: #f9f9f9;
-  margin: -1.855em -8.9% 1.625em;
-  padding: 0 8.9%;
-  text-align: center;
-
   section.featured-post {
-    background-color: #f9f9f9; // Use this to override the default #fff
   }
 }
