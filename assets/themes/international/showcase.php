@@ -226,7 +226,7 @@ get_header(); ?>
 						global $more;
 						$more = 0;
 
-						get_template_part( 'content', get_post_format() );
+						get_template_part( 'archive', 'location' );
 
 						echo '<ol class="other-recent-posts">';
 
