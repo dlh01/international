@@ -58,10 +58,10 @@ get_header(); ?>
                   /**
                    * Display a link to the archive page of each Location term
                    * that's an immediate child of the "Global" term.
-                   * Exclude Antarctica
                    */
                   $globalterm = get_term_by( 'slug', 'global', 'location' );
                   $globalterm_id = $globalterm->term_id;
+                  // Exclude Antarctica
                   $antarctica = get_term_by( 'slug', 'antarctica', 'location' );
                   $antarctica_id = $antarctica->term_id;
                   wp_list_categories( array(
