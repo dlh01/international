@@ -38,7 +38,7 @@ get_header(); ?>
         <div class="featured-posts featured-posts-permanent">
           <h1 class="showcase-heading">Search For A Location</h1>
           <section class="featured-post featured-post-permanent">
-            <section class="locations">
+            <section class="section locations">
               <div class="ui-widget">
                 <form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
                   <div>
@@ -51,8 +51,8 @@ get_header(); ?>
                 </form>
               </div><!-- ui-widget -->
             </section>
-            <section class="continents">
-              <p>You also can jump to a continent:
+            <section class="section continents">
+              <p class="intro">Or jump to a continent:</p>
               <ul>
                 <?php
                   /**
@@ -74,7 +74,7 @@ get_header(); ?>
                 ?>
               </ul>
             </section>
-            <section class="lists">
+            <section class="section lists">
               <p>Or, view all Locations <a href="">alphabetically</a> or <a href="">geographically</a>.</p>
             </section>
           </section>
