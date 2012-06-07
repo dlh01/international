@@ -1,28 +1,28 @@
 .featured-posts-permanent {
   height: 528px;
+  text-align: center; // Center all text in the permanent featured posts on small screens
+
+  /* "Search For A Location" heading */
+  h1.showcase-heading {
+    color: inherit; // Not #666
+    font-size: 21px; // Not tiny
+    font-weight: 700; // Not 400
+    letter-spacing: 0; // Not 0.1
+    padding-left: 0; // For small screens, because we're centering the text
+    text-transform: none; // Not uppercase
+  }
+
+  /* Each custom section within the .featured-posts-permanent */
+  .section {
+    margin-bottom: 36px; // More spacing between sections for touch usability
+  }
+
 }
 .featured-posts-permanent section.featured-post {
   opacity: 1;
   visibility: visible;
+  top: 36px; // Not 30px; accounts for larger h1.showcase-heading
   width: 82%;
-}
-.featured-posts-permanent .ui-autocomplete-input {
-  width: 100%;
-}
-.featured-posts-permanent .list-columns {
-  list-style-type: none;
-  margin-left: 0;
-}
-.featured-posts-permanent .list-columns .cat-item {
-}
-.featured-posts-permanent .list-columns-two {
-  -webkit-column-count: 2;
-}
-.featured-posts-permanent .list-columns-three {
-  -webkit-column-count: 3;
-}
-.featured-posts-permanent--offwhite { /* Alternate background */
-  // background-color: #f9f9f9;
 }
 
 /* Jump-to-locations box */
@@ -30,8 +30,10 @@
   
   input[type="text"] {
     background-color: #fff;
+    font-size: 16px; // Larger font for this primary CTA
     height: 22px;
-    padding: 4px 10px;
+    padding: 6px 12px;
+    width: 80%; // Approxmiately full-width for small screens; the container is width: 82% and we have 24px of padding
     -moz-transition: background-color 0.4s ease-in-out 0s;
     -o-transition: background-color 0.4s ease-in-out 0s;
     -webkit-transition: background-color 0.4s ease-in-out 0s;
@@ -45,9 +47,18 @@
 
 /* List of continents with icons */
 .continents {
+  .intro {
+    font-size: 15px;
+    font-weight: bold; // Intro text before the list should be bold
+  }
   ul {
+    border-left: 1px solid $lightpurple; // Light flourish
+    list-style: none; // Don't show bullets
+    margin-left: 0; // None needed without bullets
   }
   .cat-item {
+    font-size: 16px; // Larger font in this list
+    margin-bottom: 10px; // Added margin for touch usability
 
     a {
 
@@ -59,6 +70,4 @@
 
 /* View all Locations alphabetically or geographically */
 .lists {
-  section.featured-post {
-  }
 }
