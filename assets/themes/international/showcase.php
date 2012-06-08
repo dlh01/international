@@ -75,7 +75,7 @@ get_header(); ?>
               </ul>
             </section>
             <section class="section lists">
-              <p>Or, view all Locations <a href="">alphabetically</a> or <a href="">geographically</a>.</p>
+              <p>Or view all Locations <a href="">alphabetically</a> or <a href="">geographically</a>.</p>
             </section>
           </section>
         </div>
