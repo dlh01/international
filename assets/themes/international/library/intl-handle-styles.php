@@ -15,11 +15,19 @@ function intl_handle_styles() {
     '0.1' // version
   );
 
+  // Register jQuery UI stylesheet
+  wp_register_style(
+    'jquery-ui',
+    get_stylesheet_directory_uri() . '/css/jquery-ui/jquery-ui-1.8.17.custom.css',
+    'international'
+  );
+
   /**
    * Enqueue needed styles
    */
 
   wp_enqueue_style( 'international' );
+  wp_enqueue_style( 'jquery-ui' );
 
 }
 ?>
