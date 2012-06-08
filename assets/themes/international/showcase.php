@@ -52,7 +52,7 @@ get_header(); ?>
               </div><!-- ui-widget -->
             </section>
             <section class="section continents">
-              <p class="intro">Or jump to a continent:</p>
+              <p class="intro">Or Jump To a Continent</p>
               <ul>
                 <?php
                   /**
