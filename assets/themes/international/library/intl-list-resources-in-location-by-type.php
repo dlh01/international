@@ -31,7 +31,7 @@ function intl_list_resources_in_location_by_type() {
         while ( $the_query->have_posts() ) : $the_query->the_post();
           get_template_part( 'archive', 'location' );
         endwhile;
-        echo '<footer class="entry-meta location-by-type--footer"><a href="' . esc_url( home_url( '/?resource-type=' . $type->slug . '&location=' . $location_query_var  ) ) . '"</a>View all resources about ' . single_cat_title( '', false ) .' under ' . $type->name . ' &rarr;</a></footer>';
+        echo '<footer class="entry-meta location-by-type--footer"><a href="' . esc_url( home_url( '/?resource-type=' . $type->slug . '&location=' . $location_query_var  ) ) . '">View all resources about ' . single_cat_title( '', false ) .' under ' . $type->name . ' &rarr;</a></footer>';
       echo '</section>';
     endif;
   }
