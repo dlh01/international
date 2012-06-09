@@ -40,9 +40,10 @@
 
 }
 .featured-posts-permanent section.featured-post {
+  height: 414px; // Increase from the height of the regular .featured-posts section.featured-post
   opacity: 1;
-  visibility: visible;
   top: 36px; // Not 30px; accounts for larger h1.showcase-heading
+  visibility: visible;
   width: 82%;
 
   /* Tablets */
@@ -87,6 +88,15 @@
       font-size: 30px;
       height: 35px;
     }
+  }
+}
+
+/* The drop-down menu of Locations */
+.ui-autocomplete {
+}
+.ui-menu-item { // Each item in the list
+
+  &:focus {
   }
 }
 
