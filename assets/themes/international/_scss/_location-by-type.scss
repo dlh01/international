@@ -1,6 +1,6 @@
 /* Wrapper around each section of Resource Types */
 .location-by-type {
-  margin-bottom: 2.6em; // Mirror the margin-bottom of the .page-title on these archives
+  margin-bottom: 3.25em; // Double the margin-bottom of the .page-title on these archives
 }
 
 /* The heading of each section of Resource Types */
@@ -23,11 +23,11 @@
 
   .entry-title { // The title of each resource
     font-size: 17px;
-    font-weight: 300;
     padding-right: 0; // No padding needed because the comment bubble is removed
 
     a {
       color: #1982D1;
+      font-weight: 500;
     }
   }
 
@@ -42,11 +42,10 @@
 
 /* The footer for each section of Resource Types */
 .location-by-type--footer {
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 17px;
   padding-top: 12px; // A little extra space between the last resource and the view-all link
 
   a {
-    font-weight: 300;
+    font-weight: 500;
   }
 }
