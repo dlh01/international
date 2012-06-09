@@ -27,7 +27,7 @@ function intl_list_resources_in_location_by_type() {
     $the_query = new WP_Query( $args );
     if ( $the_query->have_posts() ) :
       echo '<section class="location-by-type ' . $type->slug . '">'; // group each list of resources in a <section>
-        echo '<h1 class="location-by-type--heading">' . $type->name . '</h1>';
+        echo '<h1 class="location-by-type--heading"><a href="' . esc_url( home_url( '/?resource-type=' . $type->slug . '&location=' . $location_query_var  ) ) . '">' . $type->name . '</a></h1>';
         while ( $the_query->have_posts() ) : $the_query->the_post();
           get_template_part( 'archive', 'location' );
         endwhile;
