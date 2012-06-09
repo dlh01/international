@@ -1,0 +1,52 @@
+/* Wrapper around each section of Resource Types */
+.location-by-type {
+  margin-bottom: 2.6em; // Mirror the margin-bottom of the .page-title on these archives
+}
+
+/* The heading of each section of Resource Types */
+.location-by-type--heading {
+  border-bottom: 1px dotted #222;
+  font-size: 21px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  padding-bottom: 4px;
+
+  a {
+    color: #222;
+  }
+}
+
+/* Each <article> within a .location-by-type section */
+.location-by-type .hentry {
+  border-bottom: 0;
+  padding: 0;
+
+  .entry-title { // The title of each resource
+    font-size: 17px;
+    font-weight: 300;
+    padding-right: 0; // No padding needed because the comment bubble is removed
+
+    a {
+      color: #1982D1;
+    }
+  }
+
+  .entry-content {
+    padding-top: 12px; // Less space between title and content because the font-size of the title is smaller
+  }
+
+  .entry-meta a { // Override the default .entry-meta a style in these sections
+    font-weight: 300;
+  }
+}
+
+/* The footer for each section of Resource Types */
+.location-by-type--footer {
+  font-size: 15px;
+  font-weight: 400;
+  padding-top: 12px; // A little extra space between the last resource and the view-all link
+
+  a {
+    font-weight: 300;
+  }
+}
