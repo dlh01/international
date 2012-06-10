@@ -36,9 +36,10 @@ get_header(); ?>
           /* Start the Loop */
           while ( have_posts() ) : the_post();
           get_template_part( 'archive', 'location' ); 
-          // Display a link back to the full Location archive
-          echo '<footer class="entry-meta"><a href="' . get_term_link( get_query_var( 'location' ), 'location' ) . '">&larr; View all resources for ' . single_cat_title( '', false ) . '</a></footer>';
           endwhile;
+          // Display a link back to the full Location archive
+          twentyeleven_content_nav( 'nav-below' );
+          echo '<footer class="entry-meta back-to-location"><a href="' . get_term_link( get_query_var( 'location' ), 'location' ) . '">&larr; View all resources for ' . single_cat_title( '', false ) . '</a></footer>';
 
         // If the query is looking for just a location, then hijack the loop and
         // run the separate, multiple instances of WP_Query
@@ -51,10 +52,10 @@ get_header(); ?>
           while ( have_posts() ) : the_post();
           get_template_part( 'archive', 'location' ); 
           endwhile;
+          twentyeleven_content_nav( 'nav-below' );
         endif;
         ?>
 
-      <?php twentyeleven_content_nav( 'nav-below' ); ?>
 
 			<?php else : ?>
 
