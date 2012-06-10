@@ -22,12 +22,15 @@
   padding: 0;
 
   .entry-title { // The title of each resource
-    font-size: 17px;
+    font-size: 21px;
     padding-right: 0; // No padding needed because the comment bubble is removed
 
+    @media screen and (min-width: 650px) {
+      font-size: 26px;
+    }
+
     a {
-      color: #1982D1;
-      font-weight: 500;
+      font-weight: 700;
     }
   }
 
@@ -42,10 +45,16 @@
 
 /* The footer for each section of Resource Types */
 .location-by-type--footer {
-  font-size: 17px;
+  font-size: 13px;
   padding-top: 12px; // A little extra space between the last resource and the view-all link
 
   a {
-    font-weight: 500;
+    color: #222;
+    font-weight: 700;
+
+    &:hover {
+      color: $purple;
+      text-decoration: none;
+    }
   }
 }
