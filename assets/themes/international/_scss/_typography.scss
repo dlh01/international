@@ -1,9 +1,21 @@
+
 /* Variables */
 $body: Cabin, "Helvetica Neue", Helvetica, Arial, sans-serif;
-$headlines: Lato, Arial, Verdana, sans-serif;
+$headings: Lato, Arial, Verdana, sans-serif;
 
-/* Replace the default font declaration with the Google Font */
-body, input, textarea {
-  // font: 15px $body;
+body,
+input,
+textarea {
+  /* Replace the default font declaration with the Google Font */
+  font: 15px/1.625 $body;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* Use the headline font */
+  font-family: $headings;
+}
