@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin name: .Custom Taxonomies
+Plugin name: INTL Custom Taxonomies
 Description: Contains code for creating IRJR's custom taxonomies
 Version: 0.1
 Author: David Herrera

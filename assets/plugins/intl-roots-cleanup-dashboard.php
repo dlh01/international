@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin name: .Roots Cleanup Dashboard
+Plugin name: INTL Roots Cleanup Dashboard
 Description: Remove unnecessary dashboard widgets
 Author: Ben Word / Roots Theme
 Plugin URI: https://github.com/retlehs/roots/blob/master/inc/cleanup.php

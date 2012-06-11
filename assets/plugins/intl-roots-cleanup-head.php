@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin name: .Roots Cleanup wp_head
+Plugin name: INTL Roots Cleanup wp_head
 Description: Cleanup wp_head()
 Author: Ben Word / Roots Theme
 Plugin URI: https://github.com/retlehs/roots/blob/master/inc/cleanup.php

@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin name: .Roots Cleanup Search
+Plugin name: INTL Roots Cleanup Search
 Description: Redirects search results from /?s=query to /search/query/, converts %20 to +; Fix for get_search_query() returning +'s between search terms; Fix for empty search queries redirecting to home page
 Author: Ben Word / Roots Theme
 Plugin URI: https://github.com/retlehs/roots/blob/master/inc/cleanup.php
