@@ -65,7 +65,6 @@
 	 */
 	wp_head();
 ?>
-<link rel="stylesheet" href="/international/assets/fonts/fontawesome/css/font-awesome.css">
 </head>
 
 <body <?php body_class(); ?>>

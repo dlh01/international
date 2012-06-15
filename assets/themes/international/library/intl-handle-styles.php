@@ -15,6 +15,13 @@ function intl_handle_styles() {
     '0.1' // version
   );
 
+  // Register FontAwesome stylesheet
+  wp_register_style(
+    'fontawesome',
+    get_stylesheet_directory_uri() . '/fontawesome/css/font-awesome.css',
+    'international' // deps
+  );
+
   // Register jQuery UI stylesheet
   wp_register_style(
     'jquery-ui',
@@ -27,6 +34,7 @@ function intl_handle_styles() {
    */
 
   wp_enqueue_style( 'international' );
+  wp_enqueue_style( 'fontawesome' );
   wp_enqueue_style( 'jquery-ui' );
 
 }
