@@ -34,7 +34,7 @@ function intl_print_locations() { ?>
       <?php
         $categories = get_categories( 'taxonomy=location' );
         foreach ($categories as $category) {
-          echo '"' . $category->name . '", ';
+          echo '{label: "' . $category->name . '", value: "' . $category->slug . '"}, ';
         }
       ?>
     ];
