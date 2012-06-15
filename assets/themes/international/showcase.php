@@ -43,7 +43,6 @@ get_header(); ?>
                 <form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
                   <div>
                     <label for="tags-front-page" class="assistive-text screen-reader-text" for="s">Jump to:</label>
-                    <!-- <span class="glyph general">l</span> -->
                     <input class="tags field" id="tags-front-page" type="text" value="" name="s" id="s" placeholder='Try "Ireland" or "Zambia"' />
                     <input type="hidden" name="searchform" value="location" /> 
                     <input type="submit" id="searchsubmit" value="Go" />
