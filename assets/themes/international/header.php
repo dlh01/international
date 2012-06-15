@@ -65,11 +65,13 @@
 	 */
 	wp_head();
 ?>
+<link rel="stylesheet" href="/international/assets/fonts/fontawesome/css/font-awesome.css">
 </head>
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed">
 	<header id="branding" role="banner">
+      <div class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><i class="icon-globe"></i> IRJR <i class="icon-globe"></i></a></div>
 			<hgroup>
 				<h1 id="site-title"><span><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span></h1>
 				<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
@@ -106,7 +108,7 @@
 			<?php
 				else :
 			?>
-				<?php get_search_form(); ?>
+				<?php /* get_search_form(); */ ?>
 			<?php endif; ?>
 
 			<nav id="access" role="navigation">

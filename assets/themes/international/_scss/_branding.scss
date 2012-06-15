@@ -1,0 +1,30 @@
+#branding hgroup {
+  text-align: center;
+}
+
+#site-title {
+  /* At small screens, we need only a little padding */
+  padding: 1em 0;
+
+  /* At tablets and above, remove the right margin so the text is properly centered */
+  @media screen and (min-width: 650px) {
+    margin-right: 0;
+    /* We also don't need any padding above or below, because the .logo div is big enough */
+    padding: 0;
+
+    /* Reduce the font size so the logo gets more prominence */
+    a {
+      font-size: 21px;
+    }
+  }
+}
+
+#site-description {
+  /* At small screens, we need only a little padding on the bottom */
+  margin-bottom: 1.265em;
+
+  /* At tablets and above, remove the right margin so the text is properly centered */
+  @media screen and (min-width: 650px) {
+  margin-right: 0;
+  }
+}
