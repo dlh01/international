@@ -12,7 +12,8 @@ function intl_jump_to_child() {
     'taxonomy' => 'location',
     'title_li' => '',
     'child_of' => $thislocation->term_id,
-    'depth' => 1
+    'depth' => 1,
+    'show_option_none' => __( 'None' ),
   ));
 }
 ?>
