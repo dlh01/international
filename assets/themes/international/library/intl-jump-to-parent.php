@@ -19,6 +19,9 @@ function intl_jump_to_parent() {
 
     // Display a link to that term
     echo '<li><a href="' . $ancestor_link . '">' . $ancestor_term->name . '</a></li>';
+  // Otherwise, just say "None". Wrap in an <li> so it matches the style of "None" in jump_to_child()
+  } else {
+    echo '<li>None</li>';
   }
 }
 ?>

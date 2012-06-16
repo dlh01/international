@@ -13,7 +13,7 @@ function intl_jump_to_child() {
     'title_li' => '',
     'child_of' => $thislocation->term_id,
     'depth' => 1,
-    'show_option_none' => __( 'None' ),
+    'show_option_none' => __( 'None', 'twentyeleven' ),
   ));
 }
 ?>

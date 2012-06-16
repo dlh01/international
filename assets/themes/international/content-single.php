@@ -179,11 +179,11 @@ $url_3_language   = get_field( 'url_3_language' );
 
 	<footer class="entry-meta">
 		<?php
-      _e( get_the_term_list( $post->ID, 'location', 'Locations: ', ', ', '. ' ) );
-      _e( get_the_term_list( $post->ID, 'resource-type', 'Resource Type: ', ', ', '. ' ) );
+      get_the_term_list( $post->ID, 'location', 'Locations: ', ', ', '. ' );
+      get_the_term_list( $post->ID, 'resource-type', 'Resource Type: ', ', ', '. ' );
       twentyeleven_posted_on(); _e(". ");
-      _e("Updated on ", "toolbox"); the_modified_date(get_option('date_format')); _e(". ");
-      _e("<a href='/contact'>Suggest an update to this entry</a>. ");
+      _e( 'Updated on ', 'twentyeleven' ); the_modified_date(get_option('date_format')); _e(". ", 'twentyeleven' );
+      _e( "<a href='/contact'>Suggest an update to this entry</a>. " );
 		?>
 		<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 
