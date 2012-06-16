@@ -74,7 +74,18 @@ get_header(); ?>
               </ul>
             </section>
             <section class="section lists">
-              <p>Or view all Locations <a href="">alphabetically</a> or <a href="">geographically</a>.</p>
+              <?php
+                /**
+                 * Get arrays of data for the alphabetic and geographic page
+                 *
+                 * Echo the GUID of these pages in the paragraph below
+                 *
+                 * @link http://codex.wordpress.org/Function_Reference/get_page_by_title
+                 */
+                $alphabeticpage = get_page_by_title( 'List locations alphabetically' );
+                $geographicpage = get_page_by_title( 'List locations geographically' );
+              ?>
+              <p>Or view all Locations <a href="<?php echo $alphabeticpage->guid; ?>">alphabetically</a> or <a href="<?php echo $geographicpage->guid; ?>">geographically</a>.</p>
             </section>
           </section>
         </div>
