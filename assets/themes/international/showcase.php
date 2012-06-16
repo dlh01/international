@@ -207,7 +207,7 @@ get_header(); ?>
 				<?php endif; // End check for sticky posts. ?>
 
 				<section class="recent-posts">
-					<h1 class="showcase-heading"><?php _e( 'Recent Posts', 'twentyeleven' ); ?></h1>
+					<h1 class="showcase-heading"><?php _e( 'Recent Entries', 'twentyeleven' ); ?></h1>
 
 					<?php
 
