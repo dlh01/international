@@ -6,6 +6,20 @@
   /* At small screens, we need only a little padding */
   padding: 1em 0;
 
+  /* Transitions on hover */
+  a {
+    -webkit-transition: color 0.2s ease-in-out 0s;
+    -moz-transition: color 0.2s ease-in-out 0s;
+    -o-transition: color 0.2s ease-in-out 0s;
+    -ms-transition: color 0.2s ease-in-out 0s;
+    transition: color 0.2s ease-in-out 0s;
+
+    /* !important is required because the link color is set via inline CSS, via the theme */
+    &:hover {
+      color: $lightpurple !important;
+    }
+  }
+
   /* At tablets and above, remove the right margin so the text is properly centered */
   @media screen and (min-width: 650px) {
     margin-right: 0;
