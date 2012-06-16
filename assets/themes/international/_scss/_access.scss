@@ -1,0 +1,15 @@
+$accesslighter: #1e135c;
+$accessdarker: #170f47;
+
+#access {
+	background: $accessdarker; /* Show a solid color for older browsers */
+	background: -moz-linear-gradient($accesslighter, $accessdarker);
+	background: -o-linear-gradient($accesslighter, $accessdarker);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($accesslighter), to($accessdarker)); /* older webkit syntax */
+	background: -webkit-linear-gradient($accesslighter, $accessdarker);
+
+  ul {
+    /* Increase font size */
+    font-size: 15px;
+  }
+}

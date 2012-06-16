@@ -1,0 +1,157 @@
+.featured-posts-permanent {
+  height: 470px; // The div is roughly 440px tall on small screens; add 30px for margin
+  text-align: center; // Center all text in the permanent featured posts on small screens
+
+  /* Tablets */
+  @media screen and (min-width: 600px) {
+    height: 520px; // Everything is bigger on tablets, so this div needs to be bigger
+  }
+
+  /* "Search For A Location" heading */
+  /* Gets larger as the screen size increases */
+  h1.showcase-heading {
+    color: inherit; // Not #666
+    font-size: 21px; // Not tiny
+    font-weight: 700; // Not 400
+    letter-spacing: 0; // Not 0.1
+    padding-left: 0; // For small screens, because we're centering the text
+    text-transform: none; // Not uppercase
+
+    /* Tablets */
+    @media screen and (min-width: 600px) {
+      font-size: 26px;
+    }
+
+    /* Desktops and above */
+    @media screen and (min-width: 800px) {
+      font-size: 36px;
+    }
+  }
+
+  /* Each custom section within the .featured-posts-permanent */
+  .section {
+    margin-bottom: 36px; // More spacing between sections for touch usability
+
+    /* Desktops and above */
+    @media screen and (min-width: 800px) {
+      margin-bottom: 45px;
+    }
+  }
+
+}
+.featured-posts-permanent section.featured-post {
+  height: 414px; // Increase from the height of the regular .featured-posts section.featured-post
+  opacity: 1;
+  top: 36px; // Not 30px; accounts for larger h1.showcase-heading
+  visibility: visible;
+  width: 82%;
+
+  /* Tablets */
+  @media screen and (min-width: 600px) {
+    top: 46px; // account for larger h1.showcase-heading
+  }
+
+  /* Desktops and above */
+  @media screen and (min-width: 800px) {
+    top: 65px; // account for even larger h1.showcase-heading
+  }
+}
+
+/* Jump-to-locations box */
+.locations {
+  
+  input[type="text"] {
+    background-color: #fff;
+    font-size: 16px; // Larger font for this primary CTA
+    height: 22px;
+    padding: 6px 12px;
+    width: 80%; // Approxmiately full-width for small screens; the container is width: 82% and we have 24px of padding
+    -moz-transition: background-color 0.4s ease-in-out 0s;
+    -o-transition: background-color 0.4s ease-in-out 0s;
+    -webkit-transition: background-color 0.4s ease-in-out 0s;
+    transition: background-color 0.4s ease-in-out 0s;
+
+    &:focus {
+      background-color: #f9f9f9;
+    }
+
+    /* Tablets */
+    @media screen and (min-width: 600px) {
+      font-size: 20px;
+      height: 26px;
+      padding: 8px 12px;
+      width: 95%; // The form can be wider on tablets and above
+    }
+
+    /* Desktops and above */
+    @media screen and (min-width: 800px) {
+      font-size: 30px;
+      height: 35px;
+    }
+  }
+}
+
+/* The drop-down menu of Locations */
+.ui-autocomplete {
+}
+.ui-menu-item { // Each item in the list
+
+  &:focus {
+  }
+}
+
+/* List of continents with icons */
+.continents {
+  .intro {
+    font-size: 16px;
+    font-weight: bold; // Intro text before the list should be bold
+
+    /* Tablets */
+    @media screen and (min-width: 600px) {
+      font-size: 17px;
+    }
+
+    /* Desktops and above */
+    @media screen and (min-width: 800px) {
+      font-size: 21px;
+    }
+  }
+  ul {
+    border-left: 1px solid $lightpurple; // Light flourish
+    list-style: none; // Don't show bullets
+    margin-left: 0; // None needed without bullets
+
+    /* Desktops and above */
+    @media screen and (min-width: 800px) {
+    border-left: none; // No more border at large screens
+    // Place the continent links in columns at large screens
+    -webkit-column-count: 2;  -webkit-column-gap: 14px; 
+    -moz-column-count: 2;     -moz-column-gap: 14px; 
+    column-count: 2;          column-gap: 14px; 
+    }
+  }
+  .cat-item {
+    font-size: 16px; // Larger font in this list
+    margin-bottom: 10px; // Added margin for touch usability
+
+    /* Tablets */
+    @media screen and (min-width: 600px) {
+      font-size: 17px;
+      margin-bottom: 12px;
+    }
+
+    /* Desktops and above */
+    @media screen and (min-width: 800px) {
+      font-size: 21px;
+      margin-bottom: 14px;
+    }
+  }
+}
+
+/* View all Locations alphabetically or geographically */
+.lists {
+  /* Desktops and above */
+  @media screen and (min-width: 800px) {
+    font-size: 17px; // Larger font size for this paragraph
+  }
+}
