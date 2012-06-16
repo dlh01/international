@@ -9,5 +9,5 @@ foreach ( glob( dirname(__FILE__) . '/library/*.php' ) as $file ) {
 }
 
 /* Recommended per the Theme Check plugin */
-add_theme_support( 'custom-background', $args )
+add_theme_support( 'custom-background' );
 ?>
