@@ -28,10 +28,22 @@ function intl_list_resources_in_location_by_type() {
     if ( $the_query->have_posts() ) :
       echo '<section class="location-by-type ' . $type->slug . '">'; // group each list of resources in a <section>
         echo '<h1 class="location-by-type--heading"><a href="' . esc_url( home_url( '/?resource-type=' . $type->slug . '&location=' . $location_query_var  ) ) . '">' . $type->name . '</a></h1>';
+        echo $the_query->post_count;
         while ( $the_query->have_posts() ) : $the_query->the_post();
           get_template_part( 'archive', 'location' );
         endwhile;
-        echo '<footer class="entry-meta location-by-type--footer"><a href="' . esc_url( home_url( '/?resource-type=' . $type->slug . '&location=' . $location_query_var  ) ) . '">View all resources about ' . single_cat_title( '', false ) .' under ' . $type->name . ' &rarr;</a></footer>';
+
+        /**
+         * Show the link to more posts only if the query returned three posts
+         *
+         * In other words, if there are only one or two posts in this resource
+         * type, then there's no need to link to a separate page because 
+         * they're already showing
+         */
+        if ( $the_query->post_count == 3 ) :
+          echo '<footer class="entry-meta location-by-type--footer"><a href="' . esc_url( home_url( '/?resource-type=' . $type->slug . '&location=' . $location_query_var  ) ) . '">View all resources about ' . single_cat_title( '', false ) .' under ' . $type->name . ' &rarr;</a></footer>';
+        endif;
+
       echo '</section>';
     endif;
   }
