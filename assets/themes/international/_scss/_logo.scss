@@ -1,0 +1,41 @@
+
+.logo {
+  /* Don't show at all on small screens */
+  display: none;
+
+  /* Show the logo on tablets and above */
+  @media screen and (min-width: 650px) {
+    display: block;
+    font-size: 72px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    /* Reduce line height so the .logo element isn't so big */
+    line-height: 100px;
+    margin-top: 10px;
+    /* Our logo is all text, so we can center it this way */
+    text-align: center;
+  }
+
+  /* At bigger screens we can make everything bigger */
+  @media screen and (min-width: 800px) {
+    font-size: 85px;
+    letter-spacing: 5px;
+    line-height: 105px;
+  }
+
+  /* The link shouldn't have a different color or underline */
+  a {
+    color: inherit;
+    text-decoration: none;
+    -webkit-transition: color 0.2s ease-in-out 0s;
+    -moz-transition: color 0.2s ease-in-out 0s;
+    -o-transition: color 0.2s ease-in-out 0s;
+    -ms-transition: color 0.2s ease-in-out 0s;
+    transition: color 0.2s ease-in-out 0s;
+
+    /* Fun on hover */
+    &:hover {
+      color: $lightpurple;
+    }
+  }
+}

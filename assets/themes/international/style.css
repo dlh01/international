@@ -1,8 +1,12 @@
 /*
-Theme Name: International
+Theme Name: IRJR
+Theme URI: http://internationalreligionjournalists.org
 Author: David Herrera
-Author URI: http://automattic.com/
-Description: A theme for RNA's International site based on Automattic's Toolbox templates.
-Version: 1.5.1
+Description: The Twenty Eleven-based, redesigned theme for internationalreligionjournalists.org
+Version: 1.6.0
 License: GNU General Public License
+License URI: license.txt
+Template: twentyeleven
 */
+
+@import url('../twentyeleven/style.css');

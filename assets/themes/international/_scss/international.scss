@@ -1,0 +1,27 @@
+/**
+ * Use this file to import scss partials from the _scss 
+ * directory. Most of your CSS and SCSS should happen
+ * there; here's just where it all gets put together
+ */
+
+/* Import the default twentyeleven style.css */
+@import url('../../twentyeleven/style.css');
+
+/* Import variables; this has to be the first _scss @import! */
+@import "variables";
+
+/* General styles */
+@import "global";
+@import "typography";
+
+/* Front page */
+@import "logo"; // The IRJR heading and globe icon
+@import "branding"; // The #branding section
+@import "featured-posts-permanent"; // The three permanent .featured-posts divs
+
+/* #access navigation bar */
+@import "access";
+
+@import "location-by-type"; // Browsing Locations by Resource Type
+@import "taxonomy"; // Styles relevant to taxonomy.php
+@import "single"; // Styles relevant to single.php
