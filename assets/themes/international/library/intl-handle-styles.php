@@ -12,7 +12,7 @@ function intl_handle_styles() {
     'international', // handle
     get_stylesheet_directory_uri() . '/css/international.css', // src
     '', // deps
-    '0.1' // version
+    '1.6.0' // version
   );
 
   // Register FontAwesome stylesheet
