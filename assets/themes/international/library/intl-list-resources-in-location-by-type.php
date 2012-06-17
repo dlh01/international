@@ -28,7 +28,6 @@ function intl_list_resources_in_location_by_type() {
     if ( $the_query->have_posts() ) :
       echo '<section class="location-by-type ' . $type->slug . '">'; // group each list of resources in a <section>
         echo '<h1 class="location-by-type--heading"><a href="' . esc_url( home_url( '/?resource-type=' . $type->slug . '&location=' . $location_query_var  ) ) . '">' . $type->name . '</a></h1>';
-        echo $the_query->post_count;
         while ( $the_query->have_posts() ) : $the_query->the_post();
           get_template_part( 'archive', 'location' );
         endwhile;
