@@ -10,7 +10,7 @@
 *-------------------------------------------------------------------------*/
  
  
-class Options_page 
+class acf_options_page 
 {
 
 	var $parent;
@@ -100,23 +100,6 @@ class Options_page
 	}
 	
 	
-	/*--------------------------------------------------------------------------------------
-	*
-	*	admin_init
-	*
-	*	@author Elliot Condon
-	*	@since 2.0.4
-	* 
-	*-------------------------------------------------------------------------------------*/
-	
-	function admin_init()
-	{	
-
-		
-	}
-	
-	
-	
 	
 	/*--------------------------------------------------------------------------------------
 	*
@@ -177,7 +160,6 @@ class Options_page
 		echo '<script type="text/javascript">
 			acf.validation_message = "' . __("Validation Failed. One or more fields below are required.",'acf') . '";
 			acf.post_id = 0;
-			acf.editor_mode = "tinymce";
 			acf.admin_url = "' . admin_url() . '";
 		</script>';
 		
@@ -200,7 +182,7 @@ class Options_page
 					add_meta_box(
 						'acf_' . $acf['id'], 
 						$acf['title'], 
-						array($this->parent, 'meta_box_input'), 
+						array($this->parent->input, 'meta_box_input'), 
 						'acf_options_page', 
 						$acf['options']['position'], 
 						'high', 
@@ -223,7 +205,7 @@ class Options_page
 	*-------------------------------------------------------------------------------------*/
 	function admin_footer()
 	{
-		//wp_preload_dialogs( array( 'plugins' => 'safari,inlinepopups,spellchecker,paste,wordpress,media,fullscreen,wpeditimage,wpgallery,tabfocus' ) );
+		
 	}
 	
 	
