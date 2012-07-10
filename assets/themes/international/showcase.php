@@ -36,7 +36,7 @@ get_header(); ?>
 				<?php endwhile; ?>
 
         <div class="featured-posts featured-posts-permanent">
-          <h1 class="showcase-heading">Search For A Location</h1>
+          <h1 class="showcase-heading">Search for a Location</h1>
           <section class="featured-post featured-post-permanent">
             <section class="section locations">
               <div class="ui-widget">
@@ -51,7 +51,7 @@ get_header(); ?>
               </div><!-- ui-widget -->
             </section>
             <section class="section continents">
-              <p class="intro">Or Jump To a Continent</p>
+              <p class="intro">Or jump to a continent</p>
               <ul>
                 <?php
                   /**
