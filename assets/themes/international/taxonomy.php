@@ -47,6 +47,15 @@ get_header(); ?>
         elseif ( get_query_var( 'location' ) ) :
           intl_list_resources_in_location_by_type();
 
+        /**
+         * If the query is looking for just a resource type, then run the loop
+         * and use the list-like view customized for Resource Type archives
+         */
+        elseif ( get_query_var( 'resource-type') ) :
+          while ( have_posts() ) : the_post();
+          get_template_part( 'archive', 'resource-type' ); 
+          endwhile;
+
         // Otherwise, run the loop normally and use the archive-location.php view.
         // This would need to be changed if there are other types of posts that could display
         else:
