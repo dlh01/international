@@ -25,6 +25,10 @@ get_header(); ?>
 				<?php twentyeleven_content_nav( 'nav-above' ); ?>
 
         <?php
+          /**
+           * This loop will return the number of posts specified in 
+           * library/intl-alter-the-query.php, not the default number
+           */
           while ( have_posts() ) : the_post();
           get_template_part( 'archive', 'resource-type' ); 
           endwhile;
