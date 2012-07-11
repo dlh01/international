@@ -1,10 +1,15 @@
 .featured-posts-permanent {
-  height: 470px; // The div is roughly 440px tall on small screens; add 30px for margin
+  /*
+   * This height needs to be bigger than in larger media queries because the
+   * comma-separated list of Resource Types takes up more space at smaller
+   * screens; on larger screens it flattens
+   */
+  height: 670px;
   text-align: center; // Center all text in the permanent featured posts on small screens
 
   /* Tablets */
   @media screen and (min-width: 600px) {
-    height: 520px; // Everything is bigger on tablets, so this div needs to be bigger
+    height: 650px;
   }
 
   /* "Search For A Location" heading */
