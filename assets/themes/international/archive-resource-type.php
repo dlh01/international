@@ -16,7 +16,7 @@
 
 		<footer class="entry-meta">
       <span class="resource-links">
-        <?php echo get_the_term_list( $post->ID, 'location', '', ', ', '. ' ); ?>
+        <?php echo get_the_term_list( $post->ID, 'location', '', ', ', '' ); ?>
       </span>
 			<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 		</footer><!-- #entry-meta -->
