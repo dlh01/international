@@ -1,0 +1,30 @@
+
+/* For displaying archives of resources in a condensed, list-like way */
+.archive-condensed {
+
+  .hentry {
+    /* Don't separate each entry with a border, and use less padding */
+    border-bottom: 0;
+    padding-bottom: 1em;
+  }
+
+  .entry-header,
+  .entry-title {
+    /* Display the entry title inline so the list of Locations can flow next to it */
+    display: inline;
+    font-size: 14px;
+  }
+
+  .entry-title {
+    /* Override the default, very wide padding on the title */
+    padding-right: 20px;
+  }
+
+  .entry-meta {
+    /* Override the meta's typical clear: both behavior */
+    clear: none;
+    /* Display the meta inline with the title */
+    display: inline;
+  }
+
+}
