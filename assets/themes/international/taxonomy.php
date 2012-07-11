@@ -26,10 +26,11 @@ get_header(); ?>
 
         <?php
         /**
-         *
          * Determine how to display the current taxonomy archive using the query string
-         *
          */
+
+        /* Use a variable to switch on the bottom navigation if desired */
+        $show_navigation_below = false;
 
         // If the query is looking for both a resource type and a location, then use the normal loop
         if ( get_query_var( 'location' ) && get_query_var( 'resource-type' ) ) :
@@ -55,6 +56,8 @@ get_header(); ?>
           while ( have_posts() ) : the_post();
           get_template_part( 'archive', 'resource-type' ); 
           endwhile;
+          /* Switch on the bottom navigation */
+          $show_navigation_below = true;
 
         // Otherwise, run the loop normally and use the archive-location.php view.
         // This would need to be changed if there are other types of posts that could display
@@ -66,6 +69,11 @@ get_header(); ?>
         endif;
         ?>
 
+        <?php
+          if ( $show_navigation_below ):
+            twentyeleven_content_nav( 'nav-below' );
+          endif;
+        ?>
 
 			<?php else : ?>
 
