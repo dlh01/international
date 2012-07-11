@@ -1,6 +1,8 @@
 <?php
 /**
- * The template for displaying Taxonomy Archive pages.
+ * The template for displaying most Taxonomy Archive pages.
+ *
+ * Archives for Resource Types are handled in taxonomy-resource-type.php
  */
 
 get_header(); ?>
@@ -29,9 +31,6 @@ get_header(); ?>
          * Determine how to display the current taxonomy archive using the query string
          */
 
-        /* Use a variable to switch on the bottom navigation if desired */
-        $show_navigation_below = false;
-
         // If the query is looking for both a resource type and a location, then use the normal loop
         if ( get_query_var( 'location' ) && get_query_var( 'resource-type' ) ) :
           /* Start the Loop */
@@ -48,17 +47,6 @@ get_header(); ?>
         elseif ( get_query_var( 'location' ) ) :
           intl_list_resources_in_location_by_type();
 
-        /**
-         * If the query is looking for just a resource type, then run the loop
-         * and use the list-like view customized for Resource Type archives
-         */
-        elseif ( get_query_var( 'resource-type') ) :
-            while ( have_posts() ) : the_post();
-            get_template_part( 'archive', 'resource-type' ); 
-            endwhile;
-          /* Switch on the bottom navigation */
-          $show_navigation_below = true;
-
         // Otherwise, run the loop normally and use the archive-location.php view.
         // This would need to be changed if there are other types of posts that could display
         else:
@@ -67,12 +55,6 @@ get_header(); ?>
           endwhile;
           twentyeleven_content_nav( 'nav-below' );
         endif;
-        ?>
-
-        <?php
-          if ( $show_navigation_below ):
-            twentyeleven_content_nav( 'nav-below' );
-          endif;
         ?>
 
 			<?php else : ?>
