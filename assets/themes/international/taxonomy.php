@@ -53,12 +53,9 @@ get_header(); ?>
          * and use the list-like view customized for Resource Type archives
          */
         elseif ( get_query_var( 'resource-type') ) :
-          /* Wrap the list of posts in a custom div for styling purposes */
-          echo '<div class="resource-list--condensed">';
             while ( have_posts() ) : the_post();
             get_template_part( 'archive', 'resource-type' ); 
             endwhile;
-          echo '</div><!-- .resource-list--condensed -->';
           /* Switch on the bottom navigation */
           $show_navigation_below = true;
 
