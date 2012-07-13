@@ -1,6 +1,8 @@
 <?php
 /**
- * The template for displaying Taxonomy Archive pages.
+ * The template for displaying most Taxonomy Archive pages.
+ *
+ * Archives for Resource Types are handled in taxonomy-resource-type.php
  */
 
 get_header(); ?>
@@ -26,9 +28,7 @@ get_header(); ?>
 
         <?php
         /**
-         *
          * Determine how to display the current taxonomy archive using the query string
-         *
          */
 
         // If the query is looking for both a resource type and a location, then use the normal loop
@@ -56,7 +56,6 @@ get_header(); ?>
           twentyeleven_content_nav( 'nav-below' );
         endif;
         ?>
-
 
 			<?php else : ?>
 
