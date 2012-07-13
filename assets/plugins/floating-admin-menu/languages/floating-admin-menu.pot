@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Floating Admin Menu package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Floating Admin Menu 1.0\n"
+"Project-Id-Version: Floating Admin Menu 1.0.4\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/floating-admin-menu\n"
-"POT-Creation-Date: 2012-05-15 11:24:19+00:00\n"
+"POT-Creation-Date: 2012-07-11 03:55:33+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,11 +12,11 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: floating-admin-menu.php:55 floating-admin-menu.php:58
+#: floating-admin-menu.php:75 floating-admin-menu.php:78
 msgid "Admin menu"
 msgstr ""
 
-#: floating-admin-menu.php:61
+#: floating-admin-menu.php:81
 msgid "Float the admin navigation menu"
 msgstr ""
 
@@ -26,5 +26,6 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Let the admin menu float/stick in place no matter how far you scroll down."
+"Stop scrolling, save time! Have the admin menu stay in place, no matter how "
+"long the page may be and you happen to have scrolled."
 msgstr ""

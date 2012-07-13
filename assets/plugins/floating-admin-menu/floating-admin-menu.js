@@ -1,8 +1,9 @@
 jQuery(document).ready(function($) {
 
-	$adminmenuwrap = $('#adminmenuwrap'); // declare globally for performance
-
 	if ($.support.fixedPosition) {
+
+		$adminMenuWrap = $('#adminmenuwrap');	
+		bodyMinWidth = parseInt($(document.body).css('min-width'));
 
 		fam_position_admin_menu();
 
@@ -12,19 +13,24 @@ jQuery(document).ready(function($) {
 			fam_position_admin_menu();
 		});
 
+		$('#collapse-menu', $adminMenuWrap).click(function() {
+			setTimeout(fam_position_admin_menu, 20); // executed after after click() callbacks in WP's common.js
+		});
+
 	}
 
 });
 
 function fam_position_admin_menu() {
 
-	// is the viewport taller than the admin menu? (optional: only float the collapsed menu)
-	if (jQuery(window).height() > $adminmenuwrap.outerHeight(true) /* && jQuery('body').hasClass('folded') */) {
-		if (!$adminmenuwrap.hasClass('floating')) {
-			$adminmenuwrap.addClass('floating'); // only set class, if it's not set yet
+	// float if the viewport is taller than the admin menu && if the viewport is wider than the min-width of the <body>
+	// to float the menu only if it's collapsed add: jQuery('body').hasClass('folded')
+	if (jQuery(window).height() > $adminMenuWrap.outerHeight(true) && jQuery(window).width() > bodyMinWidth) {
+		if (!$adminMenuWrap.hasClass('floating')) {
+			$adminMenuWrap.addClass('floating');
 		}
-	} else if ($adminmenuwrap.hasClass('floating')) {
-		$adminmenuwrap.removeClass('floating'); // only remove class, if it's set
+	} else if ($adminMenuWrap.hasClass('floating')) {
+		$adminMenuWrap.removeClass('floating');
 	}
 
 }

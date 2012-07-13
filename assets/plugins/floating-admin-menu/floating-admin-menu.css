@@ -2,7 +2,7 @@
 body.rtl #adminmenuwrap.floating { right: 0; }
 body.branch-3-3 #adminmenuwrap.floating { top: 0; }
 
-/* clearfix so jQuery's outerHeight() works... */
+/* clearfix to get real height with jQuery's outerHeight() */
 #collapse-menu:before, #collapse-menu:after { content: ""; display: table; }
 #collapse-menu:after { clear: both; }
-#collapse-menu { zoom:1; }
+#collapse-menu { zoom: 1; }
