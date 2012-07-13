@@ -1,13 +1,18 @@
 .featured-posts-permanent {
   /*
-   * This height needs to be bigger than in larger media queries because the
+   * The default needs to be bigger than in larger media queries because the
    * comma-separated list of Resource Types takes up more space at smaller
    * screens; on larger screens it flattens
    */
-  height: 670px;
+  height: 750px;
   text-align: center; // Center all text in the permanent featured posts on small screens
 
-  /* Tablets */
+  /* Medium-to-large phones */
+  @media screen and (min-width: 480px) {
+    height: 670px;
+  }
+
+  /* Tablets and above */
   @media screen and (min-width: 600px) {
     height: 650px;
   }
