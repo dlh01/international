@@ -94,7 +94,7 @@ get_header(); ?>
                  */
                 $i = 1;
                 foreach ( $resourceterms as $term ) {
-                  echo '<a href="/resource-type/' . $term->slug . '" title="' . sprintf(__('View all post filed under %s', 'twentyeleven'), $term->name) . '">' . $term->name . '</a>';
+                  echo '<a href="/resources/resource-type/' . $term->slug . '" title="' . sprintf(__('View all post filed under %s', 'twentyeleven'), $term->name) . '">' . $term->name . '</a>';
                   /**
                    * Display a comma after each link only if $i is not equal to the total
                    * number of terms as counted in $numberofresourceterms. If they are equal
