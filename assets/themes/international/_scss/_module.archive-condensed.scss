@@ -1,5 +1,10 @@
 
-/* For displaying archives of resources in a condensed, list-like way */
+
+
+/* ==========================================================================
+   For displaying archives of resources in a condensed, list-like way
+   ========================================================================== */
+
 .archive-condensed {
 
   .hentry {
@@ -13,6 +18,9 @@
     /* Display the entry title inline so the list of Locations can flow next to it */
     display: inline;
     font-size: 14px;
+    @media screen and (min-width: 650px) {
+      font-size: 17px;
+    }
   }
 
   .entry-title {
@@ -25,6 +33,10 @@
     clear: none;
     /* Display the meta inline with the title */
     display: inline;
+    @media screen and (min-width: 650px) {
+      /* Slightly increase the font size at larger screens */
+      font-size: 14px;
+    }
   }
 
 }
