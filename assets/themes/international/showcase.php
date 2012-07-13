@@ -75,7 +75,7 @@ get_header(); ?>
             </section>
             <section class="section lists">
               <p>
-                <strong>Or browse by Resource Type</strong>: 
+                <strong>Or browse by Resource Type</strong>:<br />
                 <?php
                 /**
                  * Display a link to the archive page of each Resource Type term
