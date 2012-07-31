@@ -6,6 +6,10 @@
 wp-config.php
 local-config.php
 
+# Developer plugin: For use in development environment only
+# http://vip.wordpress.com/2012/06/27/developer-plugin-v1-0/
+assets/plugins/developer
+
 # Some of GitHub's recommended ignores
 assets/uploads/
 assets/upgrade/*

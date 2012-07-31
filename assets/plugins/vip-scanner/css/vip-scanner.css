@@ -1,0 +1,58 @@
+.scan-results-table {
+	margin: 12px 0;
+}
+.scan-results-table th,
+.scan-results-table td {
+	border-bottom: #ececec 1px solid;
+	padding: 3px 5px;
+	text-align: left;
+}
+.scan-results-table td {
+	text-align: right;
+}
+.scan-results-table .pass {
+	background-color: #7da300;
+	color: #fff;
+}
+.scan-results-table .fail {
+	background-color: #c80030;
+	color: #fff;
+}
+.scan-results-list li {
+	border-bottom: 1px solid #DFDFDF;
+	padding: 5px 0;
+}
+.scan-level {
+	color: #fff;
+	font-weight: bold;
+	padding: 0 10px;
+}
+.scan-result-info .scan-level,
+.scan-result-note .scan-level,
+.scan-result-recommended .scan-level {
+	background-color: #a3c3d1;
+}
+.scan-result-warning .scan-level {
+	background-color: #ffe926;
+}
+.scan-result-blocker .scan-level,
+.scan-result-required .scan-level,
+.scan-result-warning .scan-level {
+	background-color: #c80030;
+}
+.scan-file {
+	float: right;
+	font-family: "Courier New", Courier, monospace;
+}
+.scan-lines {
+	clear: both;
+}
+.scan-line .syntaxhighlighter {
+	background-color: #f7f9fe !important;
+	padding: .5em 0;
+}
+.scan-line .syntaxhighlighter .line,
+.scan-line .syntaxhighlighter .line.alt1,
+.scan-line .syntaxhighlighter .line.alt2 {
+	background-color: #f7f9fe !important;
+}
