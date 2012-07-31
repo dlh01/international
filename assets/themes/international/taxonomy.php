@@ -24,7 +24,7 @@ get_header(); ?>
 					?>
 				</header>
 
-				<?php twentyeleven_content_nav( 'nav-above' ); ?>
+				<?php intl_resources_nav( 'nav-above' ); ?>
 
         <?php
         /**
@@ -38,7 +38,7 @@ get_header(); ?>
           get_template_part( 'archive', 'location' ); 
           endwhile;
           // Place nav-below inside the conditional, not below the conditionals, because it makes more sense before rather than after the link back to the Location archive
-          twentyeleven_content_nav( 'nav-below' );
+          intl_resources_nav( 'nav-below' );
           // Display a link back to the full Location archive
           echo '<footer class="entry-meta back-to-location"><a href="' . get_term_link( get_query_var( 'location' ), 'location' ) . '">&larr; View all resources for ' . single_cat_title( '', false ) . '</a></footer>';
 
@@ -53,7 +53,7 @@ get_header(); ?>
           while ( have_posts() ) : the_post();
           get_template_part( 'archive', 'location' ); 
           endwhile;
-          twentyeleven_content_nav( 'nav-below' );
+          intl_resources_nav( 'nav-below' );
         endif;
         ?>
 

@@ -22,7 +22,7 @@ get_header(); ?>
 					?>
 				</header>
 
-				<?php twentyeleven_content_nav( 'nav-above' ); ?>
+				<?php intl_resources_nav( 'nav-above' ); ?>
 
         <?php
           /**
@@ -34,9 +34,7 @@ get_header(); ?>
           endwhile;
         ?>  
 
-        <?php
-          twentyeleven_content_nav( 'nav-below' );
-        ?>
+        <?php intl_resources_nav( 'nav-below' ); ?>
 
 			<?php else : ?>
 
