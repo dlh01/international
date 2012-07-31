@@ -24,7 +24,7 @@ if ( $rows ) {
       'title' => $row['the_feed_title'],
       'url' => $row['the_feed_url'],
       'items' => 5,
-      'show_author' => true,
+      'show_author' => false,
       'show_date' => true,
     );
     /* Store the widget arguments in a variable */
