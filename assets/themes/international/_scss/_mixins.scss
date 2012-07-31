@@ -1,0 +1,14 @@
+
+
+
+/* ==========================================================================
+   Transitions
+   ========================================================================== */
+
+@mixin transition( $property, $time, $type, $delay ) {
+  -webkit-transition: $property $time $type $delay;
+  -moz-transition: $property $time $type $delay;
+  -o-transition: $property $time $type $delay;
+  -ms-transition: $property $time $type $delay;
+  transition: $property $time $type $delay;
+}

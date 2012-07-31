@@ -7,6 +7,9 @@
 /* Import variables; this has to be the first _scss @import! */
 @import "variables";
 
+/* Mixins */
+@import "mixins";
+
 /* General styles */
 @import "global";
 @import "typography";
@@ -24,6 +27,6 @@
 @import "single"; // Styles relevant to single.php
 
 /* Modules */
-@import "module.archive-condensed"; // Condensed archives of resources
+@import "archive-condensed"; // Condensed archives of resources
 @import "module.category-archive-meta"; // Taxonomy descriptions on archives
 

@@ -37,6 +37,14 @@
       /* Slightly increase the font size at larger screens */
       font-size: 14px;
     }
+
+    a {
+      @include transition( color, 0.1s, ease-in-out, 0s );
+
+      &:hover {
+        color: $orange;
+      }
+    }
   }
 
 }
