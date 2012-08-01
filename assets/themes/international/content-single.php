@@ -140,10 +140,10 @@ $url_3_language   = get_field( 'url_3_language' );
       echo '<td>' . $cost . '</td>';
       echo '</tr>';
     }
-    if ( get_field( 'language' ) ) {
+    if ( get_the_term_list( $post->ID, 'resource-language', '', ', ' ) ) {
       echo '<tr>';
       echo '<td class=field>Language</td class=field>';
-      echo '<td>' . $language . '</td>';
+      echo '<td>' . get_the_term_list( $post->ID, 'resource-language', '', ', ' ) . '</td>';
       echo '</tr>';
     }
     if ( get_field( 'url_2' ) ) {
