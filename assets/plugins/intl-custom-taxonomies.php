@@ -38,6 +38,22 @@ function create_resource_taxonomies() {
         'query_var' => true,
         'rewrite' => true,
     ));
+
+    /* Create Custom Taxonomy for resource language */
+    $resource_labels = array(
+      'name' => _x( 'Resource Languages', 'taxonomy general name' ),
+      'singular_name' => _x( 'Resource Language', 'taxonomy singular name' ),
+      'add_new_item' => __( 'Add new' ),
+      'menu_name' => __( 'Resource Languages' ),
+    );
+
+    register_taxonomy('resource-language', 'post', array(
+      'hierarchical' => true,
+      'labels' => $resource_labels,
+      'show_ui' => true,
+      'query_var' => true,
+      'rewrite' => true,
+    ));
 }
 
 ?>
