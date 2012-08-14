@@ -2,8 +2,8 @@
 /*
 Plugin Name: Advanced Custom Fields
 Plugin URI: http://www.advancedcustomfields.com/
-Description: Fully customise WordPress edit screens with powerful fields. Boasting a professional interface and a powerfull API, it’s a must have for any web developer working with WordPress.Field types include: Wysiwyg, text, textarea, image, file, select, checkbox, page link, post object, date picker, color picker and more!
-Version: 3.3.0
+Description: Fully customise WordPress edit screens with powerful fields. Boasting a professional interface and a powerfull API, it’s a must have for any web developer working with WordPress. Field types include: Wysiwyg, text, textarea, image, file, select, checkbox, page link, post object, date picker, color picker, repeater, flexible content, gallery and more!
+Version: 3.3.7
 Author: Elliot Condon
 Author URI: http://www.elliotcondon.com/
 License: GPL
@@ -47,8 +47,8 @@ class Acf
 		// vars
 		$this->path = plugin_dir_path(__FILE__);
 		$this->dir = plugins_url('',__FILE__);
-		$this->version = '3.3.0';
-		$this->upgrade_version = '3.2.5'; // this is the latest version which requires an upgrade
+		$this->version = '3.3.7';
+		$this->upgrade_version = '3.3.3'; // this is the latest version which requires an upgrade
 		$this->cache = array(); // basic array cache to hold data throughout the page load
 		
 		
@@ -1462,20 +1462,22 @@ class Acf
 	
 	function is_field_unlocked($field_name)
 	{
-		switch ($field_name) {
-		    case 'repeater':
-		    	if(md5($this->get_license_key($field_name)) == "bbefed143f1ec106ff3a11437bd73432"){ return true; }else{ return false; }
-		        break;
-		    case 'options_page':
-		        if(md5($this->get_license_key($field_name)) == "1fc8b993548891dc2b9a63ac057935d8"){ return true; }else{ return false; }
-		        break;
-		    case 'flexible_content':
-		    	if(md5($this->get_license_key($field_name)) == "d067e06c2b4b32b1c1f5b6f00e0d61d6"){ return true; }else{ return false; }
-		    	break;
-		    case 'gallery':
-		    	if(md5($this->get_license_key($field_name)) == "69f4adc9883195bd206a868ffa954b49"){ return true; }else{ return false; }
-		    	break;
-	    }
+		$hashes = array(
+			'repeater'			=> 'bbefed143f1ec106ff3a11437bd73432',
+			'options_page'		=> '1fc8b993548891dc2b9a63ac057935d8',
+			'flexible_content'	=> 'd067e06c2b4b32b1c1f5b6f00e0d61d6',
+			'gallery'			=> '69f4adc9883195bd206a868ffa954b49',
+		);
+			
+		$hash = md5( $this->get_license_key($field_name) );
+		
+		if( $hashes[$field_name] == $hash )
+		{
+			return true;
+		}
+		
+		return false;
+		
 	}
 	
 	/*--------------------------------------------------------------------------------------
@@ -1530,10 +1532,17 @@ class Acf
 	* 
 	*-------------------------------------------------------------------------------------*/
 	
-	function get_taxonomies_for_select()
-	{
+	function get_taxonomies_for_select( $args = array() )
+	{	
+		// vars
 		$post_types = get_post_types();
 		$choices = array();
+		$defaults = array(
+			'simple_value'	=>	false,
+		);
+		
+		$options = array_merge($defaults, $args);
+		
 		
 		if($post_types)
 		{
@@ -1551,7 +1560,14 @@ class Acf
 						{
 							foreach($terms as $term)
 							{
-								$choices[$post_type_object->label . ': ' . $taxonomy][$term->term_id] = $term->name; 
+								$value = $taxonomy . ':' . $term->term_id;
+								
+								if( $options['simple_value'] )
+								{
+									$value = $term->term_id;
+								}
+								
+								$choices[$post_type_object->label . ': ' . $taxonomy][$value] = $term->name; 
 							}
 						}
 					}
@@ -1562,51 +1578,6 @@ class Acf
 		return $choices;
 	}
 	
-	
-	function in_taxonomy($post, $ids)
-	{
-		$terms = array();
-		
-        $taxonomies = get_object_taxonomies($post->post_type);
-    	if($taxonomies)
-    	{
-        	foreach($taxonomies as $tax)
-			{
-				$all_terms = get_the_terms($post->ID, $tax);
-				if($all_terms)
-				{
-					foreach($all_terms as $all_term)
-					{
-						$terms[] = $all_term->term_id;
-					}
-				}
-			}
-		}
-        
-        if($terms)
-		{
-			if(is_array($ids))
-			{
-				foreach($ids as $id)
-				{
-					if(in_array($id, $terms))
-					{
-						return true; 
-					}
-				}
-			}
-			else
-			{
-				if(in_array($ids, $terms))
-				{
-					return true; 
-				}
-			}
-		}
-        	
-        return false;
-        	
-	}
 	
 
 	/*
