@@ -49,7 +49,7 @@ function create_resource_taxonomies() {
 
     register_taxonomy('resource-language', 'post', array(
       'hierarchical' => true,
-      'labels' => $resource_labels,
+      'labels' => $language_labels,
       'show_ui' => true,
       'query_var' => true,
       'rewrite' => true,
