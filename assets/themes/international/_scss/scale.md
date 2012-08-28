@@ -2,6 +2,9 @@
 
 max-width 650px
 max-width 800px
+@media screen and (min-width: 480px) {
+@media screen and (min-width: 600px) {
+@media screen and (min-width: 800px) {
 
 # Font sizes used in /twentyeleven/style.css
 
