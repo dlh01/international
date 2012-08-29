@@ -18,7 +18,7 @@ function intl_handle_styles() {
     'international', // handle
     get_stylesheet_directory_uri() . '/css/international.css', // src
     'twentyeleven', // deps
-    '1.6.9' // version
+    '1.7.0' // version
   );
 
   // Register FontAwesome stylesheet
