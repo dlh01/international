@@ -14,7 +14,11 @@ get_header(); ?>
 
 				<header class="page-header">
 					<h1 class="page-title"><?php
-						printf( __( 'Archives: %s', 'twentyeleven' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+            if (is_tax('resource-language')) {
+              printf( __( 'Language: %s', 'twentyeleven' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+            } else {
+              printf( __( 'Archives: %s', 'twentyeleven' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+            }
 					?></h1>
 
 					<?php
