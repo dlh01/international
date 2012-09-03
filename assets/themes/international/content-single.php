@@ -152,24 +152,28 @@ $url_3_language   = get_field( 'url_3_language' );
       echo '<td><a href="' . $url_2 . '">' . $url_2 . '</a></td>';
       echo '</tr>';
     }
+    /*
     if ( get_field( 'url_2_language' ) ) {
       echo '<tr>';
       echo '<td class=field>URL 2 language</td class=field>';
       echo '<td>' . $url_2_language . '</td>';
       echo '</tr>';
     }
+     */
     if ( get_field( 'url_3' ) ) {
       echo '<tr>';
       echo '<td class=field>URL 3</td class=field>';
       echo '<td><a href="' . $url_3 . '">' . $url_3 . '</a></td>';
       echo '</tr>';
     }
+    /*
     if ( get_field( 'url_3_language' ) ) {
       echo '<tr>';
       echo '<td class=field>URL 3 language</td class=field>';
       echo '<td>' . $url_3_language . '</td>';
       echo '</tr>';
     }
+     */
   ?>
     </tbody>
     </table>
