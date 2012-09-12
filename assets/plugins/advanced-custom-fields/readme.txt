@@ -2,8 +2,8 @@
 Contributors: Elliot Condon
 Tags: custom, field, custom field, advanced, simple fields, magic fields, more fields, repeater, matrix, post, type, text, textarea, file, image, edit, admin
 Requires at least: 3.0
-Tested up to: 3.3
-Stable tag: 3.3
+Tested up to: 3.4.2
+Stable tag: 3.4.2
 
 Fully customise WordPress edit screens with powerful fields. Boasting a professional interface and a powerfull API, it’s a must have for any web developer working with WordPress.Field types include: Wysiwyg, text, textarea, image, file, select, checkbox, page link, post object, date picker, color picker and more!
 
@@ -84,6 +84,56 @@ http://support.advancedcustomfields.com/
 
 
 == Changelog ==
+
+= 3.4.2 =
+* [Fixed] Fix API functions for 'user_$ID' post ID parameter
+* [Added] Color Picker Field: Default Value
+* [Added] Add custom save action for all saves - http://support.advancedcustomfields.com/discussion/2954/hook-on-save-options
+* [Updated] Update Dutch translations
+* [Updated] Update get_field_object function to allow for field_key / field_name + option to load_value
+
+= 3.4.1 =
+* [Added] Save user fields into wp_usermeta http://support.advancedcustomfields.com/discussion/2758/get_users-and-meta_key
+* [Added] Add compatibility with media tags plugin - http://support.advancedcustomfields.com/discussion/comment/7596#Comment_7596
+* [Added] Wysiwyg Field: Add Default value option
+* [Added] Number Field: Add Default value option
+* [Fixed] Validate relationship posts - http://support.advancedcustomfields.com/discussion/3033/relationship-field-throws-error-when-related-item-is-trashed
+* [Added] Allow "options" as post_id for get_fields - http://support.advancedcustomfields.com/discussion/1926/3-1-8-broke-get_fields-for-options
+* [Added] Repeater Field: Add sub field width option
+* [Added] Repeater Field: Add sub field description option
+* [Updated] Repeater Field: Update UI design
+* [Fixed] Fix missing ajax event on page parent - http://support.advancedcustomfields.com/discussion/3060/show-correct-box-based-on-page-parent
+* [Updated] Update french translation - http://support.advancedcustomfields.com/discussion/3088/french-translation-for-3-4-0
+
+= 3.4.0 =
+* [Fixed] Fix validation rules for multiple select - http://support.advancedcustomfields.com/discussion/2858/multiple-select-validation-doesnt-work
+* [Added] Add support for options page toggle open / close metabox
+* [Fixed] Fix special characters in registered options page - http://support.advancedcustomfields.com/discussion/comment/7500#Comment_7500
+* [Updated] CSS tweak for relationship field - http://support.advancedcustomfields.com/discussion/2877/relation-field-with-multiple-post-types-css-styling-problem-
+* [Fixed] Fix datepicker blank option bug - http://support.advancedcustomfields.com/discussion/2896/3-3-9-date-picker-not-popping-up
+* [Added] Add new function get_field_object to API - http://support.advancedcustomfields.com/discussion/290/field-label-on-frontend
+* [Fixed] Fix field groups not showing for Shopp add new product - http://support.advancedcustomfields.com/discussion/3005/acf-shopp
+* [Fixed] Move acf.data outside of the doc.ready in input-ajax.js
+* [Fixed] Fix IE7 JS bug - http://support.advancedcustomfields.com/discussion/3020/ie7-fix-on-is_clone_field-function
+* [Fixed] Fix relationship search - Only search title, not content
+* [Updated] Update function update_field to use field_key or field_name
+* [Added] Add field group screen option to show field keys (to use in save_field / update field)
+* [Added] Add actions on all save events (action is called "acf_save_post", 1 param = $post_id)
+
+= 3.3.9 =
+* [Added] Add basic support for WPML - duplicate field groups, pages and posts for each language without corrupting ACF data!
+* [Fixed] Fix date picker save null - http://support.advancedcustomfields.com/discussion/2844/bug-with-the-date-picker
+* [Fixed] Fix color picker save null - http://support.advancedcustomfields.com/discussion/2683/allow-null-on-colour-pickers#Item_1
+* [Fixed] Fix image object null result - http://support.advancedcustomfields.com/discussion/2852/3.3.8-image-field-image-object-always-returns-true-
+* [Updated] Update Japanese translation - http://support.advancedcustomfields.com/discussion/comment/7384#Comment_7384
+* [Added] WYSIWYG field option - disable "the_content" filter to allow for compatibility issues with plugins / themes - http://support.advancedcustomfields.com/discussion/comment/7020#Comment_7020
+
+= 3.3.8 =
+* [Added] Gallery field { auto add image on upload, new style to show already added images
+* [Fixed] Fix saving value issue with WP e-commerce http://support.advancedcustomfields.com/discussion/comment/7026#Comment_7026
+* [Updated] Date picker field { new display format option (different from save format), UI overhaul
+* [Added] Add new field - Number
+* [Fixed] Test post object / select based fields for saving empty value - http://support.advancedcustomfields.com/discussion/2759/post-object-and-conditional-statement
 
 = 3.3.7 =
 * [Added] Add new return value for image { image object

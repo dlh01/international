@@ -2,7 +2,7 @@
 Contributors: infinitewp
 Tags: admin, administration, amazon, api, authentication, automatic, dashboard, dropbox, events, integration, manage, multisite, multiple, notification, performance, s3, security, seo, stats, tracking, infinitewp, updates, backup, restore, iwp, infinite
 Requires at least: 3.0
-Tested up to: 3.4.1
+Tested up to: 3.4.2
 Stable tag: trunk
 
 Install this plugin on unlimited sites and manage them all from a central dashboard.
@@ -22,11 +22,14 @@ Main features:
 *   Bulk Install plugins & themes in multiple sites at once
 *   and more..
 
+Visit us at [InfiniteWP.com](http://infinitewp.com/ "Manage Multiple WordPress").
+
 Check out the [InfiniteWP Overview Video](http://www.youtube.com/watch?v=IOu7LdyPOSs) below.
 
 http://www.youtube.com/watch?v=IOu7LdyPOSs
 
-Check out [InfiniteWP.com](http://infinitewp.com/ "Manage Multiple WordPress").
+Credits: [Vladimir Prelovac](http://prelovac.com/vladimir) for his worker plugin on which the client plugin is being developed.
+
 
 == Installation ==
 
@@ -44,6 +47,15 @@ Check out [InfiniteWP.com](http://infinitewp.com/ "Manage Multiple WordPress").
 5. One-click updates
 
 == Changelog == 
+
+= 1.1.0 =
+* Premium addons bugs fixed
+* Reload data improved
+
+= 1.0.4 =
+* Premium addons compatibility
+* Clearing cache and sending WP data
+* Bugs fixed
 
 = 1.0.3 =
 * WordPress Multisite Backup issue fixed

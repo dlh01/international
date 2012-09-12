@@ -256,18 +256,22 @@ class IWP_MMB_Stats extends IWP_MMB_Core
     function get_updates($stats, $options = array())
     {
         $upgrades = false;
-        
+        $premium = array();
         if (isset($options['premium']) && $options['premium']) {
             $premium_updates = array();
-            $upgrades        = apply_filters('iwp_premium_update_notification', $premium_updates);
+            $upgrades        = apply_filters('mwp_premium_update_notification', $premium_updates);
             if (!empty($upgrades)) {
+				foreach( $upgrades as $data ){
+					if( isset($data['Name']) )
+						$premium[] = $data['Name'];
+				}
                 $stats['premium_updates'] = $upgrades;
                 $upgrades                 = false;
             }
         }
         if (isset($options['themes']) && $options['themes']) {
             $this->get_installer_instance();
-            $upgrades = $this->installer_instance->get_upgradable_themes();
+            $upgrades = $this->installer_instance->get_upgradable_themes( $premium );
             if (!empty($upgrades)) {
                 $stats['upgradable_themes'] = $upgrades;
                 $upgrades                   = false;
@@ -276,7 +280,7 @@ class IWP_MMB_Stats extends IWP_MMB_Core
         
         if (isset($options['plugins']) && $options['plugins']) {
             $this->get_installer_instance();
-            $upgrades = $this->installer_instance->get_upgradable_plugins();
+            $upgrades = $this->installer_instance->get_upgradable_plugins( $premium );
             if (!empty($upgrades)) {
                 $stats['upgradable_plugins'] = $upgrades;
                 $upgrades                    = false;
@@ -349,8 +353,16 @@ class IWP_MMB_Stats extends IWP_MMB_Core
         
         $stats = $this->iwp_mmb_parse_action_params('pre_init_stats', $params, $this);
         $num   = extract($params);
-        
-        if ($refresh == 'transient') {
+		
+		if (function_exists( 'w3tc_pgcache_flush' ) ||  function_exists( 'wp_cache_clear_cache' ) || !empty($force_refresh)) {
+			$this->iwp_mmb_delete_transient('update_plugins');
+			@wp_update_plugins();
+			$this->iwp_mmb_delete_transient('update_themes');
+			@wp_update_themes();
+			$this->iwp_mmb_delete_transient('update_core');
+			@wp_version_check();
+		}       
+        elseif ($refresh == 'transient') {
             $current = $this->iwp_mmb_get_transient('update_core');
             if (isset($current->last_checked) || get_option('iwp_client_forcerefresh')) {
 				update_option('iwp_client_forcerefresh', false);
@@ -400,7 +412,7 @@ class IWP_MMB_Stats extends IWP_MMB_Core
 		$update_check = array();
         $num          = extract($params);
         if ($refresh == 'transient') {
-            $update_check = apply_filters('iwp_premium_update_check', $update_check);
+            $update_check = apply_filters('mwp_premium_update_check', $update_check);
             if (!empty($update_check)) {
                 foreach ($update_check as $update) {
                     if (is_array($update['callback'])) {

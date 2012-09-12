@@ -16,6 +16,9 @@
  * www.prelovac.com
  **************************************************************/
 
+if(!defined('MMB_WORKER_VERSION'))
+	define('MMB_WORKER_VERSION', '0');
+
 class IWP_MMB_Helper
 {
     /**
@@ -357,7 +360,7 @@ class IWP_MMB_Helper
             );
         }
         
-        if (function_exists('openssl_verify') && !$this->get_random_signature()) {
+        if (checkOpenSSL() && !$this->get_random_signature()) {
             $verify = openssl_verify($data, $signature, $pl_key);
             if ($verify == 1) {
                 $message_id = $this->set_client_message_id($message_id);
@@ -497,10 +500,5 @@ class IWP_MMB_Helper
         die('Error downloading file ' . $url);
     return $file_name;
 	 }
-	 
-	 
-    
-		
-    
 }
 ?>

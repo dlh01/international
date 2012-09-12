@@ -489,43 +489,96 @@ class IWP_MMB_Installer extends IWP_MMB_Core
         
         $upgrader       = false;
         $pr_update      = array();
+        $themes = array();
+        $plugins = array();
         $result         = array();
         $premium_update = array();
-		$premium_update = apply_filters('iwp_premium_perform_update', $premium_update);
-        
+		$premium_update = apply_filters('mwp_premium_perform_update', $premium_update);
         if (!empty($premium_update)) {
+			
             foreach ($premium as $pr) {
+				foreach ($premium_update as $key => $update) {
+                    $update = array_change_key_case($update, CASE_LOWER);
+                    if ($update['name'] == $pr['name']) {
+						
+						// prepare bulk updates for premiums that use WordPress upgrader
+						if(isset($update['type'])){
+							if($update['type'] == 'plugin'){
+								if(isset($update['slug']) && !empty($update['slug']))
+									$plugins[$update['slug']] = $update;
+							}
+							
+							if($update['type'] == 'theme'){
+								if(isset($update['template']) && !empty($update['template']))
+									$themes[$update['template']] = $update;
+							}
+						}
+					} else {
+						unset($premium_update[$key]);
+					}
+				}
+			}
+			
+			// try default wordpress upgrader
+			if(!empty($plugins)){
+				$updateplugins = $this->upgrade_plugins(array_keys($plugins));
+				if(!empty($updateplugins) && isset($updateplugins['upgraded'])){
+					foreach ($premium_update as $key => $update) {
+						$update = array_change_key_case($update, CASE_LOWER);
+						foreach($updateplugins['upgraded'] as $slug => $upgrade){
+							if( isset($update['slug']) && $update['slug'] == $slug){
+								if( $upgrade == 1 )
+									unset($premium_update[$key]);
+								
+								$pr_update['plugins']['upgraded'][md5($update['name'])] = $upgrade;
+							}
+						}
+					}
+				}
+			}
+			
+			if(!empty($themes)){
+				$updatethemes = $this->upgrade_themes(array_keys($themes));
+				if(!empty($updatethemes) && isset($updatethemes['upgraded'])){
+					foreach ($premium_update as $key => $update) {
+						$update = array_change_key_case($update, CASE_LOWER);
+						foreach($updatethemes['upgraded'] as $template => $upgrade){
+							if( isset($update['template']) && $update['template'] == $template) {
+								if( $upgrade == 1 )
+									unset($premium_update[$key]);
+        
+								$pr_update['themes']['upgraded'][md5($update['name'])] = $upgrade;
+							}
+						}
+					}
+				}
+			}
+			
+			//try direct install with overwrite
+        if (!empty($premium_update)) {
                 foreach ($premium_update as $update) {
                     $update = array_change_key_case($update, CASE_LOWER);
-                    
-                    if ($update['name'] == $pr['name']) {
                         $update_result = false;
 						if (isset($update['url'])) {
                             if (defined('WP_INSTALLING') && file_exists(ABSPATH . '.maintenance'))
                                 $pr_update[$update['type'] . 's']['upgraded'][md5($update['name'])] = 'Site under maintanace.';
                             
-                            if ($upgrader == false) {
                                 $upgrader_skin              = new WP_Upgrader_Skin();
                                 $upgrader_skin->done_header = true;
-                                
                                 $upgrader = new WP_Upgrader();
-                            }
-                        	
                             @$update_result = $upgrader->run(array(
                                 'package' => $update['url'],
                                 'destination' => isset($update['type']) && $update['type'] == 'theme' ? WP_CONTENT_DIR . '/themes' : WP_PLUGIN_DIR,
                                 'clear_destination' => true,
                                 'clear_working' => true,
+							'is_multi' => true,
                                 'hook_extra' => array()
                             ));
 							$update_result = !$update_result || is_wp_error($update_result) ? $this->iwp_mmb_get_error($update_result) : 1;
                             
                         } else if (isset($update['callback'])) {
                             if (is_array($update['callback'])) {
-                                $update_result = call_user_func(array(
-                                    $update['callback'][0],
-                                    $update['callback'][1]
-                                ));
+                                $update_result = call_user_func(array( $update['callback'][0], $update['callback'][1] ));
                             } else if (is_string($update['callback'])) {
                                 $update_result = call_user_func($update['callback']);
                             } else {
@@ -539,7 +592,6 @@ class IWP_MMB_Installer extends IWP_MMB_Core
                         $pr_update[$update['type'] . 's']['upgraded'][md5($update['name'])] = $update_result;
                     }
                 }
-            }
             return $pr_update;
         } else {
             foreach ($premium as $pr) {
@@ -653,12 +705,14 @@ class IWP_MMB_Installer extends IWP_MMB_Core
                     if (in_array($path, $activated_plugins)) {
                         $plugins['active'][$br_a]['path'] = $path;
                         $plugins['active'][$br_a]['name'] = strip_tags($plugin['Name']);
+						$plugins['active'][$br_a]['version'] = $plugin['Version'];
                         $br_a++;
                     }
                     
                     if (!in_array($path, $activated_plugins)) {
                         $plugins['inactive'][$br_i]['path'] = $path;
                         $plugins['inactive'][$br_i]['name'] = strip_tags($plugin['Name']);
+						$plugins['inactive'][$br_i]['version'] = $plugin['Version'];
                         $br_i++;
                     }
                     
@@ -708,6 +762,7 @@ class IWP_MMB_Installer extends IWP_MMB_Core
                 if ($current_theme == $theme_name) {
                     $themes['active'][$br_a]['path']       = $theme['Template'];
                     $themes['active'][$br_a]['name']       = strip_tags($theme['Name']);
+					$themes['active'][$br_a]['version']    = $theme['Version'];
                     $themes['active'][$br_a]['stylesheet'] = $theme['Stylesheet'];
                     $br_a++;
                 }
@@ -715,6 +770,7 @@ class IWP_MMB_Installer extends IWP_MMB_Core
                 if ($current_theme != $theme_name) {
                     $themes['inactive'][$br_i]['path']       = $theme['Template'];
                     $themes['inactive'][$br_i]['name']       = strip_tags($theme['Name']);
+					$themes['inactive'][$br_i]['version']    = $theme['Version'];
                     $themes['inactive'][$br_i]['stylesheet'] = $theme['Stylesheet'];
                     $br_i++;
                 }

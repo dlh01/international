@@ -35,6 +35,9 @@ class IWP_MMB_Core extends IWP_MMB_Helper
     var $installer_instance;
     var $iwp_mmb_multisite;
     var $network_admin_install;
+	
+	var $backup_repository_instance;
+	
     private $action_call;
     private $action_params;
     private $iwp_mmb_pre_init_actions;
@@ -122,6 +125,7 @@ class IWP_MMB_Core extends IWP_MMB_Helper
 			'check_backup_compat' => 'iwp_mmb_check_backup_compat',
 			'scheduled_backup' => 'iwp_mmb_scheduled_backup',
 			'run_task' => 'iwp_mmb_run_task_now',
+			'delete_schedule_task' => 'iwp_mmb_delete_task_now',
 			'execute_php_code' => 'iwp_mmb_execute_php_code',
 			'delete_backup' => 'mmm_delete_backup',
 			'remote_backup_now' => 'iwp_mmb_remote_backup_now',
@@ -133,7 +137,9 @@ class IWP_MMB_Core extends IWP_MMB_Helper
 			'edit_plugins_themes' => 'iwp_mmb_edit_plugins_themes',
 			'client_brand' => 'iwp_mmb_client_brand',
 			'set_alerts' => 'iwp_mmb_set_alerts',
-			'maintenance' => 'iwp_mmb_maintenance_mode'
+			'maintenance' => 'iwp_mmb_maintenance_mode',
+			
+			'backup_repository' => 'iwp_mmb_backup_repository'
 		);
 		
 		add_action('rightnow_end', array( &$this, 'add_right_now_info' ));       
@@ -214,14 +220,22 @@ class IWP_MMB_Core extends IWP_MMB_Helper
 		else{
 			$current_user = wp_get_current_user(); 
 			$username = $current_user->data->user_login;
-		}		
+		}	
+		
+		$iwp_client_activate_key = get_option('iwp_client_activate_key');
 		
 		echo '<div class="updated" style="text-align: center;"><p style="color: green; font-size: 14px; font-weight: bold;">Add this site to IWP Admin panel</p><p>
-		<table border="0" align="center">
-		<tr><td align="right">WEBSITE URL:</td><td align="left"><strong>'.get_option('home').'/</strong></td></tr>
-		<tr><td align="right">ADMIN USERNAME:</td><td align="left"><strong>'.$username.'</strong> (or any admin id)</td></tr>
-	  	<tr><td align="right">ACTIVATION KEY:</td><td align="left"><strong>'.get_option('iwp_client_activate_key').'</strong></td></tr>	
-		</table>
+		<table border="0" align="center">';
+		if(!empty($iwp_client_activate_key)){
+			echo '<tr><td align="right">WEBSITE URL:</td><td align="left"><strong>'.get_option('home').'/</strong></td></tr>
+			<tr><td align="right">ADMIN USERNAME:</td><td align="left"><strong>'.$username.'</strong> (or any admin id)</td></tr>
+			<tr><td align="right">ACTIVATION KEY:</td><td align="left"><strong>'.$iwp_client_activate_key.'</strong></td></tr>';
+		}
+		else{
+			echo '<tr><td align="center">Please deactivate and then activate InfiniteWP Client plugin.</td></tr>';
+		}
+		
+		echo '</table>
 	  	</p></div>';
 		
     }
@@ -379,6 +393,15 @@ class IWP_MMB_Core extends IWP_MMB_Helper
         return $this->backup_instance;
     }
     
+	function get_backup_repository_instance()
+    {
+        if (!isset($this->backup_repository_instance)) {
+            $this->backup_repository_instance = new IWP_MMB_Backup_Repository();
+        }
+        
+        return $this->backup_repository_instance;
+    }
+    
     /**
      * Gets an instance of links class
      *
@@ -499,7 +522,7 @@ class IWP_MMB_Core extends IWP_MMB_Helper
         }
         
         //Delete options
-				delete_option('iwp_client_maintenace_mode');
+		delete_option('iwp_client_maintenace_mode');
         delete_option('iwp_client_backup_tasks');
         wp_clear_scheduled_hook('iwp_client_backup_tasks');
         delete_option('iwp_client_notifications');

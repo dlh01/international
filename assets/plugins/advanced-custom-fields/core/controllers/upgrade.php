@@ -112,6 +112,10 @@ class acf_upgrade
 		{
 			$next = '3.3.3';
 		}
+		elseif( $version < '3.4.1' )
+		{
+			$next = '3.4.1';
+		}
 		
 		?>	
 		<script type="text/javascript">
@@ -229,11 +233,12 @@ class acf_upgrade
 				// upgrade options first as "field_group_layout" will cause get_fields to fail!
 				
 				// get acf's
-				$acfs = get_pages(array(
-					'numberposts' 	=> 	-1,
-					'post_type'		=>	'acf',
-					'sort_column' => 'menu_order',
-					'order' => 'ASC',
+				$acfs = get_posts(array(
+					'numberposts' 	=> -1,
+					'post_type' 	=> 'acf',
+					'orderby' 		=> 'menu_order title',
+					'order' 		=> 'asc',
+					'suppress_filters' => false,
 				));
 				
 				if($acfs)
@@ -284,11 +289,12 @@ class acf_upgrade
 			case '3.0.0 (step 2)':
 				
 				// get acf's
-				$acfs = get_pages(array(
-					'numberposts' 	=> 	-1,
-					'post_type'		=>	'acf',
-					'sort_column' => 'menu_order',
-					'order' => 'ASC',
+				$acfs = get_posts(array(
+					'numberposts' 	=> -1,
+					'post_type' 	=> 'acf',
+					'orderby' 		=> 'menu_order title',
+					'order' 		=> 'asc',
+					'suppress_filters' => false,
 				));
 				
 				if($acfs)
@@ -599,11 +605,12 @@ class acf_upgrade
 				
 				
 				// get acf's
-				$result = get_pages(array(
-					'numberposts' 	=> 	-1,
-					'post_type'		=>	'acf',
-					'sort_column' => 'menu_order',
-					'order' => 'ASC',
+				$acfs = get_posts(array(
+					'numberposts' 	=> -1,
+					'post_type' 	=> 'acf',
+					'orderby' 		=> 'menu_order title',
+					'order' 		=> 'asc',
+					'suppress_filters' => false,
 				));
 				
 				
@@ -611,9 +618,9 @@ class acf_upgrade
 				
 				
 				// populate acfs
-				if($result)
+				if($acfs)
 				{
-					foreach($result as $acf)
+					foreach($acfs as $acf)
 					{
 						$show_on_page = get_post_meta($acf->ID, 'show_on_page', true) ? get_post_meta($acf->ID, 'show_on_page', true) : array();
 						
@@ -664,11 +671,12 @@ class acf_upgrade
 				
 				
 				// get acf's
-				$acfs = get_pages(array(
-					'numberposts' 	=> 	-1,
-					'post_type'		=>	'acf',
-					'sort_column' 	=>	'menu_order',
-					'order' 		=>	'ASC',
+				$acfs = get_posts(array(
+					'numberposts' 	=> -1,
+					'post_type' 	=> 'acf',
+					'orderby' 		=> 'menu_order title',
+					'order' 		=> 'asc',
+					'suppress_filters' => false,
 				));
 				
 				// populate acfs
@@ -690,7 +698,7 @@ class acf_upgrade
 						}
 						
 						
-						if( $field['taxonomy'] )
+						if( is_array($field['taxonomy']) )
 						{
 						foreach( $field['taxonomy'] as $k => $v )
 						{
@@ -724,6 +732,80 @@ class acf_upgrade
 				
 				// update version
 				update_option('acf_version','3.3.3');
+				
+				$return = array(
+			    	'status'	=>	true,
+					'message'	=>	$message,
+					'next'		=>	'3.4.1',
+			    );
+				
+			break;
+			
+			
+			/*
+			*  3.4.1
+			*
+			*  @description: Move user custom fields from wp_options to wp_usermeta
+			*  @created: 20/07/12
+			*/
+			
+			case '3.4.1':
+				
+				// vars
+				$message = __("Moving user custom fields from wp_options to wp_usermeta'",'acf') . '...';
+				
+				$option_row_ids = array();
+				$option_rows = $wpdb->get_results("SELECT option_id, option_name, option_value FROM $wpdb->options WHERE option_name LIKE 'user%' OR option_name LIKE '\_user%'", ARRAY_A);
+				
+				
+				if( $option_rows )
+				{
+					foreach( $option_rows as $k => &$row)
+					{
+						preg_match('/user_([0-9]+)_(.*)/', $row['option_name'], $matches);
+						
+						
+						// if no matches, this is not an acf value, ignore it
+						if( !$matches )
+						{
+							continue;
+						}
+						
+						
+						// add to $delete_option_rows
+						$option_row_ids[] = $row['option_id'];
+						
+						
+						// meta_key prefix
+						$meta_key_prefix = "";
+						if( substr($row['option_name'], 0, 1) == "_" )
+						{
+							$meta_key_prefix = '_';
+						}
+						
+						
+						// update user meta
+						update_user_meta( $matches[1], $meta_key_prefix . $matches[2], $row['option_value'] );
+
+					}
+				}
+				
+				
+				// clear up some memory ( aprox 14 kb )
+				unset( $option_rows );
+				
+				
+				// remove $option_row_ids
+				if( $option_row_ids )
+				{
+					$option_row_ids = implode(', ', $option_row_ids);
+				
+					$wpdb->query("DELETE FROM $wpdb->options WHERE option_id IN ($option_row_ids)");
+				}
+				
+				
+				// update version
+				update_option('acf_version','3.4.1');
 				
 				$return = array(
 			    	'status'	=>	true,

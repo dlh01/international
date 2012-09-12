@@ -35,7 +35,7 @@ class acf_input
 		add_action('admin_print_scripts', array($this,'admin_print_scripts'));
 		add_action('admin_print_styles', array($this,'admin_print_styles'));
 		add_action('admin_head', array($this,'admin_head'));
-		add_action('save_post', array($this, 'save_post'));
+		add_action('save_post', array($this, 'save_post'), 20); // save later to avoid issues with 3rd party plugins
 		
 		
 		// custom actions (added in 3.1.8)
@@ -149,15 +149,27 @@ class acf_input
 		
 		
 		// globals
-		global $post;
+		global $post, $pagenow, $typenow;
+		
+		
+		// shopp
+		if( $pagenow == "admin.php" && isset( $_GET['page'] ) && $_GET['page'] == "shopp-products" && isset( $_GET['id'] ) && $_GET['id'] == "new" )
+		{
+			$typenow = "shopp_product";
+		}
 		
 		
 		// vars
-		$post_type = get_post_type($post);
-			
+		$post_id = 0;
+		
+		if( $post )
+		{
+			$post_id = $post->ID;
+		}
+		
 			
 		// get style for page
-		$metabox_ids = $this->parent->get_input_metabox_ids( array( 'post_id' => $post->ID ), false);
+		$metabox_ids = $this->parent->get_input_metabox_ids( array( 'post_id' => $post_id, 'post_type' => $typenow ), false);
 		$style = isset($metabox_ids[0]) ? $this->get_input_style($metabox_ids[0]) : '';
 		echo '<style type="text/css" id="acf_style" >' .$style . '</style>';
 		
@@ -171,7 +183,7 @@ class acf_input
 		// Javascript
 		echo '<script type="text/javascript" src="' . $this->parent->dir . '/js/input-actions.js?ver=' . $this->parent->version . '" ></script>';
 		echo '<script type="text/javascript" src="' . $this->parent->dir . '/js/input-ajax.js?ver=' . $this->parent->version . '" ></script>';
-		echo '<script type="text/javascript">acf.post_id = ' . $post->ID . ';</script>';
+		echo '<script type="text/javascript">acf.post_id = ' . $post_id . ';</script>';
 		
 		
 		// add user js + css
@@ -180,6 +192,7 @@ class acf_input
 		
 		// get acf's
 		$acfs = $this->parent->get_field_groups();
+		
 		if($acfs)
 		{
 			foreach($acfs as $acf)
@@ -192,7 +205,7 @@ class acf_input
 					'acf_' . $acf['id'], 
 					$acf['title'], 
 					array($this, 'meta_box_input'), 
-					$post_type, 
+					$typenow, 
 					$acf['options']['position'], 
 					'core', 
 					array( 'fields' => $acf['fields'], 'options' => $acf['options'], 'show' => $show, 'post_id' => $post->ID )
@@ -407,21 +420,7 @@ class acf_input
         }
         
 		
-		// save fields
-		$fields = $_POST['fields'];
-		
-		if($fields)
-		{
-			foreach($fields as $key => $value)
-			{
-				// get field
-				$field = $this->parent->get_acf_field($key);
-				
-				$this->parent->update_value($post_id, $field, $value);
-			}
-			// foreach($fields as $key => $value)
-		}
-		// if($fields)
+		do_action('acf_save_post', $post_id);
 	}
 	
 	
@@ -592,7 +591,7 @@ acf.text.gallery_tb_title_edit = "<?php _e("Edit Image",'acf'); ?>";
 }
 
 #wpcontent {
-	margin-left: 0px;
+	margin-left: 0px !important;
 }
 
 .wrap {
