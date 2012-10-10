@@ -3,7 +3,7 @@
 Plugin Name: Floating Admin Menu
 Plugin URI: http://tillkruess.com/project/floating-admin-menu/
 Description: Stop scrolling, save time! Have the admin menu stay in place, no matter how long the page may be and you happen to have scrolled.
-Version: 1.0.4
+Version: 1.0.5
 Author: Till Krüss
 Author URI: http://tillkruess.com/
 License: GPLv3

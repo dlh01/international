@@ -398,7 +398,7 @@ class acf_Image extends acf_Field
 				
 				
 				// update acf_div
-				div.find('input.value').val( item.id );
+				div.find('input.value').val( item.id ).trigger('change');
 	 			div.find('img').attr( 'src', item.url );
 	 			div.addClass('active');
 	 	
@@ -458,7 +458,7 @@ class acf_Image extends acf_Field
 			$.each(json, function(i ,item){
 			
 				// update acf_div
-				self.parent.acf_div.find('input.value').val( item.id ); 
+				self.parent.acf_div.find('input.value').val( item.id ).trigger('change'); 
 	 			self.parent.acf_div.find('img').attr('src', item.url ); 
 	 			self.parent.acf_div.addClass('active'); 
 	 	 
@@ -473,7 +473,7 @@ class acf_Image extends acf_Field
 	 				self.parent.acf_div.closest('.repeater').find('.add-row-end').trigger('click'); 
 	 			 
 	 				// set acf_div to new row image 
-	 				self.parent.acf_div = self.parent.acf_div.closest('.repeater').find('> table > tbody > tr:last-child .acf-image-uploader'); 
+	 				self.parent.acf_div = self.parent.acf_div.closest('.repeater').find('> table > tbody > tr.row:last .acf-image-uploader'); 
 	 			} 
 	 			else 
 	 			{ 

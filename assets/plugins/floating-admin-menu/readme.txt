@@ -3,8 +3,8 @@ Contributors: tillkruess
 Donate link: http://tillkruess.com/donations/
 Tags: admin menu, admin, menu, administration, nav, navigation, stick, sticky, float, floating, floated, fixed, productivity
 Requires at least: 3.3
-Tested up to: 3.4.1
-Stable tag: 1.0.4
+Tested up to: 3.5
+Stable tag: 1.0.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -39,6 +39,10 @@ For detailed installation instructions, please read the [standard installation p
 
 == Changelog ==
 
+= 1.0.5 =
+
+* Fixed display issue with Google Chrome
+
 = 1.0.4 =
 
 * Fixed fatal error on multisite installations
@@ -66,7 +70,11 @@ For detailed installation instructions, please read the [standard installation p
 
 == Upgrade Notice ==
 
-= 1.0.3 =
+= 1.0.5 =
+
+This version fixes a display issue with Google Chrome.
+
+= 1.0.4 =
 
 This version fixes a fatal error on multisite installations.
 

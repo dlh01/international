@@ -11,10 +11,9 @@ abstract class scbBoxesPage extends scbAdminPage {
 	*/
 	protected $boxes = array();
 
-	function __construct( $file, $options = null ) {
+	function __construct( $file = false, $options = null ) {
 		parent::__construct( $file, $options );
 
-		// too late
 		scbUtil::add_uninstall_hook( $this->file, array( $this, 'uninstall' ) );
 	}
 
@@ -25,8 +24,6 @@ abstract class scbBoxesPage extends scbAdminPage {
 		parent::page_init();
 
 		add_action( 'load-' . $this->pagehook, array( $this, 'boxes_init' ) );
-
-		add_screen_option( 'layout_columns', array( 'max' => $this->args['columns'], 'default' => $this->args['columns'] ) );
 	}
 
 	function default_css() {
@@ -41,7 +38,6 @@ abstract class scbBoxesPage extends scbAdminPage {
 .inside {
 	clear: both;
 	overflow: hidden;
-	padding: 10px 10px 0 !important;
 }
 .inside table {
 	margin: 0 !important;
@@ -68,6 +64,7 @@ abstract class scbBoxesPage extends scbAdminPage {
 .inside p.submit {
 	float: left !important;
 	padding: 0 !important;
+	margin-bottom: 0 !important;
 }
 </style>
 <?php
@@ -163,9 +160,17 @@ abstract class scbBoxesPage extends scbAdminPage {
 	function boxes_init() {
 		wp_enqueue_script( 'postbox' );
 
+		add_screen_option( 'layout_columns', array(
+			'max' => $this->args['columns'],
+			'default' => $this->args['columns']
+		) );
+
 		$registered = array();
-		foreach( $this->boxes as $box_args ) {
-			@list( $name, $title, $context, $priority, $args ) = $box_args;
+		foreach ( $this->boxes as $box_args ) {
+			foreach ( array( 'name', 'title', 'context', 'priority', 'args' ) as $i => $arg ) {
+				if ( isset( $box_args[$i] ) )
+					$$arg = $box_args[$i];
+			}
 
 			if ( empty( $title ) )
 				$title = ucfirst( $name );

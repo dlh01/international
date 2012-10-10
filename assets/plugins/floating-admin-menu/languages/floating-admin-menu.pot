@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Floating Admin Menu package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Floating Admin Menu 1.0.4\n"
+"Project-Id-Version: Floating Admin Menu 1.0.5\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/floating-admin-menu\n"
 "POT-Creation-Date: 2012-07-11 03:55:33+00:00\n"
 "MIME-Version: 1.0\n"

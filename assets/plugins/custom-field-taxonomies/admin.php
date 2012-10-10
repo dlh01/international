@@ -58,7 +58,7 @@ class CFT_Admin {
 			FROM $wpdb->postmeta
 			WHERE meta_key = %s
 			GROUP BY post_id
-		", 'language' ) );
+		", $cf_key ) );
 
 		foreach ( $rows as $row ) {
 			$post_id = $row->post_id;
@@ -86,7 +86,7 @@ class CFT_Admin {
 				$terms[ $i ] = (int) $term['term_id'];
 			}
 
-			wp_set_object_terms( $row->post_id, $terms, $taxonomy, true );
+			wp_set_post_terms( $row->post_id, $terms, $taxonomy, true );
 		}
 
 		return $wpdb->query( $wpdb->prepare( "DELETE FROM $wpdb->postmeta WHERE meta_key = %s", $cf_key ) );
@@ -125,19 +125,13 @@ class CFT_Admin {
 	protected function get_cf_key_list() {
 		global $wpdb;
 
-		$keys = $wpdb->get_col( "
+		return $wpdb->get_col( "
 			SELECT meta_key
 			FROM $wpdb->postmeta
 			GROUP BY meta_key
 			HAVING meta_key NOT LIKE '\_%'
+			ORDER BY meta_key ASC
 		" );
-
-		if ( $keys )
-			natcasesort( $keys );
-		else
-			$keys = array();
-
-		return $keys;
 	}
 
 	protected function get_tax_list() {
