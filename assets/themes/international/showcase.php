@@ -50,8 +50,8 @@ get_header(); ?>
                 </form>
               </div><!-- ui-widget -->
             </section>
-            <section class="section continents">
-              <p class="intro">Or jump to a continent</p>
+            <section class="section browsing-option">
+              <h1>Jump to a continent</h1>
               <ul>
                 <?php
                   /**
@@ -73,14 +73,21 @@ get_header(); ?>
                 ?>
               </ul>
             </section>
-            <section class="section lists">
-              <p>
-                <strong>Or browse by Resource Type</strong>:<br />
-                <?php intl_list_comma_separated_resource_types(); ?>
-              </p>
+            <section class="section browsing-option">
+                <h1>Browse by Resource Type</h1>
+                <?php /* intl_list_comma_separated_resource_types(); */ ?>
+                <ul>
+                <?php
+                  wp_list_categories ( array(
+                    'taxonomy' => 'resource-type',
+                    'depth' => 1,
+                    'title_li' => '',
+                  ));
+                ?>
+                </ul> 
             </section>
-
-            <section class="section lists">
+<!--
+            <section class="section browsing-option">
               <?php
                 /**
                  * Get arrays of data for the alphabetic and geographic page
@@ -92,8 +99,23 @@ get_header(); ?>
                 $alphabeticpage = get_page_by_title( 'Browse locations alphabetically' );
                 $geographicpage = get_page_by_title( 'Browse locations geographically' );
               ?>
-              <p>Or view all Locations <a href="<?php echo $alphabeticpage->guid; ?>">alphabetically</a> or <a href="<?php echo $geographicpage->guid; ?>">geographically</a>.</p>
+              <p>View all Locations <a href="<?php echo $alphabeticpage->guid; ?>">alphabetically</a> or <a href="<?php echo $geographicpage->guid; ?>">geographically</a>.</p>
             </section>
+-->
+
+            <section class="section browsing-option">
+              <h1>Browse by language</h1>
+              <ul>
+              <?php
+                wp_list_categories( array(
+                  'taxonomy' => 'resource-language',
+                  'depth' => 1,
+                  'title_li' => '',
+                ));
+              ?>
+              </ul>
+            </section>
+
           </section>
         </div>
 
