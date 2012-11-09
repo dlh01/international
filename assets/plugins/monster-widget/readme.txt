@@ -4,7 +4,7 @@ Contributors: automattic, mfields
 Tags: widget, theme development, debug
 License: GPLv2 or later
 Requires at least: 3.2.0
-Tested up to: 3.4-beta4-20738
+Tested up to: 3.5-beta2-22252
 Stable tag: trunk
 
 Provides a quick and easy method of adding all core widgets to a sidebar for testing purposes.
@@ -27,8 +27,14 @@ The core Menu widget provides an interface that enables you to select a custom m
 
 ==Changelog==
 
+= v0.2 - October 18th, 2012 =
+* Create custom cache key for the Recent Posts widget.
+* Only add the Links widget when it has been registered.
+* Bump version number.
+* Update Changelog.
+
 = v0.1 - May 12th, 2012 =
-* Original Release:
+* Original Release.
 
 ==Installation==
 

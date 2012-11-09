@@ -2,7 +2,7 @@
 /*
 Plugin Name:       Monster Widget
 Description:       A widget that allows for quick and easy testing of multiple widgets. Not intended for production use.
-Version:           0.1
+Version:           0.2
 Author:            Automattic
 Author URI:        http://automattic.com/
 License:           GPLv2 or later
@@ -74,6 +74,10 @@ class Monster_Widget extends WP_Widget {
 		foreach( $this->get_widget_config() as $widget ) {
 			$_instance = ( isset( $widget[1] ) ) ? $widget[1] : null;
 
+			// Override cache for the Recent Posts widget.
+			if ( 'WP_Widget_Recent_Posts' == $widget[0] )
+				$args['widget_id'] = 'monster-widget-recent-posts-cache-' . self::$iterator;
+
 			$args['before_widget'] = sprintf(
 				$before_widget,
 				'monster-widget-placeholder-' . self::$iterator,
@@ -136,13 +140,6 @@ class Monster_Widget extends WP_Widget {
 				'sortby'  => 'menu_order',
 				'exclude' => '',
 			) ),
-			array( 'WP_Widget_Links', array(
-				'title'       => __( 'Links', 'monster-widget' ),
-				'description' => 1,
-				'name'        => 1,
-				'rating'      => 1,
-				'images'      => 1,
-			) ),
 			array( 'WP_Widget_Meta', array(
 				'title'   => __( 'Meta', 'monster-widget' ),
 			) ),
@@ -180,6 +177,18 @@ class Monster_Widget extends WP_Widget {
 			$widgets[] = array( 'WP_Nav_Menu_Widget', array(
 				'title'    => __( 'Nav Menu', 'monster-widget' ),
 				'nav_menu' => $menu,
+			) );
+		}
+
+		global $wp_widget_factory;
+		$available_widgets = array_keys( $wp_widget_factory->widgets );
+		if ( in_array( 'WP_Widget_Links', $available_widgets ) ) {
+			$widgets[] = array( 'WP_Widget_Links', array(
+				'title'       => __( 'Links', 'monster-widget' ),
+				'description' => 1,
+				'name'        => 1,
+				'rating'      => 1,
+				'images'      => 1,
 			) );
 		}
 
